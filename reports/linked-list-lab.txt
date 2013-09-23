@@ -1,0 +1,138 @@
+Lab report for  - wmolchan
+Timestamp: 2013-09-23 16:34:59
+
+|  :scenario |                                :title |                   :result | :score |
+|------------+---------------------------------------+---------------------------+--------|
+|    working | Test student code vs instructor tests |                      Fail |     25 |
+| qualifying | Test student tests vs instructor code |                      Fail |      2 |
+| qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
+|      total |                           Total Score |                           |     27 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+.......FFFFFF........FFFFF..FF.F.F.F.
+
+Failures:
+
+  1) insert-at-end never had a test case.
+     Expected truthy but was: nil
+     /home/grader/quarry/linked-list-lab/wmolchan/working/spec/linked_lists/core_spec.clj:37
+
+  2) sorted insert never had a test case.
+     Expected truthy but was: nil
+     /home/grader/quarry/linked-list-lab/wmolchan/working/spec/linked_lists/core_spec.clj:42
+
+  3) search never had a test case.
+     Expected truthy but was: nil
+     /home/grader/quarry/linked-list-lab/wmolchan/working/spec/linked_lists/core_spec.clj:47
+
+  4) delete never had a test case.
+     Expected truthy but was: nil
+     /home/grader/quarry/linked-list-lab/wmolchan/working/spec/linked_lists/core_spec.clj:52
+
+  5) delete-all never had a test case.
+     Expected truthy but was: nil
+     /home/grader/quarry/linked-list-lab/wmolchan/working/spec/linked_lists/core_spec.clj:57
+
+  6) efficient-delete never had a test case.
+     Expected truthy but was: nil
+     /home/grader/quarry/linked-list-lab/wmolchan/working/spec/linked_lists/core_spec.clj:62
+
+  7) insert-at-end should work with empty lists
+     Expected: #linked_lists.core.Cons{:car 10, :cdr nil}
+          got: #linked_lists.core.Cons{:car nil, :cdr 10} (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/working/spec/linked_lists/core_spec.clj:41
+
+  8) insert-at-end should work with lists that have data
+     Expected: #linked_lists.core.Cons{:car 10, :cdr #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr #linked_lists.core.Cons{:car 5, :cdr nil}}}}
+          got: #linked_lists.core.Cons{:car 10, :cdr #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car #linked_lists.core.Cons{:car 30, :cdr nil}, :cdr 5}}} (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/working/spec/linked_lists/core_spec.clj:45
+
+  9) sorted insert creates a cons cell
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at linked_lists.core$sorted_insert.invoke(core.clj:64)
+     	at linked_lists.core_spec$eval1429$fn__1430$fn__1435.invoke(/home/grader/quarry/linked-list-lab/wmolchan/working/spec/spec/linked_lists/core_spec.clj:49)
+     	... 42 stack levels elided ...
+
+  10) sorted insert should work with empty lists
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at linked_lists.core$sorted_insert.invoke(core.clj:64)
+     	at linked_lists.core_spec$eval1429$fn__1430$fn__1439.invoke(/home/grader/quarry/linked-list-lab/wmolchan/working/spec/spec/linked_lists/core_spec.clj:52)
+     	... 42 stack levels elided ...
+
+  11) sorted insert should put the element at the beginning if it's the smallest.
+     Expected: #linked_lists.core.Cons{:car 5, :cdr #linked_lists.core.Cons{:car 10, :cdr #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}}}
+          got: #linked_lists.core.Cons{:car 10, :cdr #linked_lists.core.Cons{:car 5, :cdr #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}}} (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/working/spec/linked_lists/core_spec.clj:56
+
+  12) sorted insert should put the element at the end if it's the last element.
+     linked_lists.core.Cons cannot be cast to java.lang.Number
+     java.lang.ClassCastException: linked_lists.core.Cons cannot be cast to java.lang.Number
+     	... 1 stack levels elided ...
+     	at linked_lists.core$sorted_insert.invoke(core.clj:64)
+     	at linked_lists.core$sorted_insert.invoke(core.clj:68)
+     	at linked_lists.core_spec$eval1429$fn__1430$fn__1454.invoke(/home/grader/quarry/linked-list-lab/wmolchan/working/spec/spec/linked_lists/core_spec.clj:69)
+     	... 42 stack levels elided ...
+
+  13) search should find things that are in the list.
+     Expected truthy but was: false
+     /home/grader/quarry/linked-list-lab/wmolchan/working/spec/linked_lists/core_spec.clj:75
+
+  14) delete should delete things once that are in the list.
+     Expected: #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 4, :cdr #linked_lists.core.Cons{:car 2, :cdr nil}}}
+          got: #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 4, :cdr #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 10, :cdr nil}}}} (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/working/spec/linked_lists/core_spec.clj:89
+
+  15) delete-all should delete things completely that are in the list.
+     Expected: #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 4, :cdr #linked_lists.core.Cons{:car 2, :cdr nil}}}
+          got: #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 4, :cdr #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 10, :cdr nil}}}} (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/working/spec/linked_lists/core_spec.clj:104
+
+  16) efficient-delete should delete things once that are in the list.
+     Expected: #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 4, :cdr #linked_lists.core.Cons{:car 2, :cdr nil}}}
+          got: #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 4, :cdr #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 10, :cdr nil}}}} (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/working/spec/linked_lists/core_spec.clj:119
+
+Finished in 0.03431 seconds
+37 examples, 16 failures
+
+
+** Details for Test student tests vs instructor code
+
+.......FFFFFF
+
+Failures:
+
+  1) insert-at-end never had a test case.
+     Expected truthy but was: nil
+     /home/grader/quarry/linked-list-lab/wmolchan/qualifying/spec/linked_lists/core_spec.clj:37
+
+  2) sorted insert never had a test case.
+     Expected truthy but was: nil
+     /home/grader/quarry/linked-list-lab/wmolchan/qualifying/spec/linked_lists/core_spec.clj:42
+
+  3) search never had a test case.
+     Expected truthy but was: nil
+     /home/grader/quarry/linked-list-lab/wmolchan/qualifying/spec/linked_lists/core_spec.clj:47
+
+  4) delete never had a test case.
+     Expected truthy but was: nil
+     /home/grader/quarry/linked-list-lab/wmolchan/qualifying/spec/linked_lists/core_spec.clj:52
+
+  5) delete-all never had a test case.
+     Expected truthy but was: nil
+     /home/grader/quarry/linked-list-lab/wmolchan/qualifying/spec/linked_lists/core_spec.clj:57
+
+  6) efficient-delete never had a test case.
+     Expected truthy but was: nil
+     /home/grader/quarry/linked-list-lab/wmolchan/qualifying/spec/linked_lists/core_spec.clj:62
+
+Finished in 0.00432 seconds
+13 examples, 6 failures
