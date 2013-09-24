@@ -42,9 +42,12 @@
 (defn insert-at-end 
   "Insert an element at the end of the list.  This will have to recopy
   the whole list."
-  [elt xx] (if (= (:cdr xx) nil) (Cons. xx elt)
-(Cons. (:car xx) (insert-at-end  elt (:cdr xx))))
+  [elt xx] 
 
+(if (= xx nil) (Cons. elt nil) 
+(if (= (:cdr xx) nil) (Cons. (:car xx) (Cons. elt nil))
+(Cons. (:car xx) (insert-at-end  elt (:cdr xx))))
+)
 
 
 )
@@ -58,15 +61,23 @@
 
 (defn sorted-insert
   "Insert an element into a sorted list."
-    [elt xx] (if (= (:car (:cdr xx)) nil)
+    [elt xx] 
+(if (= xx nil) (Cons. elt nil);; if xx is empty, put the element up front
+    (if (= (:car xx) nil) (if (> xx elt) (Cons. elt xx) (Cons. xx elt));;if there is only one element, make the cell
+;; otherwise
+        (if (> (:car xx) elt) (Cons. elt xx);;if its smaller than the first element do the obvious thing
+;; otherwise
+            (Cons. (:car xx) (sorted-insert elt (:cdr xx)))
+            ;;(if (= (:car (:cdr xx)) nil);;if we are on the second to last cell
 ;; cdr being nil implies that xx is a number and not a list, and that it is a direct input
- (if (= (:cdr xx) nil) 
-(if (> xx elt) (Cons. elt xx) (Cons. xx elt))
-(Cons. xx elt))
-
- (if (> (:car (:cdr xx)) elt) (Cons. (:car xx) (Cons. elt (:cdr xx)))
-(Cons. (:car xx) (sorted-insert elt (:cdr xx)))))
-
+              ;;(if (= (:cdr xx) nil) 
+                ;;(if (> xx elt) (Cons. elt xx) (Cons. xx elt))
+                ;;(Cons. xx elt))
+              ;;(if (> (:car (:cdr xx)) elt) (Cons. (:car xx) (Cons. elt (:cdr xx)))
+                  ;;(Cons. (:car xx) (sorted-insert elt (:cdr xx)))))
+            )
+        )
+    )
 )
 ;; # Search
 ;;

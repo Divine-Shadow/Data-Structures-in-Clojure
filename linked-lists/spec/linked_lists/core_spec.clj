@@ -33,32 +33,66 @@
                 (should= (Cons. 5 xx) (insert-at-beginning 5 xx) ))))
 
 (describe "insert-at-end"
-          (it "never had a test case."
-              (should nil))
-)
+          (it "Should contain the same first values, with the right value at the end"
+              (should= (Cons. 1 (Cons. 2 3
+)) (insert-at-end 3 (Cons 1 2)))))
 
 (describe "sorted insert"
-          (it "never had a test case."
-              (should nil))
+          (it "should add a value to the middle"
+              (should= (Cons. 1 (Cons. 2 3
+)) (sorted-insert 1 2 (Cons 1
 )
 
 (describe "search"
-          (it "never had a test case."
-              (should nil))
+          (it "should find a value that exists"
+              (should= 2 (search 3 (Cons. 1 (Cons. 2 (Cons. 3 4)
+))   ))
 )
 
+         (it "should not find a value that doesn't exists"
+              (should= nil (search 9 (Cons. 1 (Cons. 2 (Cons. 3 4)
+))   ))
+)
+
+
+)
 (describe "delete"
-          (it "never had a test case."
-              (should nil))
+          (it "Should remove an element"
+              (should= (Cons. 1 3) (delete 2 (Cons. 1 (Cons. 2 3))))
+)
+                   (it "should find not remove an unspecified values"
+              (should=  (Cons. 1 (Cons. 2 (Cons. 3 4)
+)) (delete 7 (Cons. 1 (Cons. 2 (Cons. 3 4)
+))   ))
+)
+
 )
 
 (describe "delete-all"
-          (it "never had a test case."
-              (should nil))
+           (it "should find not remove an unspecified values"
+              (should=  (Cons. 1 (Cons. 2 (Cons. 3 4)
+)) (delete-all 7 (Cons. 1 (Cons. 2 (Cons. 3 4)
+))   ))
+)
+
+  (it "should remove all copies of a value"
+              (should=  (Cons. 1 3)
+) (delete-all 2 (Cons. 1 (Cons. 2 (Cons. 3 2)
+))   ))
+)
+
+
 )
 
 (describe "efficient-delete"
-          (it "never had a test case."
-              (should nil))
+          (it "should return the original list if the item is not found"
+              (should (identical? (Cons. 1 (Cons. 2 3)) (efficient-delete 4 (Cons)  (Cons. 1 (Cons. 2 3))                           ))
+))
+
+
+          (it "Should remove an element"
+              (should= (Cons. 1 3) (efficient-delete 2 (Cons. 1 (Cons. 2 3)))))
+
+
 )
 (run-specs)
