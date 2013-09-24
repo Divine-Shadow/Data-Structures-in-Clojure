@@ -34,23 +34,25 @@
 
 (describe "insert-at-end"
           (it "Should contain the same first values, with the right value at the end"
-              (should= (Cons. 1 (Cons. 2 3
-)) (insert-at-end 3 (Cons 1 2)))))
+              (should= (Cons. 1 (Cons. 2 (Cons. 3 nil)))
+ (insert-at-end 3 (Cons. 1 (Cons. 2 nil)))))
+)
 
 (describe "sorted insert"
           (it "should add a value to the middle"
-              (should= (Cons. 1 (Cons. 2 3
-)) (sorted-insert 1 2 (Cons 1
-)
+              (should= (Cons. 1 (Cons. 2 3)) (sorted-insert 2 (Cons. 1 3)
+))))
+
+
 
 (describe "search"
           (it "should find a value that exists"
-              (should= 2 (search 3 (Cons. 1 (Cons. 2 (Cons. 3 4)
+              (should= true (search 3 (Cons. 1 (Cons. 2 (Cons. 3 4)
 ))   ))
 )
 
          (it "should not find a value that doesn't exists"
-              (should= nil (search 9 (Cons. 1 (Cons. 2 (Cons. 3 4)
+              (should= false (search 9 (Cons. 1 (Cons. 2 (Cons. 3 4)
 ))   ))
 )
 
@@ -77,7 +79,7 @@
 
   (it "should remove all copies of a value"
               (should=  (Cons. 1 3)
-) (delete-all 2 (Cons. 1 (Cons. 2 (Cons. 3 2)
+ (delete-all 2 (Cons. 1 (Cons. 2 (Cons. 3 2)
 ))   ))
 )
 
@@ -86,9 +88,10 @@
 
 (describe "efficient-delete"
           (it "should return the original list if the item is not found"
-              (should (identical? (Cons. 1 (Cons. 2 3)) (efficient-delete 4 (Cons)  (Cons. 1 (Cons. 2 3))                           ))
-))
-
+              
+(let [p (Cons. 1 (Cons. 2 (Cons. 3 nil)))]
+(should (identical? p (efficient-delete 4 p))))
+)
 
           (it "Should remove an element"
               (should= (Cons. 1 3) (efficient-delete 2 (Cons. 1 (Cons. 2 3)))))
