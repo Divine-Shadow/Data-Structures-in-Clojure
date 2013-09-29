@@ -32,6 +32,14 @@
               (let [xx (Cons. 10 (Cons. 20 (Cons. 30 nil)))]
                 (should= (Cons. 5 xx) (insert-at-beginning 5 xx) ))))
 
+
+              (let [p (Cons. 2 (Cons. 3 nil))] 
+                (identical? (:cdr (insert-at-beginning 1 p)) p)
+
+                )
+
+
+
 (describe "insert-at-end"
           (it "Should contain the same first values, with the right value at the end"
               (should= (Cons. 1 (Cons. 2 (Cons. 3 nil)))
@@ -41,7 +49,17 @@
 (describe "sorted insert"
           (it "should add a value to the middle"
               (should= (Cons. 1 (Cons. 2 (Cons. 3 nil)))
- (sorted-insert 2 (Cons. 1 (Cons. 3 nil)))))
+                       (sorted-insert 2 (Cons. 1 (Cons. 3 nil)))))
+          (it "should share memory" 
+ 
+              (let [p (Cons. 2 (Cons. 3 nil))] 
+                (identical? (:cdr (sorted-insert 1 p)) p)
+
+                )
+           )
+)
+
+
 
 
           (it "should create a Cons cell" (should= (Cons. 1 nil) (sorted-insert 1 nil)))
@@ -74,6 +92,9 @@
 )) (delete 7 (Cons. 1 (Cons. 2 (Cons. 3 nil)
 ))   ))
 )
+
+(it "should not remove multiple values"
+    (should= (Cons. 2 nil) (delete 2 (Cons. 2 (Cons. 2 nil)))))
 
 )
 

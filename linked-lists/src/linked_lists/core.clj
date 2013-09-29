@@ -157,7 +157,7 @@
   *original* xx instead of a copy.  It is acceptable to prescan the
   list."
 [elt xx] 
-(if (search elt xx) (delete elt xx) (xx))
+(if (search elt xx) (delete elt xx) xx)
 )
 ;(if (= (:cdr (:cdr xx)) nil) (if (= elt (:cdr xx)) (:car xx) (if (= (:car xx) elt) (:cdr xx) xx ))
 ;(if (= (:car xx) elt) (:cdr xx) 
