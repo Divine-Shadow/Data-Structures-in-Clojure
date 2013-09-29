@@ -40,19 +40,26 @@
 
 (describe "sorted insert"
           (it "should add a value to the middle"
-              (should= (Cons. 1 (Cons. 2 3)) (sorted-insert 2 (Cons. 1 3)
-))))
+              (should= (Cons. 1 (Cons. 2 (Cons. 3 nil)))
+ (sorted-insert 2 (Cons. 1 (Cons. 3 nil)))))
+
+
+          (it "should create a Cons cell" (should= (Cons. 1 nil) (sorted-insert 1 nil)))
+
+          (it "should work on the first element" (should= (Cons. 2 (Cons. 3 nil)) (sorted-insert 2 (Cons. 3 nil)))
+)
+)
 
 
 
 (describe "search"
           (it "should find a value that exists"
-              (should= true (search 3 (Cons. 1 (Cons. 2 (Cons. 3 4)
+              (should= true (search 3 (Cons. 1 (Cons. 2 (Cons. 3 nil)
 ))   ))
 )
 
          (it "should not find a value that doesn't exists"
-              (should= false (search 9 (Cons. 1 (Cons. 2 (Cons. 3 4)
+              (should= false (search 9 (Cons. 1 (Cons. 2 (Cons. 3 nil)
 ))   ))
 )
 
@@ -60,11 +67,11 @@
 )
 (describe "delete"
           (it "Should remove an element"
-              (should= (Cons. 1 3) (delete 2 (Cons. 1 (Cons. 2 3))))
+              (should= (Cons. 1 (Cons. 3 nil)) (delete 2 (Cons. 1 (Cons. 2 (Cons. 3 nil)))))
 )
                    (it "should find not remove an unspecified values"
-              (should=  (Cons. 1 (Cons. 2 (Cons. 3 4)
-)) (delete 7 (Cons. 1 (Cons. 2 (Cons. 3 4)
+              (should=  (Cons. 1 (Cons. 2 (Cons. 3 nil)
+)) (delete 7 (Cons. 1 (Cons. 2 (Cons. 3 nil)
 ))   ))
 )
 
@@ -72,14 +79,14 @@
 
 (describe "delete-all"
            (it "should find not remove an unspecified values"
-              (should=  (Cons. 1 (Cons. 2 (Cons. 3 4)
-)) (delete-all 7 (Cons. 1 (Cons. 2 (Cons. 3 4)
+              (should=  (Cons. 1 (Cons. 2 (Cons. 3 nil)
+)) (delete-all 7 (Cons. 1 (Cons. 2 (Cons. 3 nil)
 ))   ))
 )
 
   (it "should remove all copies of a value"
-              (should=  (Cons. 1 3)
- (delete-all 2 (Cons. 1 (Cons. 2 (Cons. 3 2)
+              (should=  (Cons. 1 (Cons. 3 nil))
+ (delete-all 2 (Cons. 1 (Cons. 2 (Cons. 3 (Cons. 2 nil))
 ))   ))
 )
 
@@ -94,7 +101,7 @@
 )
 
           (it "Should remove an element"
-              (should= (Cons. 1 3) (efficient-delete 2 (Cons. 1 (Cons. 2 3)))))
+              (should= (Cons. 1 (Cons. 3 nil)) (efficient-delete 2 (Cons. 1 (Cons. 2 (Cons. 3 nil))))))
 
 
 )

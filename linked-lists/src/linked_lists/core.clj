@@ -86,7 +86,7 @@
 (defn search 
  ;; "Checks if `elt` is in `xx`."
 [elt xx]
-(if (= (:cdr xx) nil) (= xx elt)
+(if (= (:car xx) nil) (= xx elt)
 (if (= elt (:car xx)) true (search elt (:cdr xx) 
 
 
@@ -117,10 +117,17 @@
   that the list was sorted."
   [elt xx]
  
- (if (= (:cdr (:cdr xx)) nil) (if (= elt (:cdr xx)) (:car xx) (if (= (:car xx) elt) (:cdr xx) xx ))
-(if (= (:car xx) elt) (:cdr xx) 
-(Cons. (:car xx) (delete elt (:cdr xx)))
-)))
+(if (= xx nil) nil 
+(if (= elt (:car xx)) (:cdr xx) (Cons. (:car xx) (delete elt (:cdr xx))))
+)
+)
+
+
+
+; (if (= (:cdr (:cdr xx)) nil) (if (= elt (:cdr xx)) (:car xx) (if (= (:car xx) elt) (:cdr xx) xx ))
+;(if (= (:car xx) elt) (:cdr xx) 
+;(Cons. (:car xx) (delete elt (:cdr xx)))
+;)))
 ;;
 ;;     old v
 ;;(if nil (do (def p (search elt xx)) p) xx (Cons.
@@ -131,12 +138,16 @@
   "Delete all copies of elt from xx."
   [elt xx]
   
-(if (= (:cdr (:cdr xx)) nil) (if (= elt (:cdr xx)) (:car xx) (if (= (:car xx) elt) (:cdr xx) xx ))
-(if (= (:car xx) elt) (delete-all elt (:cdr xx)) 
-(Cons. (:car xx) (delete-all elt (:cdr xx)))
-)))
+;(if (= (:cdr (:cdr xx)) nil) (if (= elt (:cdr xx)) (:car xx) (if (= (:car xx) elt) (:cdr xx) xx ))
+;(if (= (:car xx) elt) (delete-all elt (:cdr xx)) 
+;(Cons. (:car xx) (delete-all elt (:cdr xx)))
+;)))
 
 
+(if (= xx nil) nil 
+    (if (= elt (:car xx)) (delete-all elt (:cdr xx)) (Cons. (:car xx) (delete-all elt (:cdr xx))))
+)
+)
 
 
 ;; # Memory efficient delete
@@ -146,15 +157,16 @@
   *original* xx instead of a copy.  It is acceptable to prescan the
   list."
 [elt xx] 
-(if (search elt xx)
-(if (= (:cdr (:cdr xx)) nil) (if (= elt (:cdr xx)) (:car xx) (if (= (:car xx) elt) (:cdr xx) xx ))
-(if (= (:car xx) elt) (:cdr xx) 
-(Cons. (:car xx) (delete elt (:cdr xx)))
-))  
- 
-xx)
-
+(if (search elt xx) (delete elt xx) (xx))
 )
+;(if (= (:cdr (:cdr xx)) nil) (if (= elt (:cdr xx)) (:car xx) (if (= (:car xx) elt) (:cdr xx) xx ))
+;(if (= (:car xx) elt) (:cdr xx) 
+;(Cons. (:car xx) (delete elt (:cdr xx)))
+;))  
+ 
+;xx)
+
+;)
 
 
 
