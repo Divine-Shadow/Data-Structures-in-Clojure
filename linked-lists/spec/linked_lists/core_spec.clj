@@ -30,14 +30,14 @@
           
           (it "should work with lists that have data"
               (let [xx (Cons. 10 (Cons. 20 (Cons. 30 nil)))]
-                (should= (Cons. 5 xx) (insert-at-beginning 5 xx) ))))
+                (should= (Cons. 5 xx) (insert-at-beginning 5 xx) )))
 
 
               (let [p (Cons. 2 (Cons. 3 nil))] 
                 (identical? (:cdr (insert-at-beginning 1 p)) p)
 
                 )
-
+)
 
 
 (describe "insert-at-end"
