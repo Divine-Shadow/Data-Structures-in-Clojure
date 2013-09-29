@@ -1,12 +1,12 @@
 Lab report for Linked List Lab - wmolchan
-Timestamp: 2013-09-24 17:10:17
+Timestamp: 2013-09-24 17:30:28
 
 |  :scenario |                                :title |                   :result | :score |
 |------------+---------------------------------------+---------------------------+--------|
 |    working | Test student code vs instructor tests |                      Fail |     37 |
-| qualifying | Test student tests vs instructor code |                    Errors |      0 |
+| qualifying | Test student tests vs instructor code |                      Fail |      3 |
 | qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
-|      total |                           Total Score |                           |     37 |
+|      total |                           Total Score |                           |     40 |
 
 Details:
 
@@ -36,21 +36,39 @@ Failures:
           got: #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 4, :cdr #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 10, :cdr nil}}}} (using =)
      /home/grader/quarry/linked-list-lab/wmolchan/working/spec/linked_lists/core_spec.clj:119
 
-Finished in 0.05928 seconds
+Finished in 0.05841 seconds
 24 examples, 4 failures
 
 
 ** Details for Test student tests vs instructor code
 
-E.......
+........F...FFF..
 
-Errors:
+Failures:
 
-  1) java.lang.RuntimeException: Expecting var, but Cons is mapped to class linked_lists.core.Cons, compiling:(/home/grader/quarry/linked-list-lab/wmolchan/qualifying/spec/linked_lists/core_spec.clj:38:21)
-     java.lang.RuntimeException: Expecting var, but Cons is mapped to class linked_lists.core.Cons, compiling:(/home/grader/quarry/linked-list-lab/wmolchan/qualifying/spec/linked_lists/core_spec.clj:38:21)
-     	... 107 stack levels elided ...
-     Caused by: java.lang.RuntimeException: Expecting var, but Cons is mapped to class linked_lists.core.Cons
-     	... 111 stack levels elided ...
+  1) sorted insert should add a value to the middle
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at linked_lists.core$sorted_insert.invoke(core.clj:55)
+     	at linked_lists.core$sorted_insert.invoke(core.clj:56)
+     	at linked_lists.core_spec$eval1259$fn__1260$fn__1265.invoke(/home/grader/quarry/linked-list-lab/wmolchan/qualifying/spec/linked_lists/core_spec.clj:43)
+     	... 42 stack levels elided ...
 
-Finished in 0.00159 seconds
-8 examples, 0 failures, 1 errors
+  2) delete should find not remove an unspecified values
+     Expected: #linked_lists.core.Cons{:car 1, :cdr #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 3, :cdr 4}}}
+          got: #linked_lists.core.Cons{:car 1, :cdr #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 3, :cdr #linked_lists.core.Cons{:car nil, :cdr nil}}}} (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/qualifying/spec/linked_lists/core_spec.clj:66
+
+  3) delete-all should find not remove an unspecified values
+     Expected: #linked_lists.core.Cons{:car 1, :cdr #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 3, :cdr 4}}}
+          got: #linked_lists.core.Cons{:car 1, :cdr #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 3, :cdr #linked_lists.core.Cons{:car nil, :cdr nil}}}} (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/qualifying/spec/linked_lists/core_spec.clj:75
+
+  4) delete-all should remove all copies of a value
+     Expected: #linked_lists.core.Cons{:car 1, :cdr 3}
+          got: #linked_lists.core.Cons{:car 1, :cdr #linked_lists.core.Cons{:car 3, :cdr #linked_lists.core.Cons{:car nil, :cdr nil}}} (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/qualifying/spec/linked_lists/core_spec.clj:81
+
+Finished in 0.06346 seconds
+17 examples, 4 failures
