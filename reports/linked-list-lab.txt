@@ -1,12 +1,21 @@
 Lab report for Linked List Lab - wmolchan
-Timestamp: 2013-09-29 17:39:12
+Timestamp: 2013-09-29 18:15:21
 
-|  :scenario |                                :title |                   :result | :score |
-|------------+---------------------------------------+---------------------------+--------|
-|    working | Test student code vs instructor tests |                      Pass |     45 |
-| qualifying | Test student tests vs instructor code |                    Errors |      0 |
-| qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
-|      total |                           Total Score |                           |     45 |
+|  :scenario |                                    :title |                                   :result | :score |
+|------------+-------------------------------------------+-------------------------------------------+--------|
+|    working |     Test student code vs instructor tests |                                      Pass |     45 |
+| qualifying |     Test student tests vs instructor code |                                      Pass |      5 |
+|    broke-1 |             Insert at end mishandles nil. |      Pass: Student tests detected errors. |      5 |
+|    broke-2 |     Sorted insert sorts in reverse order. |      Pass: Student tests detected errors. |      5 |
+|    broke-3 |     Sorted insert doesn't recycle memory. | Fail: Student tests did not detect error. |      0 |
+|    broke-4 |          Search doesn't handle base case. |      Pass: Student tests detected errors. |      5 |
+|    broke-5 |                Delete removes all copies. |      Pass: Student tests detected errors. |      5 |
+|    broke-6 |                           Delete doesn't. |      Pass: Student tests detected errors. |      5 |
+|    broke-7 |              Delete all only deletes one. |      Pass: Student tests detected errors. |      5 |
+|    broke-8 |                Delete all truncates list. |      Pass: Student tests detected errors. |      5 |
+|    broke-9 |          Efficient delete doesn't delete. |      Pass: Student tests detected errors. |      5 |
+|   broke-10 | Efficient delete doesn't return original. |      Pass: Student tests detected errors. |      5 |
+|      total |                               Total Score |                                           |     95 |
 
 Details:
 
@@ -15,22 +24,179 @@ Details:
 
 ........................
 
-Finished in 0.00468 seconds
+Finished in 0.00439 seconds
 24 examples, 0 failures
 
 
 ** Details for Test student tests vs instructor code
 
-E....
+......................
 
-Errors:
+Finished in 0.00434 seconds
+22 examples, 0 failures
 
-  1) java.lang.Exception: Oops!  It looks like you tried to add a class java.lang.Boolean:true to a spec.  That's not allowed.
-     java.lang.Exception: Oops!  It looks like you tried to add a class java.lang.Boolean:true to a spec.  That's not allowed.
-     	... 2 stack levels elided ...
-     	at linked_lists.core_spec$eval1217$fn__1218.invoke(/home/grader/quarry/linked-list-lab/wmolchan/qualifying/spec/linked_lists/core_spec.clj:24)
-     	at linked_lists.core_spec$eval1217.invoke(/home/grader/quarry/linked-list-lab/wmolchan/qualifying/spec/linked_lists/core_spec.clj:24)
-     	... 24 stack levels elided ...
 
-Finished in 0.00092 seconds
-5 examples, 0 failures, 1 errors
+** Details for Insert at end mishandles nil.
+
+..........F...........
+
+Failures:
+
+  1) insert-at-beginning insert-at-end Should contain the same first values, with the right value at the end
+     Expected: #linked_lists.core.Cons{:car 1, :cdr #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 3, :cdr nil}}}
+          got: #linked_lists.core.Cons{:car 1, :cdr #linked_lists.core.Cons{:car 2, :cdr nil}} (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/broke-1/spec/linked_lists/core_spec.clj:47
+
+Finished in 0.05381 seconds
+22 examples, 1 failures
+
+
+** Details for Sorted insert sorts in reverse order.
+
+.........F.F..........
+
+Failures:
+
+  1) insert-at-beginning should work on the first element
+     Expected: #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 3, :cdr nil}}
+          got: #linked_lists.core.Cons{:car 3, :cdr #linked_lists.core.Cons{:car 2, :cdr nil}} (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/broke-2/spec/linked_lists/core_spec.clj:69
+
+  2) insert-at-beginning sorted insert should add a value to the middle
+     Expected: #linked_lists.core.Cons{:car 1, :cdr #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 3, :cdr nil}}}
+          got: #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 1, :cdr #linked_lists.core.Cons{:car 3, :cdr nil}}} (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/broke-2/spec/linked_lists/core_spec.clj:53
+
+Finished in 0.01976 seconds
+22 examples, 2 failures
+
+
+** Details for Sorted insert doesn't recycle memory.
+
+......................
+
+Finished in 0.00429 seconds
+22 examples, 0 failures
+
+
+** Details for Search doesn't handle base case.
+
+..............F.....F.
+
+Failures:
+
+  1) search should not find a value that doesn't exists
+     Expected: false
+          got: true (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/broke-4/spec/linked_lists/core_spec.clj:82
+
+  2) efficient-delete should return the original list if the item is not found
+     Expected truthy but was: false
+     /home/grader/quarry/linked-list-lab/wmolchan/broke-4/spec/linked_lists/core_spec.clj:123
+
+Finished in 0.00588 seconds
+22 examples, 2 failures
+
+
+** Details for Delete removes all copies.
+
+.................F....
+
+Failures:
+
+  1) delete should not remove multiple values
+     Expected: #linked_lists.core.Cons{:car 2, :cdr nil}
+          got: nil (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/broke-5/spec/linked_lists/core_spec.clj:99
+
+Finished in 0.02565 seconds
+22 examples, 1 failures
+
+
+** Details for Delete doesn't.
+
+...............F.F...F
+
+Failures:
+
+  1) delete Should remove an element
+     Expected: #linked_lists.core.Cons{:car 1, :cdr #linked_lists.core.Cons{:car 3, :cdr nil}}
+          got: #linked_lists.core.Cons{:car 1, :cdr #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 3, :cdr nil}}} (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/broke-6/spec/linked_lists/core_spec.clj:90
+
+  2) delete should not remove multiple values
+     Expected: #linked_lists.core.Cons{:car 2, :cdr nil}
+          got: #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 2, :cdr nil}} (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/broke-6/spec/linked_lists/core_spec.clj:99
+
+  3) efficient-delete Should remove an element
+     Expected: #linked_lists.core.Cons{:car 1, :cdr #linked_lists.core.Cons{:car 3, :cdr nil}}
+          got: #linked_lists.core.Cons{:car 1, :cdr #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 3, :cdr nil}}} (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/broke-6/spec/linked_lists/core_spec.clj:127
+
+Finished in 0.05456 seconds
+22 examples, 3 failures
+
+
+** Details for Delete all only deletes one.
+
+...................F..
+
+Failures:
+
+  1) delete-all should remove all copies of a value
+     Expected: #linked_lists.core.Cons{:car 1, :cdr #linked_lists.core.Cons{:car 3, :cdr nil}}
+          got: #linked_lists.core.Cons{:car 1, :cdr #linked_lists.core.Cons{:car 3, :cdr #linked_lists.core.Cons{:car 2, :cdr nil}}} (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/broke-7/spec/linked_lists/core_spec.clj:111
+
+Finished in 0.05898 seconds
+22 examples, 1 failures
+
+
+** Details for Delete all truncates list.
+
+...................F..
+
+Failures:
+
+  1) delete-all should remove all copies of a value
+     Expected: #linked_lists.core.Cons{:car 1, :cdr #linked_lists.core.Cons{:car 3, :cdr nil}}
+          got: #linked_lists.core.Cons{:car 1, :cdr nil} (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/broke-8/spec/linked_lists/core_spec.clj:111
+
+Finished in 0.05139 seconds
+22 examples, 1 failures
+
+
+** Details for Efficient delete doesn't delete.
+
+...................F.F
+
+Failures:
+
+  1) delete-all should remove all copies of a value
+     Expected: #linked_lists.core.Cons{:car 1, :cdr #linked_lists.core.Cons{:car 3, :cdr nil}}
+          got: #linked_lists.core.Cons{:car 1, :cdr nil} (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/broke-9/spec/linked_lists/core_spec.clj:111
+
+  2) efficient-delete Should remove an element
+     Expected: #linked_lists.core.Cons{:car 1, :cdr #linked_lists.core.Cons{:car 3, :cdr nil}}
+          got: #linked_lists.core.Cons{:car 1, :cdr #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 3, :cdr nil}}} (using =)
+     /home/grader/quarry/linked-list-lab/wmolchan/broke-9/spec/linked_lists/core_spec.clj:127
+
+Finished in 0.05362 seconds
+22 examples, 2 failures
+
+
+** Details for Efficient delete doesn't return original.
+
+....................F.
+
+Failures:
+
+  1) efficient-delete should return the original list if the item is not found
+     Expected truthy but was: false
+     /home/grader/quarry/linked-list-lab/wmolchan/broke-10/spec/linked_lists/core_spec.clj:123
+
+Finished in 0.00539 seconds
+22 examples, 1 failures
