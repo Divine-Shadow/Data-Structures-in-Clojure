@@ -1,5 +1,5 @@
 Lab report for Linked List Lab - wmolchan
-Timestamp: 2013-09-29 17:21:09
+Timestamp: 2013-09-29 17:39:12
 
 |  :scenario |                                :title |                   :result | :score |
 |------------+---------------------------------------+---------------------------+--------|
@@ -15,21 +15,22 @@ Details:
 
 ........................
 
-Finished in 0.00426 seconds
+Finished in 0.00468 seconds
 24 examples, 0 failures
 
 
 ** Details for Test student tests vs instructor code
 
-E..........
+E....
 
 Errors:
 
-  1) java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/linked-list-lab/wmolchan/qualifying/spec/linked_lists/core_spec.clj:69:2)
-     java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/linked-list-lab/wmolchan/qualifying/spec/linked_lists/core_spec.clj:69:2)
-     	... 23 stack levels elided ...
-     Caused by: java.lang.RuntimeException: Unmatched delimiter: )
-     	... 26 stack levels elided ...
+  1) java.lang.Exception: Oops!  It looks like you tried to add a class java.lang.Boolean:true to a spec.  That's not allowed.
+     java.lang.Exception: Oops!  It looks like you tried to add a class java.lang.Boolean:true to a spec.  That's not allowed.
+     	... 2 stack levels elided ...
+     	at linked_lists.core_spec$eval1217$fn__1218.invoke(/home/grader/quarry/linked-list-lab/wmolchan/qualifying/spec/linked_lists/core_spec.clj:24)
+     	at linked_lists.core_spec$eval1217.invoke(/home/grader/quarry/linked-list-lab/wmolchan/qualifying/spec/linked_lists/core_spec.clj:24)
+     	... 24 stack levels elided ...
 
-Finished in 0.00223 seconds
-11 examples, 0 failures, 1 errors
+Finished in 0.00092 seconds
+5 examples, 0 failures, 1 errors
