@@ -54,10 +54,9 @@
                        (sorted-insert 2 (Cons. 1 (Cons. 3 nil)))))
           (it "should share memory" 
  
-              (let [p (Cons. 2 (Cons. 3 nil))] 
-                (identical? (:cdr (sorted-insert 1 p)) p)
-
-                )
+              (should (let [p (Cons. 2 (Cons. 3 (Cons. 4 (Cons. 5 nil))))] 
+                (identical? (:cdr (:cdr (sorted-insert 1 p))) (:cdr p))
+                ))
            )
 )
 
