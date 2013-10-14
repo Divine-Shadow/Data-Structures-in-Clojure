@@ -1,4 +1,4 @@
-(defproject fifolifo "0.1.0-SNAPSHOT"
+(defproject dlist-atom "0.1.0-SNAPSHOT"
   :description "CS 331 Programming Assignment &mdash; Doubly Linked Lists with Atoms"
   :url "http://mccarthy.cs.iit.edu/cs331/assignments/dlist-atom"
   :license {:name "Eclipse Public License"
