@@ -26,7 +26,9 @@
 (defn stack-size
   "Return the size of the stack."
   [stack]
-  nil)
+    (:size stack) 
+
+)
 
 (defn push
   "Push an element onto the beginning of a stack."
@@ -36,7 +38,9 @@
 (defn pop
   "Remove an element from the top of the stack.  Return the resulting stack."
   [stk]
-  nil)
+(Stack. (first (rest (:top stk))) (-> stk :size dec))
+
+  )
 
 (defn top
   "Return the top of the stack."
