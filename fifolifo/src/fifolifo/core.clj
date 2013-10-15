@@ -33,19 +33,19 @@
 (defn push
   "Push an element onto the beginning of a stack."
   [stk elt]
-  (Stack. (cons elt stk) (-> stk :size inc)))
+  (Stack. (cons elt (:top stk)) (-> stk :size inc)))
 
 (defn pop
   "Remove an element from the top of the stack.  Return the resulting stack."
   [stk]
-(Stack. (first (rest (:top stk))) (-> stk :size dec))
+(Stack. (rest (:top stk)) (-> stk :size dec))
 
   )
 
 (defn top
   "Return the top of the stack."
   [stk]
-  nil)
+  (first (:top stk)))
 
 ;; # Doubly-ended queues
 ;;
@@ -67,20 +67,28 @@
 (defn queue-size
   "Return the size of the queue."
   [queue]
-  nil)
+  (:size queue))
 
 (defn enqueue
   "Add an element to the back of a queue."
   [queue elt]
-  nil)
-
+  (if (= (:size queue) 0) 
+    (Queue. (:back queue) (cons elt (:front queue) ) 1)
+  (Queue. (cons elt (:back queue)) (:front queue) (+ 1 (:size queue))))
+)
 (defn dequeue
-  "Remove an element from the back of the queue.  Just return the new queue."
+  "Remove an element from the front of the queue.  Just return the new queue."
   [queue]
-  nil)
+  (if (= () (rest (:front queue))) 
+    (Queue. nil (reverse (:back queue)) (-> queue :size dec))
+    (Queue.  (:back queue) (rest (:front queue)) (-> queue :size dec)) 
+
+    )
+  )
 
 (defn peek
   "Return the next element that will come out the front of the queue."
   [queue]
-  nil)
+ (first (:front queue))
+)
 

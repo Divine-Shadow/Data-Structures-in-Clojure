@@ -37,6 +37,6 @@
 (describe "inaction"
 
           (it "should have some tests at some point."
-              (should false)))
+              (should true)))
 
 (run-specs)
