@@ -1,59 +1,90 @@
-Lab report for  - wmolchan
-Timestamp: 2013-10-11 13:30:16
+Lab report for Stack and Queue Lab - wmolchan
+Timestamp: 2013-10-14 12:56:30
 
 |  :scenario |                                :title |                   :result | :score |
 |------------+---------------------------------------+---------------------------+--------|
-|    working | Test student code vs instructor tests |                      Fail |     25 |
-| qualifying | Test student tests vs instructor code |                      Fail |      2 |
+|    working | Test student code vs instructor tests |                      Fail |     20 |
+| qualifying | Test student tests vs instructor code |                      Fail |      4 |
 | qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
-|      total |                           Total Score |                           |     27 |
+|      total |                           Total Score |                           |     24 |
 
 Details:
 
 
 ** Details for Test student code vs instructor tests
 
-..F..FF
+....F..FFF..FFFF.FFF
 
 Failures:
 
-  1) The stack declaration should have a size of zero.
+  1) Empty stacks should stay empty when popping something from them.
+     Expected: 0
+          got: -1 (using =)
+     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:29
+
+  2) Stacks should keep track of their size.
+     Expected: 0
+          got: -1 (using =)
+     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:48
+
+  3) Stacks should pull things out in the correct order.
+     Expected: 8
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:52
+
+  4) Stacks should be able to push things after popping.
+     Expected: 0
+          got: -1 (using =)
+     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:61
+
+  5) Empty queues should have zero size.
      Expected: 0
           got: nil (using =)
-     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:21
+     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:81
 
-  2) The queue declaration should have a size of zero.
+  6) Empty queues should increase size when something pushes to them.
+     Expected: 1
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:84
+
+  7) Empty queues should stay empty when popping something from them.
      Expected: 0
           got: nil (using =)
-     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:34
+     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:87
 
-  3) inaction should have some tests at some point.
-     Expected truthy but was: false
-     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:40
+  8) Empty queues should have a size of zero.
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:90
 
-Finished in 0.01912 seconds
-7 examples, 3 failures
+  9) Queues should keep track of their size.
+     Expected: 5
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:99
+
+  10) Queues should pull things out in the correct order.
+     Expected: 1
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:105
+
+  11) Queues should be able to enqueue things after dequeueping.
+     Expected: 5
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:112
+
+Finished in 0.03112 seconds
+20 examples, 11 failures
 
 
 ** Details for Test student tests vs instructor code
 
-..F..FF
+......F
 
 Failures:
 
-  1) The stack declaration should have a size of zero.
-     Expected: 0
-          got: nil (using =)
-     /home/grader/quarry/fifolifo-lab/wmolchan/qualifying/spec/fifolifo/core_spec.clj:21
-
-  2) The queue declaration should have a size of zero.
-     Expected: 0
-          got: nil (using =)
-     /home/grader/quarry/fifolifo-lab/wmolchan/qualifying/spec/fifolifo/core_spec.clj:34
-
-  3) inaction should have some tests at some point.
+  1) inaction should have some tests at some point.
      Expected truthy but was: false
      /home/grader/quarry/fifolifo-lab/wmolchan/qualifying/spec/fifolifo/core_spec.clj:40
 
-Finished in 0.01463 seconds
-7 examples, 3 failures
+Finished in 0.00288 seconds
+7 examples, 1 failures
