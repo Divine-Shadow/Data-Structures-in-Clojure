@@ -1,19 +1,28 @@
 Lab report for Stack and Queue Lab - wmolchan
-Timestamp: 2013-10-14 12:56:30
+Timestamp: 2013-10-15 16:17:23
 
-|  :scenario |                                :title |                   :result | :score |
-|------------+---------------------------------------+---------------------------+--------|
-|    working | Test student code vs instructor tests |                      Fail |     20 |
-| qualifying | Test student tests vs instructor code |                      Fail |      4 |
-| qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
-|      total |                           Total Score |                           |     24 |
+|  :scenario |                                  :title |                                   :result | :score |
+|------------+-----------------------------------------+-------------------------------------------+--------|
+|    working |   Test student code vs instructor tests |                                      Fail |     31 |
+| qualifying |   Test student tests vs instructor code |                                      Pass |      5 |
+|    broke-1 |            Push doesn't increment size. | Fail: Student tests did not detect error. |      0 |
+|    broke-2 |       Pop of empty makes size negative. | Fail: Student tests did not detect error. |      0 |
+|    broke-3 |            Pop doesn't remove elements. | Fail: Student tests did not detect error. |      0 |
+|    broke-4 |                  Pop reverses elements. | Fail: Student tests did not detect error. |      0 |
+|    broke-5 |         Enqueue doesn't increment size. | Fail: Student tests did not detect error. |      0 |
+|    broke-6 |   Dequeue of empty makes size negative. | Fail: Student tests did not detect error. |      0 |
+|    broke-7 |  Dequeue doesn't reverse when flipping. | Fail: Student tests did not detect error. |      0 |
+|    broke-8 | Dequeue doesn't dequeue after flipping. |      Pass: Student tests detected errors. |      5 |
+|    broke-9 |            Flipping doesn't erase back. | Fail: Student tests did not detect error. |      0 |
+|   broke-10 |             Queue behaves like a stack. | Fail: Student tests did not detect error. |      0 |
+|      total |                             Total Score |                                           |     41 |
 
 Details:
 
 
 ** Details for Test student code vs instructor tests
 
-....F..FFF..FFFF.FFF
+....F..F.F....F..F.F
 
 Failures:
 
@@ -27,64 +36,125 @@ Failures:
           got: -1 (using =)
      /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:48
 
-  3) Stacks should pull things out in the correct order.
-     Expected: 8
-          got: nil (using =)
-     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:52
-
-  4) Stacks should be able to push things after popping.
+  3) Stacks should be able to push things after popping.
      Expected: 0
           got: -1 (using =)
      /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:61
 
-  5) Empty queues should have zero size.
+  4) Empty queues should stay empty when popping something from them.
      Expected: 0
-          got: nil (using =)
-     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:81
-
-  6) Empty queues should increase size when something pushes to them.
-     Expected: 1
-          got: nil (using =)
-     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:84
-
-  7) Empty queues should stay empty when popping something from them.
-     Expected: 0
-          got: nil (using =)
+          got: -1 (using =)
      /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:87
 
-  8) Empty queues should have a size of zero.
+  5) Queues should keep track of their size.
      Expected: 0
-          got: nil (using =)
-     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:90
+          got: -1 (using =)
+     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:101
 
-  9) Queues should keep track of their size.
-     Expected: 5
-          got: nil (using =)
-     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:99
+  6) Queues should be able to enqueue things after dequeueping.
+     Expected: 0
+          got: -1 (using =)
+     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:114
 
-  10) Queues should pull things out in the correct order.
-     Expected: 1
-          got: nil (using =)
-     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:105
-
-  11) Queues should be able to enqueue things after dequeueping.
-     Expected: 5
-          got: nil (using =)
-     /home/grader/quarry/fifolifo-lab/wmolchan/working/spec/fifolifo/core_spec.clj:112
-
-Finished in 0.03112 seconds
-20 examples, 11 failures
+Finished in 0.02408 seconds
+20 examples, 6 failures
 
 
 ** Details for Test student tests vs instructor code
 
-......F
+.......
+
+Finished in 0.00157 seconds
+7 examples, 0 failures
+
+
+** Details for Push doesn't increment size.
+
+.......
+
+Finished in 0.00135 seconds
+7 examples, 0 failures
+
+
+** Details for Pop of empty makes size negative.
+
+.......
+
+Finished in 0.00131 seconds
+7 examples, 0 failures
+
+
+** Details for Pop doesn't remove elements.
+
+.......
+
+Finished in 0.00148 seconds
+7 examples, 0 failures
+
+
+** Details for Pop reverses elements.
+
+.......
+
+Finished in 0.00136 seconds
+7 examples, 0 failures
+
+
+** Details for Enqueue doesn't increment size.
+
+.......
+
+Finished in 0.00151 seconds
+7 examples, 0 failures
+
+
+** Details for Dequeue of empty makes size negative.
+
+.......
+
+Finished in 0.00154 seconds
+7 examples, 0 failures
+
+
+** Details for Dequeue doesn't reverse when flipping.
+
+.......
+
+Finished in 0.00138 seconds
+7 examples, 0 failures
+
+
+** Details for Dequeue doesn't dequeue after flipping.
+
+..F..F.
 
 Failures:
 
-  1) inaction should have some tests at some point.
-     Expected truthy but was: false
-     /home/grader/quarry/fifolifo-lab/wmolchan/qualifying/spec/fifolifo/core_spec.clj:40
+  1) The stack declaration should have a size of zero.
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/wmolchan/broke-8/spec/fifolifo/core_spec.clj:21
 
-Finished in 0.00288 seconds
-7 examples, 1 failures
+  2) The queue declaration should have a size of zero.
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/wmolchan/broke-8/spec/fifolifo/core_spec.clj:34
+
+Finished in 0.01224 seconds
+7 examples, 2 failures
+
+
+** Details for Flipping doesn't erase back.
+
+.......
+
+Finished in 0.00133 seconds
+7 examples, 0 failures
+
+
+** Details for Queue behaves like a stack.
+
+.......
+
+Finished in 0.00139 seconds
+7 examples, 0 failures
