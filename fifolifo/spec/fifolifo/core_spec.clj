@@ -33,6 +33,33 @@
           (it "should have a size of zero."
               (should= 0 (stack-size (make-stack))))
           )
+(describe "push"
+          (it "should increment size" (should= 1 (stack-size (push (make-stack) 2))))
+       )   
+
+(describe "pop"
+
+          (it "should not make negative size" (should= 0 (stack-size (pop (make-stack)))))
+          (it "should remove elements" (should= (stack-size (make-stack)) (stack-size (pop (push (make-stack) 2)))))
+          (it "should preserve order" (should= (push (push (push (make-stack) 1) 2) 3) (pop (push (push (push (push (make-stack) 1) 2) 3) 4))))
+
+
+)
+
+(describe "enqueue" 
+
+          (it "should increment size" (should= 1 (queue-size (enqueue (make-queue) 3))))
+  
+
+)
+
+(describe "dequeue"
+(it "should not make size negative" (should= 0 (queue-size (dequeue (make-queue)))))
+
+(it "should flip the order" (should= (peek (dequeue (enqueue (enqueue (enqueue (make-queue) 1) 2) 3))) 2)) 
+
+)
+
 
 (describe "inaction"
 
