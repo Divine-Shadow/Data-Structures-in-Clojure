@@ -58,8 +58,12 @@
 
 (it "should flip the order" (should= (peek (dequeue (enqueue (enqueue (enqueue (make-queue) 1) 2) 3))) 2)) 
 
-)
 
+(it "should delete the back" (should= nil (peek (dequeue (enqueue (make-queue) 2)))))
+
+(it "should not behave like a stack" (should= 2 (dequeue (peek (enqueue (enqueue (enqueue (enqueue (make-stack) 1) 2) 3) 4) )))
+)
+)
 
 (describe "inaction"
 
