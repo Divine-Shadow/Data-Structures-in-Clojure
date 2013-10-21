@@ -1,38 +1,160 @@
 Lab report for Doubly Linked Lists with Atoms - wmolchan
-Timestamp: 2013-10-21 13:30:06
+Timestamp: 2013-10-21 14:25:24
 
 |  :scenario |                                :title |                   :result | :score |
 |------------+---------------------------------------+---------------------------+--------|
-|    working | Test student code vs instructor tests |                    Errors |      0 |
+|    working | Test student code vs instructor tests |                      Fail |     15 |
 | qualifying | Test student tests vs instructor code |                      Fail |      0 |
 | qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
-|      total |                           Total Score |                           |      0 |
+|      total |                           Total Score |                           |     15 |
 
 Details:
 
 
 ** Details for Test student code vs instructor tests
 
-EE
+...F..FF.FFF.FF.FFF.FF.FFF.F.FFFFFFF
 
-Errors:
+Failures:
 
-  1) java.io.FileNotFoundException: Could not locate dlist_atom/core__init.class or dlist_atom/core.clj on classpath: 
-     java.io.FileNotFoundException: Could not locate dlist_atom/core__init.class or dlist_atom/core.clj on classpath: 
-     	... 15 stack levels elided ...
-     	at dlist_atom.core_spec$eval874$loading__4910__auto____875.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist-atom/core_spec.clj:1)
-     	at dlist_atom.core_spec$eval874.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist-atom/core_spec.clj:1)
-     	... 25 stack levels elided ...
+  1) Insert-front on empty list Will have size 1.
+     Expected: 1
+          got: 0 (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:31
 
-  2) java.io.FileNotFoundException: Could not locate dlist_atom/core__init.class or dlist_atom/core.clj on classpath: 
-     java.io.FileNotFoundException: Could not locate dlist_atom/core__init.class or dlist_atom/core.clj on classpath: 
-     	... 15 stack levels elided ...
-     	at dlist_atom.core_spec$eval1198$loading__4910__auto____1199.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:1)
-     	at dlist_atom.core_spec$eval1198.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:1)
-     	... 25 stack levels elided ...
+  2) Insert-front on empty list will convert to a list properly
+     Expected: (10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:50
 
-Finished in 0.00000 seconds
-2 examples, 0 failures, 2 errors
+  3) Insert-front multiple times Will update size.
+     Expected: 3
+          got: 0 (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:59
+
+  4) Insert-front multiple times will convert to a list properly
+     Expected: (10 20 30)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:75
+
+  5) Insert-last on empty list Will have size 1.
+     Expected: 1
+          got: 0 (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:82
+
+  6) Insert-last on empty list Will have a proper element.
+     Expected: 10
+          got: sentinel (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:87
+
+  7) Insert-last on empty list will convert to a list properly
+     Expected: (10)
+          got: () (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:100
+
+  8) Insert-last multiple times Will update size.
+     Expected: 3
+          got: 0 (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:110
+
+  9) Insert-last multiple times will convert to a list properly
+     Expected: (30 20 10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:125
+
+  10) Insert-sorted on empty list Will have size 1.
+     Expected: 1
+          got: 0 (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:133
+
+  11) Insert-sorted on empty list Will have a proper element.
+     Expected: 10
+          got: sentinel (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:138
+
+  12) Insert-sorted on empty list will convert to a list properly
+     Expected: (10)
+          got: () (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:151
+
+  13) Insert-sorted multiple times Will update size.
+     Expected: 3
+          got: 0 (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:161
+
+  14) Insert-sorted multiple times will insert 10 20 30 properly
+     Expected: (30 20 10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:176
+
+  15) Insert-sorted multiple times will insert 30 20 10 properly
+     Expected: (30 20 10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:183
+
+  16) Insert-sorted multiple times will insert 10 30 20 properly
+     Expected: (30 20 10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:190
+
+  17) Index forward indexex properly
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:205
+
+  18) Index backward indexex properly
+     Expected: -3
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:221
+
+  19) list-to-dlist creates an empty list properly
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$d_next.invoke(core.clj:85)
+     	at dlist_atom.core$show_dlist.invoke(core.clj:98)
+     	at dlist_atom.core_spec$eval1527$fn__1528$fn__1533.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:229)
+     	... 42 stack levels elided ...
+
+  20) list-to-dlist creates full lists properly
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$d_next.invoke(core.clj:85)
+     	at dlist_atom.core$show_dlist.invoke(core.clj:98)
+     	at dlist_atom.core_spec$eval1527$fn__1528$fn__1539.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:233)
+     	... 42 stack levels elided ...
+
+  21) delete should do nothing to empty lists.
+     Expected: ()
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:241
+
+  22) delete deletes elements properly.
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$d_next.invoke(core.clj:85)
+     	at dlist_atom.core$show_dlist.invoke(core.clj:98)
+     	at dlist_atom.core_spec$eval1552$fn__1553$fn__1566.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:246)
+     	... 42 stack levels elided ...
+
+  23) reverse should not mess up empty lists.
+     Expected: ()
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:292
+
+  24) reverse should reverse full lists.
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$d_size.invoke(core.clj:47)
+     	at dlist_atom.core_spec$eval1635$fn__1636$fn__1649.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:297)
+     	... 42 stack levels elided ...
+
+Finished in 0.04445 seconds
+36 examples, 24 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core, being replaced by: #'dlist-atom.core/reverse
 
 
 ** Details for Test student tests vs instructor code
@@ -43,8 +165,8 @@ Failures:
 
   1) The spec file should have some tests.
      Expected truthy but was: false
-     dlist_atom/core_spec.clj:15
+     /home/grader/quarry/dlist-atom-lab/wmolchan/qualifying/spec/dlist_atom/core_spec.clj:15
 
-Finished in 0.00149 seconds
+Finished in 0.00153 seconds
 1 examples, 1 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
