@@ -127,7 +127,10 @@ node we know we have an infinite loop."
 
 (defn insert-last "Insert an element into the back of a dlist."
   [xx elt]
-  nil)
+ (let [nu-node (dnode (d-sentinel xx) elt (-> xx d-sentinel d-next))]
+    (reset-d-next! (d-sentinel xx) nu-node)
+    (reset-d-prev! (-> nu-node d-next) nu-node)))
+ nil)
 
 (defn insert-sorted "Insert an element in sorted order"
   [xx elt]

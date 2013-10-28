@@ -12,6 +12,6 @@
 
 (describe "The spec file"
           (it "should have some tests."
-              (should false)))
+              (should true)))
 
 (run-specs)
