@@ -122,43 +122,131 @@ node we know we have an infinite loop."
 (defn insert-front "Insert an element into the front of a dlist."
   [xx elt]
   (let [nu-node (dnode (d-sentinel xx) elt (-> xx d-sentinel d-next))]
-    (reset-d-next! (d-sentinel xx) nu-node)
-    (reset-d-prev! (-> nu-node d-next) nu-node)))
+    (do
+
+      (reset-d-next! (d-sentinel xx) nu-node)
+      (reset-d-prev! (-> nu-node d-next) nu-node)
+       (reset-d-size! xx (+ 1 (d-size xx)))
+    )
+
+
+))
 
 (defn insert-last "Insert an element into the back of a dlist."
   [xx elt]
- (let [nu-node (dnode (d-sentinel xx) elt (-> xx d-sentinel d-next))]
-    (reset-d-next! (d-sentinel xx) nu-node)
-    (reset-d-prev! (-> nu-node d-next) nu-node)))
- nil)
+  (let [nu-node (dnode (d-prev (d-sentinel xx)) elt (-> xx  d-sentinel))]
+    (do
 
+      (reset-d-next! (-> nu-node d-prev) nu-node)
+      (reset-d-prev! (-> nu-node d-next) nu-node)
+      (reset-d-size! xx (+ 1 (d-size xx)))
+    )
+
+)  
+)
+ 
+(declare auxSort)
 (defn insert-sorted "Insert an element in sorted order"
   [xx elt]
-  nil)
+(do
+(auxSort (d-next (d-sentinel xx)) elt (d-sentinel xx))
+(reset-d-size! xx (dec (d-size xx)))
+(show-dlist xx)
+  
+)
+)  
+(declare placeBefore)
+(defn auxSort [node elt sen]
+  (cond (identical? node sen) (placeBefore node (dnode elt))
+        (> (d-data node) elt) (placeBefore node (dnode elt))
+        :else (auxSort (d-next node) elt sen))
+    
+)
+(defn placeBefore [target subject]
+  (do
+    (reset-d-prev! subject (d-prev target))
+    (reset-d-next! (d-prev target) subject)
+    (reset-d-prev! target subject)
+    (reset-d-next! subject target)
+    )
+)
+
+(defn index-forward-aux [xx elt count sen]
+(cond (identical? xx sen) nil
+      (= (d-data xx) elt) count
+      :be-that-way (index-forward-aux (d-next xx) elt (+ count 1) sen)
+)
+)
+
+
 
 (defn index-forward "Return if an element is in the list, going forward.  Return the index, starting from zero.
 I.e., if it was the first element, return 0; second, return 1..."
   [xx elt]
-  nil)
-
+  (index-forward-aux (d-next (d-sentinel xx)) elt 0 (d-sentinel xx))
+)
+(defn index-back-aux [xx elt count sen]
+(cond (identical? xx sen) nil
+      (= (d-data xx) elt) count
+      :be-that-way (index-back-aux (d-prev xx) elt (dec count) sen)
+)
+)
 (defn index-backward "Return if an element is in the list, from the back.  Return the index, starting from negative one.
 I.e., if it was the last element, return -1; penultimate, return -2..."
   [xx elt]
-  nil)
-
+  (index-back-aux (d-prev (d-sentinel xx)) elt -1 (d-sentinel xx))
+)
+(declare aux-list-to-dlist)
 (defn list-to-dlist "Given a Clojure list, return a DList with the same content."
   [xx]
-  nil)
+   (let [p (dlist)] 
+(do
+(aux-list-to-dlist xx p)
+p)
+)
+)
+(defn aux-list-to-dlist [xx list] 
+(if (= nil xx) nil
+(let [p (dnode (first xx)) q (insert-last list p)] (aux-list-to-dlist (rest xx) list))
 
+
+
+
+)
+)
+
+(defn delete-aux [node value sentinel]
+(cond (identical? sentinel node) value
+      (= (d-data node) value) (do (reset-d-prev! (d-next node) (d-prev node)) (reset-d-next! (d-prev node) (d-next node)) "success")
+      :shutup (delete-aux (d-next node) value sentinel)
+)
+)
 (defn delete "Find and remove an element from the dlist.  Does nothing if the elment is not there.
 Uses sentinels, so it's very short."
   [xx victim]
-  nil)
+ (delete-aux (d-next (d-sentinel xx)) victim (d-sentinel xx))    
 
+)
+
+(defn reverse-aux [xx node sen] (if (identical? node sen) (show-dlist xx) (let [p node] (do (reset-d-next! node (d-prev node)) (reset-d-prev! node (d-next p)) (reverse-aux xx (d-prev node) sen)))))
 (defn reverse "Reverse the doubly linked list in place.  No new DNode or DList records are created."
   [xx]
-  nil)
+  
+(reverse-aux xx (-> xx d-sentinel d-prev) (-> xx d-sentinel))
 
+)
+
+
+(declare show-dlist-aux)
+
+(defn show-dlistr-aux "Run through the data of a Dlist, stopping when reaching the sentinel or
+discovering an infintite loop.  The runner goes twice as fast through the list; if it reaches
+node we know we have an infinite loop."
+  [sen node runner]
+  (cond (identical? sen node) nil
+        (identical? node runner) '(infinite-loop)
+        :else (cons (show-dlist-aux sen (d-next node) (-> runner d-next d-next)) (d-data node) )))
 (defn show-dlist-reverse "Like show-dlist, but returns the items in reverse order."
-  [xx]
-  nil)
+   [xx] (show-dlistr-aux (d-sentinel xx) (-> xx d-sentinel d-next) 
+                       (-> xx d-sentinel d-next d-next)))
+
