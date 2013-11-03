@@ -66,13 +66,13 @@
 )
 
 (describe "reverse"
-(it "should fix forward edges" (let [p (dlist)] (should= (do (insert-last p 2) (insert-last p 6) (insert-last p 5) (reverse p) (show-dlist p)) (5 6 2))))
-(it "should make a deletion" (let [p (dlist)] (should= (do (insert-last p 2) (insert-last p 6) (insert-last p 5) (reverse p ) (show-dlist-reverse p)) (2 6 5))))
+(it "should fix forward edges" (let [p (dlist)] (should= (do (insert-last p 2) (insert-last p 6) (insert-last p 5) (reverse p) (show-dlist p)) '(5 6 2))))
+(it "should make a deletion" (let [p (dlist)] (should= (do (insert-last p 2) (insert-last p 6) (insert-last p 5) (reverse p ) (show-dlist-reverse p)) '(2 6 5))))
 )
 
 (describe "list-to-dlist" 
-(it "should work going forward" (let [p (dlist)] (should= (do (insert-last p 2) (insert-last p 6) (insert-last p 5) (show-dlist p))  (show-dlist (list-to-dlist (2 6 5))))))
-(it "should work going backward" (let [p (dlist)] (should= (do (insert-last p 2) (insert-last p 6) (insert-last p 5) (show-dlist-reverse p))  (show-dlist-reverse (list-to-dlist (2 6 5))))))
+(it "should work going forward" (let [p (dlist)] (should= (do (insert-last p 2) (insert-last p 6) (insert-last p 5) (show-dlist p))  (show-dlist (list-to-dlist '(2 6 5))))))
+(it "should work going backward" (let [p (dlist)] (should= (do (insert-last p 2) (insert-last p 6) (insert-last p 5) (show-dlist-reverse p))  (show-dlist-reverse (list-to-dlist '(2 6 5))))))
 
 )
 

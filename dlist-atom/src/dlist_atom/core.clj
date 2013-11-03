@@ -230,25 +230,31 @@ Uses sentinels, so it's very short."
 
 )
 
-(defn reverse-aux [xx node sen] (if (identical? node sen) (show-dlist xx) (let [p node] (do (reset-d-next! node (d-prev node)) (reset-d-prev! node (d-next p)) (reverse-aux xx (d-prev node) sen)))))
+(defn reverse-aux [xx node sen] 
+(if (identical? node sen)
+ (let [p (d-next node)] (do (reset-d-next! node (d-prev node)) (reset-d-prev! node p) (show-dlist xx))) 
+ (let [p (d-next node)] (do (reset-d-next! node (d-prev node)) (reset-d-prev! node p) (reverse-aux xx (d-prev node) sen))))
+)
+
 (defn reverse "Reverse the doubly linked list in place.  No new DNode or DList records are created."
   [xx]
   
-(reverse-aux xx (-> xx d-sentinel d-prev) (-> xx d-sentinel))
+(reverse-aux xx (-> xx d-sentinel d-next) (-> xx d-sentinel))
 
 )
 
 
-(declare show-dlist-aux)
+;(declare show-dlist-aux)
 
-(defn show-dlistr-aux "Run through the data of a Dlist, stopping when reaching the sentinel or
-discovering an infintite loop.  The runner goes twice as fast through the list; if it reaches
-node we know we have an infinite loop."
-  [sen node runner]
-  (cond (identical? sen node) nil
-        (identical? node runner) '(infinite-loop)
-        :else (cons (show-dlist-aux sen (d-next node) (-> runner d-next d-next)) (d-data node) )))
-(defn show-dlist-reverse "Like show-dlist, but returns the items in reverse order."
-   [xx] (show-dlistr-aux (d-sentinel xx) (-> xx d-sentinel d-next) 
-                       (-> xx d-sentinel d-next d-next)))
+;(defn show-dlistr-aux "Run through the data of a Dlist, stopping when reaching the sentinel or
+;discovering an infintite loop.  The runner goes twice as fast through the list; if it reaches
+;node we know we have an infinite loop."
+;  [sen node runner]
+;  (cond (identical? sen node) nil
+;        (identical? node runner) '(infinite-loop)
+ ;       :else (cons (show-dlist-aux sen (d-next node) (-> runner d-next d-next)) (d-data node) )))
+;(defn show-dlist-reverse "Like show-dlist, but returns the items in reverse order."
+  ; [xx] (show-dlistr-aux (d-sentinel xx) (-> xx d-sentinel d-next) 
+        ;               (-> xx d-sentinel d-next d-next)))
 
+(defn show-dlist-reverse [xx] (show-dlist (reverse xx)))
