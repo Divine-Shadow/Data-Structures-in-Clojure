@@ -152,7 +152,7 @@ node we know we have an infinite loop."
   [xx elt]
 (do
 (auxSort (d-next (d-sentinel xx)) elt (d-sentinel xx))
-(reset-d-size! xx (dec (d-size xx)))
+(reset-d-size! xx (inc (d-size xx)))
 (show-dlist xx)
   
 )
@@ -208,14 +208,14 @@ p)
 )
 )
 (defn aux-list-to-dlist [xx list] 
-(if (= nil xx) nil
-(let [p (dnode (first xx)) q (insert-last list p)] (aux-list-to-dlist (rest xx) list))
+(if (empty? xx) nil
+ (do (insert-last list (first xx)) (aux-list-to-dlist (rest xx) list)))
 
 
 
 
 )
-)
+
 
 (defn delete-aux [node value sentinel]
 (cond (identical? sentinel node) value
