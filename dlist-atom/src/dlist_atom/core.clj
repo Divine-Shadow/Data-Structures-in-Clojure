@@ -29,10 +29,12 @@ and next pointers nil."
 
 (defn dlist []
   (let [sentinel (dnode 'sentinel)]
-    (do 
-      (reset! (:next sentinel) sentinel)
-      (reset! (:prev sentinel) sentinel)
-      (DList. sentinel (atom 0)))))
+    (do
+      (reset! (:next sentinel) sentinel) 
+      (reset! (:prev sentinel) sentinel) 
+      (DList. sentinel (atom 0)))
+)
+)
     
 ;; ## Accessors
 ;;
@@ -102,7 +104,7 @@ and next pointers nil."
 discovering an infintite loop.  The runner goes twice as fast through the list; if it reaches
 node we know we have an infinite loop."
   [sen node runner]
-  (cond (identical? sen node) '()
+  (cond  (identical? sen node) '()
         (identical? node runner) '(infinite-loop)
         :else (cons (d-data node) (show-dlist-aux sen (d-next node) (-> runner d-next d-next)))))
 
@@ -124,9 +126,9 @@ node we know we have an infinite loop."
   (let [nu-node (dnode (d-sentinel xx) elt (-> xx d-sentinel d-next))]
     (do
 
-      (reset-d-next! (d-sentinel xx) nu-node)
-      (reset-d-prev! (-> nu-node d-next) nu-node)
-       (reset-d-size! xx (+ 1 (d-size xx)))
+      (reset-d-next! (d-sentinel xx) nu-node) (print 1)
+      (reset-d-prev! (-> nu-node d-next) nu-node) (print 2)
+       (reset-d-size! xx (+ 1 (d-size xx))) (print 3)
     )
 
 
