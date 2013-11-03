@@ -1,5 +1,5 @@
 Lab report for Doubly Linked Lists with Atoms - wmolchan
-Timestamp: 2013-11-02 17:48:54
+Timestamp: 2013-11-02 21:19:01
 
 |  :scenario |                                :title |                                      :result | :score |
 |------------+---------------------------------------+----------------------------------------------+--------|
