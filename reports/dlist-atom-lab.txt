@@ -1,5 +1,5 @@
 Lab report for Doubly Linked Lists with Atoms - wmolchan
-Timestamp: 2013-11-03 15:20:34
+Timestamp: 2013-11-03 15:37:58
 
 |  :scenario |                                   :title |                                   :result | :score |
 |------------+------------------------------------------+-------------------------------------------+--------|
@@ -9,13 +9,13 @@ Timestamp: 2013-11-03 15:20:34
 |    broke-2 |  Insert front doens't set previous link. | Fail: Student tests did not detect error. |      0 |
 |    broke-3 |               Insert last inserts front. |      Pass: Student tests detected errors. |      5 |
 |    broke-4 |        Insert-sorted misses a back-link. |      Pass: Student tests detected errors. |      5 |
-|    broke-5 |         Index-forward doesn't return nil | Fail: Student tests did not detect error. |      0 |
+|    broke-5 |         Index-forward doesn't return nil |      Pass: Student tests detected errors. |      5 |
 |    broke-6 | Index-backward returns positive numbers. |      Pass: Student tests detected errors. |      5 |
 |    broke-7 |                Index-backward off by one |      Pass: Student tests detected errors. |      5 |
 |    broke-8 |            Delete assumes list is sorted |      Pass: Student tests detected errors. |      5 |
 |    broke-9 |      Reverse doesn't fix the back edges. |      Pass: Student tests detected errors. |      5 |
 |   broke-10 |        List to Dlist messes up pointers. |      Pass: Student tests detected errors. |      5 |
-|      total |                              Total Score |                                           |     88 |
+|      total |                              Total Score |                                           |     93 |
 
 Details:
 
@@ -31,23 +31,23 @@ Failures:
           got: 7 (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:248
 
-Finished in 0.02161 seconds
+Finished in 0.01467 seconds
 36 examples, 1 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core, being replaced by: #'dlist-atom.core/reverse
 
 
 ** Details for Test student tests vs instructor code
 
-..................
+....................
 
-Finished in 0.01684 seconds
-18 examples, 0 failures
+Finished in 0.00568 seconds
+20 examples, 0 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
 
 ** Details for Insert front doesn't increment size.
 
-....F.............
+....F...............
 
 Failures:
 
@@ -56,23 +56,23 @@ Failures:
           got: 0 (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-1/spec/dlist_atom/core_spec.clj:19
 
-Finished in 0.02069 seconds
-18 examples, 1 failures
+Finished in 0.01738 seconds
+20 examples, 1 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
 
 ** Details for Insert front doens't set previous link.
 
-..................
+....................
 
-Finished in 0.00836 seconds
-18 examples, 0 failures
+Finished in 0.00483 seconds
+20 examples, 0 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
 
 ** Details for Insert last inserts front.
 
-.......FFF..FFFF..
+........FFF...FFFF..
 
 Failures:
 
@@ -94,31 +94,31 @@ Failures:
   4) delete should make a deletion
      Expected: (6 2)
           got: (2 6) (using =)
-     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-3/spec/dlist_atom/core_spec.clj:63
+     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-3/spec/dlist_atom/core_spec.clj:64
 
   5) delete should make a deletion
      Expected: (5 6)
           got: (6 5) (using =)
-     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-3/spec/dlist_atom/core_spec.clj:64
+     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-3/spec/dlist_atom/core_spec.clj:65
 
   6) reverse should fix forward edges
      Expected: (2 6 5)
           got: (5 6 2) (using =)
-     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-3/spec/dlist_atom/core_spec.clj:69
+     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-3/spec/dlist_atom/core_spec.clj:70
 
   7) reverse should make a deletion
      Expected: (5 6 2)
           got: (2 6 5) (using =)
-     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-3/spec/dlist_atom/core_spec.clj:70
+     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-3/spec/dlist_atom/core_spec.clj:71
 
-Finished in 0.03951 seconds
-18 examples, 7 failures
+Finished in 0.03882 seconds
+20 examples, 7 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
 
 ** Details for Insert-sorted misses a back-link.
 
-........FF........
+.........FF.........
 
 Failures:
 
@@ -132,105 +132,112 @@ Failures:
           got: (3 2 1) (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-4/spec/dlist_atom/core_spec.clj:49
 
-Finished in 0.10130 seconds
-18 examples, 2 failures
+Finished in 0.03804 seconds
+20 examples, 2 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
 
 ** Details for Index-forward doesn't return nil
 
-..................
+............F.......
 
-Finished in 0.00470 seconds
-18 examples, 0 failures
+Failures:
+
+  1) Index-forward  should return 0
+     Expected: 3
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-5/spec/dlist_atom/core_spec.clj:56
+
+Finished in 0.01603 seconds
+20 examples, 1 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
 
 ** Details for Index-backward returns positive numbers.
 
-...........F......
+.............F......
 
 Failures:
 
   1)  Index-backward should find the index
      Expected: 1
           got: -2 (using =)
-     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-6/spec/dlist_atom/core_spec.clj:58
+     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-6/spec/dlist_atom/core_spec.clj:59
 
-Finished in 0.01931 seconds
-18 examples, 1 failures
+Finished in 0.01628 seconds
+20 examples, 1 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
 
 ** Details for Index-backward off by one
 
-...........F......
+.............F......
 
 Failures:
 
   1)  Index-backward should find the index
      Expected: -1
           got: -2 (using =)
-     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-7/spec/dlist_atom/core_spec.clj:58
+     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-7/spec/dlist_atom/core_spec.clj:59
 
-Finished in 0.01154 seconds
-18 examples, 1 failures
+Finished in 0.02618 seconds
+20 examples, 1 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
 
 ** Details for Delete assumes list is sorted
 
-............F.....
+..............F.....
 
 Failures:
 
   1) delete should make a deletion
      Expected: (2 6 5)
           got: (2 6) (using =)
-     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-8/spec/dlist_atom/core_spec.clj:63
+     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-8/spec/dlist_atom/core_spec.clj:64
 
-Finished in 0.10917 seconds
-18 examples, 1 failures
+Finished in 0.08891 seconds
+20 examples, 1 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
 
 ** Details for Reverse doesn't fix the back edges.
 
-..............FF..
+................FF..
 
 Failures:
 
   1) reverse should fix forward edges
      Expected: (5)
           got: (5 6 2) (using =)
-     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-9/spec/dlist_atom/core_spec.clj:69
+     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-9/spec/dlist_atom/core_spec.clj:70
 
   2) reverse should make a deletion
      Expected: (5 6 2)
           got: (2 6 5) (using =)
-     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-9/spec/dlist_atom/core_spec.clj:70
+     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-9/spec/dlist_atom/core_spec.clj:71
 
-Finished in 0.05478 seconds
-18 examples, 2 failures
+Finished in 0.10731 seconds
+20 examples, 2 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
 
 ** Details for List to Dlist messes up pointers.
 
-................FF
+..................FF
 
 Failures:
 
   1) list-to-dlist should work going forward
      Expected: (2 6 5)
           got: (5 6 2) (using =)
-     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-10/spec/dlist_atom/core_spec.clj:74
+     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-10/spec/dlist_atom/core_spec.clj:75
 
   2) list-to-dlist should work going backward
      Expected: (5 6 2)
           got: (2 6 5) (using =)
-     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-10/spec/dlist_atom/core_spec.clj:75
+     /home/grader/quarry/dlist-atom-lab/wmolchan/broke-10/spec/dlist_atom/core_spec.clj:76
 
-Finished in 0.02116 seconds
-18 examples, 2 failures
+Finished in 0.06476 seconds
+20 examples, 2 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
