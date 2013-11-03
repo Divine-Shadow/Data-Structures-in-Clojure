@@ -1,9 +1,9 @@
 Lab report for Doubly Linked Lists with Atoms - wmolchan
-Timestamp: 2013-11-03 15:05:33
+Timestamp: 2013-11-03 15:20:34
 
 |  :scenario |                                   :title |                                   :result | :score |
 |------------+------------------------------------------+-------------------------------------------+--------|
-|    working |    Test student code vs instructor tests |                                      Fail |     27 |
+|    working |    Test student code vs instructor tests |                                      Fail |     43 |
 | qualifying |    Test student tests vs instructor code |                                      Pass |      5 |
 |    broke-1 |     Insert front doesn't increment size. |      Pass: Student tests detected errors. |      5 |
 |    broke-2 |  Insert front doens't set previous link. | Fail: Student tests did not detect error. |      0 |
@@ -15,159 +15,24 @@ Timestamp: 2013-11-03 15:05:33
 |    broke-8 |            Delete assumes list is sorted |      Pass: Student tests detected errors. |      5 |
 |    broke-9 |      Reverse doesn't fix the back edges. |      Pass: Student tests detected errors. |      5 |
 |   broke-10 |        List to Dlist messes up pointers. |      Pass: Student tests detected errors. |      5 |
-|      total |                              Total Score |                                           |     72 |
+|      total |                              Total Score |                                           |     88 |
 
 Details:
 
 
 ** Details for Test student code vs instructor tests
 
-...123.123.123.123F123123123.123123123.123123123F...F..F...F..FFF123.123123123.123.123123123.FFFFFF
+...123.123.123.123.123123123.123123123.123123123.................123.123123123.123.123123123....F..
 
 Failures:
 
-  1) Insert-front on empty list will convert to a list properly
-     
-     java.lang.NullPointerException
-     	... 2 stack levels elided ...
-     	at dlist_atom.core$d_next.invoke(core.clj:87)
-     	at dlist_atom.core$show_dlist.invoke(core.clj:100)
-     	at dlist_atom.core$show_dlist_reverse.invoke(core.clj:260)
-     	at dlist_atom.core_spec$eval1272$fn__1273$fn__1294.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:50)
-     	... 42 stack levels elided ...
+  1) delete deletes elements properly.
+     Expected: 6
+          got: 7 (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:248
 
-  2) Insert-front multiple times will convert to a list properly
-     
-     java.lang.NullPointerException
-     	... 2 stack levels elided ...
-     	at dlist_atom.core$d_next.invoke(core.clj:87)
-     	at dlist_atom.core$show_dlist.invoke(core.clj:100)
-     	at dlist_atom.core$show_dlist_reverse.invoke(core.clj:260)
-     	at dlist_atom.core_spec$eval1307$fn__1308$fn__1323.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:75)
-     	... 42 stack levels elided ...
-
-  3) Insert-last on empty list will convert to a list properly
-     
-     java.lang.NullPointerException
-     	... 2 stack levels elided ...
-     	at dlist_atom.core$d_next.invoke(core.clj:87)
-     	at dlist_atom.core$show_dlist.invoke(core.clj:100)
-     	at dlist_atom.core$show_dlist_reverse.invoke(core.clj:260)
-     	at dlist_atom.core_spec$eval1336$fn__1337$fn__1358.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:101)
-     	... 42 stack levels elided ...
-
-  4) Insert-last multiple times will convert to a list properly
-     
-     java.lang.NullPointerException
-     	... 2 stack levels elided ...
-     	at dlist_atom.core$d_next.invoke(core.clj:87)
-     	at dlist_atom.core$show_dlist.invoke(core.clj:100)
-     	at dlist_atom.core$show_dlist_reverse.invoke(core.clj:260)
-     	at dlist_atom.core_spec$eval1371$fn__1372$fn__1387.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:125)
-     	... 42 stack levels elided ...
-
-  5) Insert-sorted on empty list will convert to a list properly
-     
-     java.lang.NullPointerException
-     	... 2 stack levels elided ...
-     	at dlist_atom.core$d_next.invoke(core.clj:87)
-     	at dlist_atom.core$show_dlist.invoke(core.clj:100)
-     	at dlist_atom.core$show_dlist_reverse.invoke(core.clj:260)
-     	at dlist_atom.core_spec$eval1400$fn__1401$fn__1422.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:152)
-     	... 42 stack levels elided ...
-
-  6) Insert-sorted multiple times will insert 10 20 30 properly
-     
-     java.lang.NullPointerException
-     	... 2 stack levels elided ...
-     	at dlist_atom.core$d_next.invoke(core.clj:87)
-     	at dlist_atom.core$show_dlist.invoke(core.clj:100)
-     	at dlist_atom.core$show_dlist_reverse.invoke(core.clj:260)
-     	at dlist_atom.core_spec$eval1435$fn__1436$fn__1451.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:176)
-     	... 42 stack levels elided ...
-
-  7) Insert-sorted multiple times will insert 30 20 10 properly
-     
-     java.lang.NullPointerException
-     	... 2 stack levels elided ...
-     	at dlist_atom.core$d_next.invoke(core.clj:87)
-     	at dlist_atom.core$show_dlist.invoke(core.clj:100)
-     	at dlist_atom.core$show_dlist_reverse.invoke(core.clj:260)
-     	at dlist_atom.core_spec$eval1435$fn__1436$fn__1457.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:183)
-     	... 42 stack levels elided ...
-
-  8) Insert-sorted multiple times will insert 10 30 20 properly
-     
-     java.lang.NullPointerException
-     	... 2 stack levels elided ...
-     	at dlist_atom.core$d_next.invoke(core.clj:87)
-     	at dlist_atom.core$show_dlist.invoke(core.clj:100)
-     	at dlist_atom.core$show_dlist_reverse.invoke(core.clj:260)
-     	at dlist_atom.core_spec$eval1435$fn__1436$fn__1463.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:190)
-     	... 42 stack levels elided ...
-
-  9) list-to-dlist creates an empty list properly
-     
-     java.lang.NullPointerException
-     	... 2 stack levels elided ...
-     	at dlist_atom.core$d_next.invoke(core.clj:87)
-     	at dlist_atom.core$show_dlist.invoke(core.clj:100)
-     	at dlist_atom.core$show_dlist_reverse.invoke(core.clj:260)
-     	at dlist_atom.core_spec$eval1534$fn__1535$fn__1540.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:230)
-     	... 42 stack levels elided ...
-
-  10) list-to-dlist creates full lists properly
-     
-     java.lang.NullPointerException
-     	... 2 stack levels elided ...
-     	at dlist_atom.core$d_next.invoke(core.clj:87)
-     	at dlist_atom.core$show_dlist.invoke(core.clj:100)
-     	at dlist_atom.core$show_dlist_reverse.invoke(core.clj:260)
-     	at dlist_atom.core_spec$eval1534$fn__1535$fn__1546.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:234)
-     	... 42 stack levels elided ...
-
-  11) delete should do nothing to empty lists.
-     
-     java.lang.NullPointerException
-     	... 2 stack levels elided ...
-     	at dlist_atom.core$d_next.invoke(core.clj:87)
-     	at dlist_atom.core$show_dlist.invoke(core.clj:100)
-     	at dlist_atom.core$show_dlist_reverse.invoke(core.clj:260)
-     	at dlist_atom.core_spec$eval1559$fn__1560$fn__1565.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:241)
-     	... 42 stack levels elided ...
-
-  12) delete deletes elements properly.
-     
-     java.lang.NullPointerException
-     	... 2 stack levels elided ...
-     	at dlist_atom.core$d_next.invoke(core.clj:87)
-     	at dlist_atom.core$show_dlist.invoke(core.clj:100)
-     	at dlist_atom.core$show_dlist_reverse.invoke(core.clj:260)
-     	at dlist_atom.core_spec$eval1559$fn__1560$fn__1573.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:247)
-     	... 42 stack levels elided ...
-
-  13) reverse should not mess up empty lists.
-     
-     java.lang.NullPointerException
-     	... 2 stack levels elided ...
-     	at dlist_atom.core$d_next.invoke(core.clj:87)
-     	at dlist_atom.core$show_dlist.invoke(core.clj:100)
-     	at dlist_atom.core$show_dlist_reverse.invoke(core.clj:260)
-     	at dlist_atom.core_spec$eval1642$fn__1643$fn__1648.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:292)
-     	... 42 stack levels elided ...
-
-  14) reverse should reverse full lists.
-     
-     java.lang.NullPointerException
-     	... 2 stack levels elided ...
-     	at dlist_atom.core$d_next.invoke(core.clj:87)
-     	at dlist_atom.core$show_dlist.invoke(core.clj:100)
-     	at dlist_atom.core$show_dlist_reverse.invoke(core.clj:260)
-     	at dlist_atom.core_spec$eval1642$fn__1643$fn__1656.invoke(/home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:298)
-     	... 42 stack levels elided ...
-
-Finished in 0.01953 seconds
-36 examples, 14 failures
+Finished in 0.02161 seconds
+36 examples, 1 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core, being replaced by: #'dlist-atom.core/reverse
 
 
@@ -175,7 +40,7 @@ WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-a
 
 ..................
 
-Finished in 0.00420 seconds
+Finished in 0.01684 seconds
 18 examples, 0 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -191,7 +56,7 @@ Failures:
           got: 0 (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-1/spec/dlist_atom/core_spec.clj:19
 
-Finished in 0.00959 seconds
+Finished in 0.02069 seconds
 18 examples, 1 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -200,7 +65,7 @@ WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-a
 
 ..................
 
-Finished in 0.01294 seconds
+Finished in 0.00836 seconds
 18 examples, 0 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -246,7 +111,7 @@ Failures:
           got: (2 6 5) (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-3/spec/dlist_atom/core_spec.clj:70
 
-Finished in 0.03796 seconds
+Finished in 0.03951 seconds
 18 examples, 7 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -267,7 +132,7 @@ Failures:
           got: (3 2 1) (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-4/spec/dlist_atom/core_spec.clj:49
 
-Finished in 0.08403 seconds
+Finished in 0.10130 seconds
 18 examples, 2 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -276,7 +141,7 @@ WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-a
 
 ..................
 
-Finished in 0.00468 seconds
+Finished in 0.00470 seconds
 18 examples, 0 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -292,7 +157,7 @@ Failures:
           got: -2 (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-6/spec/dlist_atom/core_spec.clj:58
 
-Finished in 0.01734 seconds
+Finished in 0.01931 seconds
 18 examples, 1 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -308,7 +173,7 @@ Failures:
           got: -2 (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-7/spec/dlist_atom/core_spec.clj:58
 
-Finished in 0.02172 seconds
+Finished in 0.01154 seconds
 18 examples, 1 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -324,7 +189,7 @@ Failures:
           got: (2 6) (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-8/spec/dlist_atom/core_spec.clj:63
 
-Finished in 0.10134 seconds
+Finished in 0.10917 seconds
 18 examples, 1 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -345,7 +210,7 @@ Failures:
           got: (2 6 5) (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-9/spec/dlist_atom/core_spec.clj:70
 
-Finished in 0.10100 seconds
+Finished in 0.05478 seconds
 18 examples, 2 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -366,6 +231,6 @@ Failures:
           got: (2 6 5) (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-10/spec/dlist_atom/core_spec.clj:75
 
-Finished in 0.06027 seconds
+Finished in 0.02116 seconds
 18 examples, 2 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
