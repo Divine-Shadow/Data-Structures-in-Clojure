@@ -230,19 +230,34 @@ Uses sentinels, so it's very short."
 
 )
 
-(defn reverse-aux [xx node sen] 
-(if (identical? node sen)
- (let [p (d-next node)] (do (reset-d-next! node (d-prev node)) (reset-d-prev! node p) (show-dlist xx))) 
- (let [p (d-next node)] (do (reset-d-next! node (d-prev node)) (reset-d-prev! node p) (reverse-aux xx (d-prev node) sen))))
-)
+;(defn reverse-aux [xx node sen] 
+;(if (identical? node sen)
+; (let [p (d-next node)] (do (reset-d-next! node (d-prev node)) (reset-d-prev! node p) (show-dlist xx))) 
+; (let [p (d-next node)] (do (reset-d-next! node (d-prev node)) (reset-d-prev! node p) (reverse-aux xx (d-prev node) sen))))
+;)
 
-(defn reverse "Reverse the doubly linked list in place.  No new DNode or DList records are created."
-  [xx]
+;(defn reverse "Reverse the doubly linked list in place.  No new DNode or DList records are created."
+;  [xx]
   
-(reverse-aux xx (-> xx d-sentinel d-next) (-> xx d-sentinel))
+;(reverse-aux xx (-> xx d-sentinel d-next) (-> xx d-sentinel))
 
-)
+;)
+(defn rev-aux [sent node]
+(if (identical? sent node) 
+(do
+(let [oldNext (d-next node)]
+(reset-d-next!  node (d-prev node))
+(reset-d-prev! node oldNext)))
+(do
+(let [oldNext (d-next node)]
+(reset-d-next!  node (d-prev node))
+(reset-d-prev! node oldNext)
+(rev-aux sent (d-next node))))))
+ 
 
+(defn reverse "Reverse the doubly linked list in place. No new DNode or DList records are created." [xx]
+
+(rev-aux (-> xx d-sentinel) (-> xx d-sentinel d-prev)))
 
 ;(declare show-dlist-aux)
 
@@ -257,4 +272,4 @@ Uses sentinels, so it's very short."
   ; [xx] (show-dlistr-aux (d-sentinel xx) (-> xx d-sentinel d-next) 
         ;               (-> xx d-sentinel d-next d-next)))
 
-(defn show-dlist-reverse [xx] (show-dlist (reverse xx)))
+(defn show-dlist-reverse [xx] (let [p xx] (do (reverse p) (let [e (show-dlist p)] (reverse p) e))))
