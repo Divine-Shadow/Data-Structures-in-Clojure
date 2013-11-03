@@ -18,7 +18,7 @@
           (it "should increment size"
               (let [p (dlist)] (should=  (+ 1 (d-size p)) (do (insert-front p 5) (d-size p)))) )
 
-         ; (it "should set the previous link" (let [p (dlist)] (should= (do (insert-front p 2) (insert-front p 3) (show-dlist p)) '(3 2) )))
+          (it "should set the previous link" (let [p (dlist)] (should= (do (insert-front p 2) (insert-front p 3) (show-dlist p)) '(3 2) )))
 
         ;  (it "should set the previousnext link" (let [p (dlist)] (should= (do (insert-front p 2) (insert-front p 3) (show-dlist-reverse p)) '(2 3) )))
         ;  (it "should not insert in back" (let [p (insert-front (dlist) 3) q (insert-front p 4)] (should= (first (show-dlist q)) 4)))
@@ -53,6 +53,7 @@
 (describe "Index-forward "
 
 (it "should find the index" (let [p (dlist)] (should= (do (insert-last p 2) (insert-last p 3) (insert-last p 5) (index-forward p 3)) 1))) 
+(it "should return 0" (let [p (dlist)] (should= (do (insert-last p 2) (insert-last p 3) (insert-last p 5) (index-forward p 9)) nil))) 
 )
 (describe" Index-backward"
 (it "should find the index" (let [p (dlist)] (should= (do (insert-last p 2) (insert-last p 3) (insert-last p 5) (index-backward p 3)) -2)))
