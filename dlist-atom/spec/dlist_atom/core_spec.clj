@@ -20,7 +20,7 @@
 
           (it "should set the previous link" (let [p (dlist)] (should= (do (insert-front p 2) (insert-front p 3) (show-dlist p)) '(3 2) )))
 
-        ;  (it "should set the previousnext link" (let [p (dlist)] (should= (do (insert-front p 2) (insert-front p 3) (show-dlist-reverse p)) '(2 3) )))
+          (it "should set the previousnext link" (let [p (dlist)] (should= (do (insert-front p 2) (insert-front p 3) (show-dlist-reverse p)) '(2 3) )))
         ;  (it "should not insert in back" (let [p (insert-front (dlist) 3) q (insert-front p 4)] (should= (first (show-dlist q)) 4)))
 )
 
