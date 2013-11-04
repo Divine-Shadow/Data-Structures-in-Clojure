@@ -1,0 +1,49 @@
+Lab report for Stack and Queue Lab - groman
+Timestamp: 2013-10-21 21:03:24
+
+|  :scenario |                                :title |                   :result | :score |
+|------------+---------------------------------------+---------------------------+--------|
+|    working | Test student code vs instructor tests |                    Errors |      0 |
+| qualifying | Test student tests vs instructor code |                    Errors |      0 |
+| qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
+|      total |                           Total Score |                           |      0 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+E
+
+Errors:
+
+  1) java.lang.RuntimeException: Unable to resolve symbol: s in this context, compiling:(fifolifo/core.clj:40:4)
+     java.lang.RuntimeException: Unable to resolve symbol: s in this context, compiling:(fifolifo/core.clj:40:4)
+     	... 41 stack levels elided ...
+     	at fifolifo.core_spec$eval874$loading__4910__auto____875.invoke(/home/grader/quarry/fifolifo-lab/groman/working/spec/fifolifo/core_spec.clj:1)
+     	at fifolifo.core_spec$eval874.invoke(/home/grader/quarry/fifolifo-lab/groman/working/spec/fifolifo/core_spec.clj:1)
+     	... 25 stack levels elided ...
+     Caused by: java.lang.RuntimeException: Unable to resolve symbol: s in this context
+     	... 45 stack levels elided ...
+     	at fifolifo.core_spec$eval874$loading__4910__auto____875.invoke(/home/grader/quarry/fifolifo-lab/groman/working/spec/fifolifo/core_spec.clj:1)
+     	at fifolifo.core_spec$eval874.invoke(/home/grader/quarry/fifolifo-lab/groman/working/spec/fifolifo/core_spec.clj:1)
+     	... 25 stack levels elided ...
+
+Finished in 0.00000 seconds
+1 examples, 0 failures, 1 errors
+
+
+** Details for Test student tests vs instructor code
+
+E...
+
+Errors:
+
+  1) java.lang.RuntimeException: Unable to resolve symbol: desribe in this context, compiling:(/home/grader/quarry/fifolifo-lab/groman/qualifying/spec/fifolifo/core_spec.clj:23:1)
+     java.lang.RuntimeException: Unable to resolve symbol: desribe in this context, compiling:(/home/grader/quarry/fifolifo-lab/groman/qualifying/spec/fifolifo/core_spec.clj:23:1)
+     	... 35 stack levels elided ...
+     Caused by: java.lang.RuntimeException: Unable to resolve symbol: desribe in this context
+     	... 39 stack levels elided ...
+
+Finished in 0.00085 seconds
+4 examples, 0 failures, 1 errors

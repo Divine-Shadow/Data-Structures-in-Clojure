@@ -1,0 +1,351 @@
+Lab report for Stack and Queue Lab - mperez9
+Timestamp: 2013-10-21 22:31:49
+
+|  :scenario |                                  :title |                              :result | :score |
+|------------+-----------------------------------------+--------------------------------------+--------|
+|    working |   Test student code vs instructor tests |                                 Pass |     45 |
+| qualifying |   Test student tests vs instructor code |                                 Pass |      5 |
+|    broke-1 |            Push doesn't increment size. | Pass: Student tests detected errors. |      5 |
+|    broke-2 |       Pop of empty makes size negative. | Pass: Student tests detected errors. |      5 |
+|    broke-3 |            Pop doesn't remove elements. | Pass: Student tests detected errors. |      5 |
+|    broke-4 |                  Pop reverses elements. | Pass: Student tests detected errors. |      5 |
+|    broke-5 |         Enqueue doesn't increment size. | Pass: Student tests detected errors. |      5 |
+|    broke-6 |   Dequeue of empty makes size negative. | Pass: Student tests detected errors. |      5 |
+|    broke-7 |  Dequeue doesn't reverse when flipping. | Pass: Student tests detected errors. |      5 |
+|    broke-8 | Dequeue doesn't dequeue after flipping. | Pass: Student tests detected errors. |      5 |
+|    broke-9 |            Flipping doesn't erase back. | Pass: Student tests detected errors. |      5 |
+|   broke-10 |             Queue behaves like a stack. | Pass: Student tests detected errors. |      5 |
+|      total |                             Total Score |                                      |    100 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+....................
+
+Finished in 0.02049 seconds
+20 examples, 0 failures
+
+
+** Details for Test student tests vs instructor code
+
+.............................
+
+Finished in 0.00523 seconds
+29 examples, 0 failures
+
+
+** Details for Push doesn't increment size.
+
+.....FF......................
+
+Failures:
+
+  1) push function should push properly
+     Expected: #fifolifo.core.Stack{:top (1 2 3), :size 3}
+          got: #fifolifo.core.Stack{:top (1 2 3), :size 2} (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-1/spec/fifolifo/core_spec.clj:48
+
+  2) push function should increment the size when pushed
+     Expected: 3
+          got: 2 (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-1/spec/fifolifo/core_spec.clj:52
+
+Finished in 0.13255 seconds
+29 examples, 2 failures
+
+
+** Details for Pop of empty makes size negative.
+
+...........F.................
+
+Failures:
+
+  1) pop function should work with nil
+     Expected: #fifolifo.core.Stack{:top nil, :size 0}
+          got: #fifolifo.core.Stack{:top (), :size -1} (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-2/spec/fifolifo/core_spec.clj:72
+
+Finished in 0.09051 seconds
+29 examples, 1 failures
+
+
+** Details for Pop doesn't remove elements.
+
+........F.F..................
+
+Failures:
+
+  1) pop function should remove properly
+     Expected: #fifolifo.core.Stack{:top (2 3), :size 2}
+          got: #fifolifo.core.Stack{:top (1 2 3), :size 2} (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-3/spec/fifolifo/core_spec.clj:61
+
+  2) pop function should remove the front of the top
+     Expected: (2 3)
+          got: (1 2 3) (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-3/spec/fifolifo/core_spec.clj:69
+
+Finished in 0.03535 seconds
+29 examples, 2 failures
+
+
+** Details for Pop reverses elements.
+
+........F.F.F................
+
+Failures:
+
+  1) pop function should remove properly
+     Expected: #fifolifo.core.Stack{:top (2 3), :size 2}
+          got: #fifolifo.core.Stack{:top (1 2), :size 2} (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-4/spec/fifolifo/core_spec.clj:61
+
+  2) pop function should remove the front of the top
+     Expected: (2 3)
+          got: (1 2) (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-4/spec/fifolifo/core_spec.clj:69
+
+  3) top function should return the top
+     Expected: 1
+          got: 3 (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-4/spec/fifolifo/core_spec.clj:77
+
+Finished in 0.09980 seconds
+29 examples, 3 failures
+
+
+** Details for Enqueue doesn't increment size.
+
+...................FF........
+
+Failures:
+
+  1) enqueue function it should add an element to the back
+     Expected: #fifolifo.core.Queue{:back (5 1 2 3), :front nil, :size 4}
+          got: #fifolifo.core.Queue{:back (5 1 2 3), :front nil, :size 3} (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-5/spec/fifolifo/core_spec.clj:102
+
+  2) enqueue function it should add an element to an empty queue
+     Expected: #fifolifo.core.Queue{:back (1), :front nil, :size 1}
+          got: #fifolifo.core.Queue{:back (1), :front nil, :size 0} (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-5/spec/fifolifo/core_spec.clj:105
+
+Finished in 0.08874 seconds
+29 examples, 2 failures
+
+
+** Details for Dequeue of empty makes size negative.
+
+........................F....
+
+Failures:
+
+  1) dequeue function should work with nil
+     Expected: #fifolifo.core.Queue{:back nil, :front nil, :size 0}
+          got: #fifolifo.core.Queue{:back nil, :front (), :size -1} (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-6/spec/fifolifo/core_spec.clj:121
+
+Finished in 0.03445 seconds
+29 examples, 1 failures
+
+
+** Details for Dequeue doesn't reverse when flipping.
+
+.....................F....F..
+
+Failures:
+
+  1) dequeue function should remove an element from the back
+     Expected: #fifolifo.core.Queue{:back nil, :front (2 1), :size 2}
+          got: #fifolifo.core.Queue{:back nil, :front (2 3), :size 2} (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-7/spec/fifolifo/core_spec.clj:110
+
+  2) peek function should return the last of the back if the front is nil
+     Expected: 3
+          got: 1 (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-7/spec/fifolifo/core_spec.clj:130
+
+Finished in 0.03816 seconds
+29 examples, 2 failures
+
+
+** Details for Dequeue doesn't dequeue after flipping.
+
+..FFFFFFFFFFF...FFFFFFFFFFF.F
+
+Failures:
+
+  1) The stack declaration should have a size of zero.
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:21
+
+  2) stack size function should give the correct stack size
+     Expected: 3
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:40
+
+  3) stack size function should give 0 for nil
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:43
+
+  4) push function should push properly
+     Expected: #fifolifo.core.Stack{:top (1 2 3), :size 3}
+          got: #fifolifo.core.Stack{:top (1 [:top (2 3)] [:size 2]), :size 3} (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:48
+
+  5) push function should increment the size when pushed
+     Expected: 3
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:52
+
+  6) push function should add to the front of top
+     Expected: (1 2 3)
+          got: (1 [:top (2 3)] [:size 2]) (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:56
+
+  7) pop function should remove properly
+     Expected: #fifolifo.core.Stack{:top (2 3), :size 2}
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:61
+
+  8) pop function should decrement the size
+     Expected: 2
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:65
+
+  9) pop function should remove the front of the top
+     Expected: (2 3)
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:69
+
+  10) pop function should work with nil
+     Expected: #fifolifo.core.Stack{:top nil, :size 0}
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:72
+
+  11) top function should return the top
+     Expected: 1
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:77
+
+  12) queue declaration should have a size of zero
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:90
+
+  13) queue size function it should return the size of empty
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:94
+
+  14) queue size function it should return the size
+     Expected: 4
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:97
+
+  15) enqueue function it should add an element to the back
+     Expected: #fifolifo.core.Queue{:back (5 1 2 3), :front nil, :size 4}
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:102
+
+  16) enqueue function it should add an element to an empty queue
+     Expected: #fifolifo.core.Queue{:back (1), :front nil, :size 1}
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:105
+
+  17) dequeue function should remove an element from the back
+     Expected: #fifolifo.core.Queue{:back nil, :front (2 1), :size 2}
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:110
+
+  18) dequeue function should work with elements in front
+     Expected: #fifolifo.core.Queue{:back nil, :front (2 3), :size 2}
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:114
+
+  19) dequeue function should work with elements in both
+     Expected: #fifolifo.core.Queue{:back (1 2 3), :front (5 6), :size 5}
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:118
+
+  20) dequeue function should work with nil
+     Expected: #fifolifo.core.Queue{:back nil, :front nil, :size 0}
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:121
+
+  21) peek function should return the front if there is something in front
+     Expected: 4
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:126
+
+  22) peek function should return the last of the back if the front is nil
+     Expected: 3
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:130
+
+  23) peek function should return the first of the front if back is nil
+     Expected: 1
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-8/spec/fifolifo/core_spec.clj:137
+
+Finished in 0.14684 seconds
+29 examples, 23 failures
+
+
+** Details for Flipping doesn't erase back.
+
+.....................F.......
+
+Failures:
+
+  1) dequeue function should remove an element from the back
+     Expected: #fifolifo.core.Queue{:back nil, :front (2 1), :size 2}
+          got: #fifolifo.core.Queue{:back (1 2 3), :front (2 1), :size 2} (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-9/spec/fifolifo/core_spec.clj:110
+
+Finished in 0.10728 seconds
+29 examples, 1 failures
+
+
+** Details for Queue behaves like a stack.
+
+.....................FFF.FF.F
+
+Failures:
+
+  1) dequeue function should remove an element from the back
+     Expected: #fifolifo.core.Queue{:back nil, :front (2 1), :size 2}
+          got: #fifolifo.core.Queue{:back (2 3), :front nil, :size 2} (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-10/spec/fifolifo/core_spec.clj:110
+
+  2) dequeue function should work with elements in front
+     Expected: #fifolifo.core.Queue{:back nil, :front (2 3), :size 2}
+          got: #fifolifo.core.Queue{:back (), :front (1 2 3), :size 2} (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-10/spec/fifolifo/core_spec.clj:114
+
+  3) dequeue function should work with elements in both
+     Expected: #fifolifo.core.Queue{:back (1 2 3), :front (5 6), :size 5}
+          got: #fifolifo.core.Queue{:back (2 3), :front (4 5 6), :size 5} (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-10/spec/fifolifo/core_spec.clj:118
+
+  4) peek function should return the front if there is something in front
+     Expected: 4
+          got: 1 (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-10/spec/fifolifo/core_spec.clj:126
+
+  5) peek function should return the last of the back if the front is nil
+     Expected: 3
+          got: 1 (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-10/spec/fifolifo/core_spec.clj:130
+
+  6) peek function should return the first of the front if back is nil
+     Expected: 1
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/mperez9/broke-10/spec/fifolifo/core_spec.clj:137
+
+Finished in 0.15336 seconds
+29 examples, 6 failures

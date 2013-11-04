@@ -1,0 +1,414 @@
+Lab report for Stack and Queue Lab - morlowsk
+Timestamp: 2013-10-20 23:13:45
+
+|  :scenario |                                  :title |                                   :result | :score |
+|------------+-----------------------------------------+-------------------------------------------+--------|
+|    working |   Test student code vs instructor tests |                                      Pass |     45 |
+| qualifying |   Test student tests vs instructor code |                                      Pass |      5 |
+|    broke-1 |            Push doesn't increment size. |      Pass: Student tests detected errors. |      5 |
+|    broke-2 |       Pop of empty makes size negative. |      Pass: Student tests detected errors. |      5 |
+|    broke-3 |            Pop doesn't remove elements. |      Pass: Student tests detected errors. |      5 |
+|    broke-4 |                  Pop reverses elements. |      Pass: Student tests detected errors. |      5 |
+|    broke-5 |         Enqueue doesn't increment size. |      Pass: Student tests detected errors. |      5 |
+|    broke-6 |   Dequeue of empty makes size negative. |      Pass: Student tests detected errors. |      5 |
+|    broke-7 |  Dequeue doesn't reverse when flipping. |      Pass: Student tests detected errors. |      5 |
+|    broke-8 | Dequeue doesn't dequeue after flipping. |      Pass: Student tests detected errors. |      5 |
+|    broke-9 |            Flipping doesn't erase back. | Fail: Student tests did not detect error. |      0 |
+|   broke-10 |             Queue behaves like a stack. |      Pass: Student tests detected errors. |      5 |
+|      total |                             Total Score |                                           |     95 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+....................
+
+Finished in 0.00836 seconds
+20 examples, 0 failures
+
+
+** Details for Test student tests vs instructor code
+
+...............................
+
+Finished in 0.00642 seconds
+31 examples, 0 failures
+
+
+** Details for Push doesn't increment size.
+
+........F.F..FF................
+
+Failures:
+
+  1) stack-size test should return a number of a stack if it has data
+     Expected: 3
+          got: 0 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-1/spec/fifolifo/core_spec.clj:49
+
+  2) push should increase the size by one when add  non nil elt
+     Expected: 2
+          got: 0 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-1/spec/fifolifo/core_spec.clj:59
+
+  3) pop should only delete the first one of the stack
+     Expected: #fifolifo.core.Stack{:top (3 2), :size 0}
+          got: #fifolifo.core.Stack{:top (3 2), :size -2} (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-1/spec/fifolifo/core_spec.clj:72
+
+  4) pop should decrease the size when pop a stack
+     Expected: 1
+          got: -2 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-1/spec/fifolifo/core_spec.clj:75
+
+Finished in 0.05672 seconds
+31 examples, 4 failures
+
+
+** Details for Pop of empty makes size negative.
+
+............F..................
+
+Failures:
+
+  1) pop should work with an empty stack
+     Expected: #fifolifo.core.Stack{:top nil, :size 0}
+          got: #fifolifo.core.Stack{:top (), :size -4} (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-2/spec/fifolifo/core_spec.clj:69
+
+Finished in 0.10094 seconds
+31 examples, 1 failures
+
+
+** Details for Pop doesn't remove elements.
+
+F..........F.F.................
+
+Failures:
+
+  1) initial testing for debug top test
+     Expected: nil
+          got: 10 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-3/spec/fifolifo/core_spec.clj:14
+
+  2) push sould not change the previous data
+     Expected: 3
+          got: 1 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-3/spec/fifolifo/core_spec.clj:62
+
+  3) pop should only delete the first one of the stack
+     Expected: #fifolifo.core.Stack{:top (3 2), :size 2}
+          got: #fifolifo.core.Stack{:top (0 1 3 2), :size 2} (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-3/spec/fifolifo/core_spec.clj:72
+
+Finished in 0.08720 seconds
+31 examples, 3 failures
+
+
+** Details for Pop reverses elements.
+
+.........F...F..F..............
+
+Failures:
+
+  1) push should add the elt in the firt place
+     Expected: 1
+          got: 2 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-4/spec/fifolifo/core_spec.clj:56
+
+  2) pop should only delete the first one of the stack
+     Expected: #fifolifo.core.Stack{:top (3 2), :size 2}
+          got: #fifolifo.core.Stack{:top (0 1), :size 2} (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-4/spec/fifolifo/core_spec.clj:72
+
+  3) top test should return a right top if there is a stack
+     Expected: 6
+          got: 4 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-4/spec/fifolifo/core_spec.clj:85
+
+Finished in 0.13346 seconds
+31 examples, 3 failures
+
+
+** Details for Enqueue doesn't increment size.
+
+.................F.FFF.FF....FF
+
+Failures:
+
+  1) queue-size test should return the right size if the back is not nil
+     Expected: 2
+          got: 0 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-5/spec/fifolifo/core_spec.clj:92
+
+  2) enqueue test should increase the size in the right amount
+     Expected: 2
+          got: 0 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-5/spec/fifolifo/core_spec.clj:102
+
+  3) enqueue test should not delete the previous elt
+     Expected: 3
+          got: 5 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-5/spec/fifolifo/core_spec.clj:105
+
+  4) enqueue test should not chnge the front if elt is not nil
+     Expected: 3
+          got: 5 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-5/spec/fifolifo/core_spec.clj:108
+
+  5) dequeue test should delete the peek value
+     Expected: 15
+          got: 5 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-5/spec/fifolifo/core_spec.clj:118
+
+  6) dequeue test should decrease the size by one
+     Expected: 3
+          got: 0 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-5/spec/fifolifo/core_spec.clj:121
+
+  7) peek test is the first additional test for above
+     Expected: 10
+          got: 5 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-5/spec/fifolifo/core_spec.clj:140
+
+  8) peek test is the second additional test for above
+     Expected: 10
+          got: 5 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-5/spec/fifolifo/core_spec.clj:143
+
+Finished in 0.01538 seconds
+31 examples, 8 failures
+
+
+** Details for Dequeue of empty makes size negative.
+
+..........................F....
+
+Failures:
+
+  1) dequeue test dequeue an empty queue, the size remain 0
+     Expected: 0
+          got: -2 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-6/spec/fifolifo/core_spec.clj:127
+
+Finished in 0.01349 seconds
+31 examples, 1 failures
+
+
+** Details for Dequeue doesn't reverse when flipping.
+
+..................F.FFFF....F..
+
+Failures:
+
+  1) enqueue test should add to the back if the elt is not nil
+     Expected: 5
+          got: 3 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-7/spec/fifolifo/core_spec.clj:99
+
+  2) enqueue test should not delete the previous elt
+     Expected: 3
+          got: 5 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-7/spec/fifolifo/core_spec.clj:105
+
+  3) enqueue test should not chnge the front if elt is not nil
+     Expected: 3
+          got: 5 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-7/spec/fifolifo/core_spec.clj:108
+
+  4) enqueue test should do nothing if elt is nil
+     Expected: 5
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-7/spec/fifolifo/core_spec.clj:111
+
+  5) dequeue test should delete the peek value
+     Expected: 15
+          got: 5 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-7/spec/fifolifo/core_spec.clj:118
+
+  6) peek test should return the value that it will be deleted when dequeue is called
+     Expected: 5
+          got: 15 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-7/spec/fifolifo/core_spec.clj:137
+
+Finished in 0.01282 seconds
+31 examples, 6 failures
+
+
+** Details for Dequeue doesn't dequeue after flipping.
+
+...F..FFFFFFFFF.FFFFFFFFF.F.FFF
+
+Failures:
+
+  1) The stack declaration should have a size of zero.
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:27
+
+  2) The queue declaration should have a size of zero.
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:40
+
+  3) stack-size test should return 0 for empty stack.
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:46
+
+  4) stack-size test should return a number of a stack if it has data
+     Expected: 3
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:49
+
+  5) push should add the elt in the firt place
+     Expected: 1
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:56
+
+  6) push should increase the size by one when add  non nil elt
+     Expected: 2
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:59
+
+  7) push sould not change the previous data
+     Expected: 3
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:62
+
+  8) pop should work with an empty stack
+     Expected: #fifolifo.core.Stack{:top nil, :size 0}
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:69
+
+  9) pop should only delete the first one of the stack
+     Expected: #fifolifo.core.Stack{:top (3 [:top (2 [:top nil] [:size 0])] [:size 1]), :size 2}
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:72
+
+  10) pop should decrease the size when pop a stack
+     Expected: 1
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:75
+
+  11) top test should return a right top if there is a stack
+     Expected: 6
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:85
+
+  12) queue-size test should return the right size if the back is not nil
+     Expected: 2
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:92
+
+  13) enqueue test should add to the back if the elt is not nil
+     Expected: 5
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:99
+
+  14) enqueue test should increase the size in the right amount
+     Expected: 2
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:102
+
+  15) enqueue test should not delete the previous elt
+     Expected: 3
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:105
+
+  16) enqueue test should not chnge the front if elt is not nil
+     Expected: 3
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:108
+
+  17) enqueue test should do nothing if elt is nil
+     Expected: 5
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:111
+
+  18) dequeue test should delete the peek value
+     Expected: 15
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:118
+
+  19) dequeue test should decrease the size by one
+     Expected: 3
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:121
+
+  20) dequeue test dequeue an empty queue, the size remain 0
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:127
+
+  21) peek test should return the value that it will be deleted when dequeue is called
+     Expected: 5
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:137
+
+  22) peek test is the first additional test for above
+     Expected: 10
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:140
+
+  23) peek test is the second additional test for above
+     Expected: 10
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-8/spec/fifolifo/core_spec.clj:143
+
+Finished in 0.14653 seconds
+31 examples, 23 failures
+
+
+** Details for Flipping doesn't erase back.
+
+...............................
+
+Finished in 0.00444 seconds
+31 examples, 0 failures
+
+
+** Details for Queue behaves like a stack.
+
+..................F.FFFF....F.F
+
+Failures:
+
+  1) enqueue test should add to the back if the elt is not nil
+     Expected: 5
+          got: 3 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-10/spec/fifolifo/core_spec.clj:99
+
+  2) enqueue test should not delete the previous elt
+     Expected: 3
+          got: 5 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-10/spec/fifolifo/core_spec.clj:105
+
+  3) enqueue test should not chnge the front if elt is not nil
+     Expected: 3
+          got: 10 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-10/spec/fifolifo/core_spec.clj:108
+
+  4) enqueue test should do nothing if elt is nil
+     Expected: 5
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-10/spec/fifolifo/core_spec.clj:111
+
+  5) dequeue test should delete the peek value
+     Expected: 15
+          got: 5 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-10/spec/fifolifo/core_spec.clj:118
+
+  6) peek test should return the value that it will be deleted when dequeue is called
+     Expected: 5
+          got: 15 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-10/spec/fifolifo/core_spec.clj:137
+
+  7) peek test is the second additional test for above
+     Expected: 10
+          got: 20 (using =)
+     /home/grader/quarry/fifolifo-lab/morlowsk/broke-10/spec/fifolifo/core_spec.clj:143
+
+Finished in 0.01344 seconds
+31 examples, 7 failures

@@ -1,0 +1,296 @@
+Lab report for Stack and Queue Lab - ssaha8
+Timestamp: 2013-10-21 21:26:59
+
+|  :scenario |                                  :title |                              :result | :score |
+|------------+-----------------------------------------+--------------------------------------+--------|
+|    working |   Test student code vs instructor tests |                                 Pass |     45 |
+| qualifying |   Test student tests vs instructor code |                                 Pass |      5 |
+|    broke-1 |            Push doesn't increment size. | Pass: Student tests detected errors. |      5 |
+|    broke-2 |       Pop of empty makes size negative. | Pass: Student tests detected errors. |      5 |
+|    broke-3 |            Pop doesn't remove elements. | Pass: Student tests detected errors. |      5 |
+|    broke-4 |                  Pop reverses elements. | Pass: Student tests detected errors. |      5 |
+|    broke-5 |         Enqueue doesn't increment size. | Pass: Student tests detected errors. |      5 |
+|    broke-6 |   Dequeue of empty makes size negative. | Pass: Student tests detected errors. |      5 |
+|    broke-7 |  Dequeue doesn't reverse when flipping. | Pass: Student tests detected errors. |      5 |
+|    broke-8 | Dequeue doesn't dequeue after flipping. | Pass: Student tests detected errors. |      5 |
+|    broke-9 |            Flipping doesn't erase back. | Pass: Student tests detected errors. |      5 |
+|   broke-10 |             Queue behaves like a stack. | Pass: Student tests detected errors. |      5 |
+|      total |                             Total Score |                                      |    100 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+....................
+
+Finished in 0.00985 seconds
+20 examples, 0 failures
+
+
+** Details for Test student tests vs instructor code
+
+....................
+
+Finished in 0.00494 seconds
+20 examples, 0 failures
+
+
+** Details for Push doesn't increment size.
+
+...FFFF....F........
+
+Failures:
+
+  1) stack size should return the size of the stack
+     Expected: 5
+          got: 0 (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-1/spec/fifolifo/core_spec.clj:27
+
+  2) push should push elt to the top of empty  stack.
+     Expected: #fifolifo.core.Stack{:top (30), :size 1}
+          got: #fifolifo.core.Stack{:top (30), :size 0} (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-1/spec/fifolifo/core_spec.clj:30
+
+  3) push should push elt to the top of stack.
+     Expected: #fifolifo.core.Stack{:top (30 20), :size 2}
+          got: #fifolifo.core.Stack{:top (30 20), :size 1} (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-1/spec/fifolifo/core_spec.clj:33
+
+  4) push should increase the size of the stack
+     Expected: 1
+          got: 0 (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-1/spec/fifolifo/core_spec.clj:36
+
+  5) the pop declaration should remove the top of stack
+     Expected: #fifolifo.core.Stack{:top (), :size 0}
+          got: #fifolifo.core.Stack{:top (), :size -1} (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-1/spec/fifolifo/core_spec.clj:53
+
+Finished in 0.16250 seconds
+20 examples, 5 failures
+
+
+** Details for Pop of empty makes size negative.
+
+............F.......
+
+Failures:
+
+  1) the pop declaration should not make size negative
+     Expected: 0
+          got: -1 (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-2/spec/fifolifo/core_spec.clj:55
+
+Finished in 0.02700 seconds
+20 examples, 1 failures
+
+
+** Details for Pop doesn't remove elements.
+
+...........F........
+
+Failures:
+
+  1) the pop declaration should remove the top of stack
+     Expected: #fifolifo.core.Stack{:top (), :size 0}
+          got: #fifolifo.core.Stack{:top (1), :size 0} (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-3/spec/fifolifo/core_spec.clj:53
+
+Finished in 0.04876 seconds
+20 examples, 1 failures
+
+
+** Details for Pop reverses elements.
+
+.......F............
+
+Failures:
+
+  1) Top declaration should look at the top of the Stack
+     Expected: 30
+          got: 10 (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-4/spec/fifolifo/core_spec.clj:39
+
+Finished in 0.01459 seconds
+20 examples, 1 failures
+
+
+** Details for Enqueue doesn't increment size.
+
+..............F..FFF
+
+Failures:
+
+  1) enqueue should increase the size
+     Expected: 6
+          got: 5 (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-5/spec/fifolifo/core_spec.clj:60
+
+  2) dequeue should flip the order
+     Expected: 2
+          got: 1 (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-5/spec/fifolifo/core_spec.clj:67
+
+  3) dequeue should delete the back
+     Expected: nil
+          got: 30 (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-5/spec/fifolifo/core_spec.clj:69
+
+  4) dequeue should not behave like a stack
+     Expected: 2
+          got: 1 (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-5/spec/fifolifo/core_spec.clj:71
+
+Finished in 0.00944 seconds
+20 examples, 4 failures
+
+
+** Details for Dequeue of empty makes size negative.
+
+................F...
+
+Failures:
+
+  1) dequeue should not make the size negative
+     Expected: 0
+          got: -1 (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-6/spec/fifolifo/core_spec.clj:65
+
+Finished in 0.01876 seconds
+20 examples, 1 failures
+
+
+** Details for Dequeue doesn't reverse when flipping.
+
+.................F.F
+
+Failures:
+
+  1) dequeue should flip the order
+     Expected: 2
+          got: 1 (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-7/spec/fifolifo/core_spec.clj:67
+
+  2) dequeue should not behave like a stack
+     Expected: 2
+          got: 3 (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-7/spec/fifolifo/core_spec.clj:71
+
+Finished in 0.01108 seconds
+20 examples, 2 failures
+
+
+** Details for Dequeue doesn't dequeue after flipping.
+
+..FFFF.F...FFFFFFF.F
+
+Failures:
+
+  1) The stack declaration should have a size of zero.
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-8/spec/fifolifo/core_spec.clj:21
+
+  2) stack size should return the size of the stack
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-8/spec/fifolifo/core_spec.clj:26
+
+  3) push should push elt to the top of empty  stack.
+     Expected: #fifolifo.core.Stack{:top (30), :size 1}
+          got: #fifolifo.core.Stack{:top (30 [:top nil] [:size 0]), :size 1} (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-8/spec/fifolifo/core_spec.clj:30
+
+  4) push should push elt to the top of stack.
+     Expected: #fifolifo.core.Stack{:top (30 20), :size 2}
+          got: #fifolifo.core.Stack{:top (30 [:top (20)] [:size 1]), :size 2} (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-8/spec/fifolifo/core_spec.clj:33
+
+  5) Top declaration should look at the top of the Stack
+     Expected: 30
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-8/spec/fifolifo/core_spec.clj:39
+
+  6) the pop declaration should remove the top of stack
+     Expected: #fifolifo.core.Stack{:top (), :size 0}
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-8/spec/fifolifo/core_spec.clj:53
+
+  7) the pop declaration should not make size negative
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-8/spec/fifolifo/core_spec.clj:55
+
+  8) enqueue should  not change the front
+     Expected: 5
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-8/spec/fifolifo/core_spec.clj:58
+
+  9) enqueue should increase the size
+     Expected: 6
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-8/spec/fifolifo/core_spec.clj:60
+
+  10) dequeue should reduce the size of the queue
+     Expected: 4
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-8/spec/fifolifo/core_spec.clj:63
+
+  11) dequeue should not make the size negative
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-8/spec/fifolifo/core_spec.clj:65
+
+  12) dequeue should flip the order
+     Expected: 2
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-8/spec/fifolifo/core_spec.clj:67
+
+  13) dequeue should not behave like a stack
+     Expected: 2
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-8/spec/fifolifo/core_spec.clj:71
+
+Finished in 0.29632 seconds
+20 examples, 13 failures
+
+
+** Details for Flipping doesn't erase back.
+
+..................F.
+
+Failures:
+
+  1) dequeue should delete the back
+     Expected: nil
+          got: 30 (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-9/spec/fifolifo/core_spec.clj:69
+
+Finished in 0.01031 seconds
+20 examples, 1 failures
+
+
+** Details for Queue behaves like a stack.
+
+.............F...F.F
+
+Failures:
+
+  1) enqueue should  not change the front
+     Expected: 5
+          got: 30 (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-10/spec/fifolifo/core_spec.clj:58
+
+  2) dequeue should flip the order
+     Expected: 2
+          got: 1 (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-10/spec/fifolifo/core_spec.clj:67
+
+  3) dequeue should not behave like a stack
+     Expected: 2
+          got: 3 (using =)
+     /home/grader/quarry/fifolifo-lab/ssaha8/broke-10/spec/fifolifo/core_spec.clj:71
+
+Finished in 0.01355 seconds
+20 examples, 3 failures

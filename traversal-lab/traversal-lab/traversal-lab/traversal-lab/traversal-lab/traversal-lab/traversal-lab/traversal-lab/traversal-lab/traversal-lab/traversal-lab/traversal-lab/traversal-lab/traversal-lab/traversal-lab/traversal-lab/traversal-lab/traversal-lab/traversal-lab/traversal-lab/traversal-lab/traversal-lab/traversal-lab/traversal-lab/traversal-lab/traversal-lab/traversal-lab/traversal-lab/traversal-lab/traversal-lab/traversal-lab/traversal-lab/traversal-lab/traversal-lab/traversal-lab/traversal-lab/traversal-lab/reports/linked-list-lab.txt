@@ -1,0 +1,205 @@
+Lab report for Linked List Lab - hpandya2
+Timestamp: 2013-10-03 00:46:53
+
+|  :scenario |                                    :title |                                   :result | :score |
+|------------+-------------------------------------------+-------------------------------------------+--------|
+|    working |     Test student code vs instructor tests |                                      Pass |     45 |
+| qualifying |     Test student tests vs instructor code |                                      Pass |      5 |
+|    broke-1 |             Insert at end mishandles nil. |      Pass: Student tests detected errors. |      5 |
+|    broke-2 |     Sorted insert sorts in reverse order. |      Pass: Student tests detected errors. |      5 |
+|    broke-3 |     Sorted insert doesn't recycle memory. | Fail: Student tests did not detect error. |      0 |
+|    broke-4 |          Search doesn't handle base case. |      Pass: Student tests detected errors. |      5 |
+|    broke-5 |                Delete removes all copies. | Fail: Student tests did not detect error. |      0 |
+|    broke-6 |                           Delete doesn't. |      Pass: Student tests detected errors. |      5 |
+|    broke-7 |              Delete all only deletes one. |      Pass: Student tests detected errors. |      5 |
+|    broke-8 |                Delete all truncates list. |      Pass: Student tests detected errors. |      5 |
+|    broke-9 |          Efficient delete doesn't delete. |      Pass: Student tests detected errors. |      5 |
+|   broke-10 | Efficient delete doesn't return original. | Fail: Student tests did not detect error. |      0 |
+|      total |                               Total Score |                                           |     85 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+........................
+
+Finished in 0.00734 seconds
+24 examples, 0 failures
+
+
+** Details for Test student tests vs instructor code
+
+............................
+
+Finished in 0.01582 seconds
+28 examples, 0 failures
+
+
+** Details for Insert at end mishandles nil.
+
+.......FFF..................
+
+Failures:
+
+  1) insert-at-end creates a cons cell
+     Expected: nil
+     not to =: nil
+     /home/grader/quarry/linked-list-lab/hpandya2/broke-1/spec/linked_lists/core_spec.clj:38
+
+  2) insert-at-end handles empty lists
+     Expected: #linked_lists.core.Cons{:car 10, :cdr nil}
+          got: nil (using =)
+     /home/grader/quarry/linked-list-lab/hpandya2/broke-1/spec/linked_lists/core_spec.clj:41
+
+  3) insert-at-end handles full lists
+     Expected: #linked_lists.core.Cons{:car 10, :cdr #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr #linked_lists.core.Cons{:car 5, :cdr nil}}}}
+          got: #linked_lists.core.Cons{:car 10, :cdr #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}} (using =)
+     /home/grader/quarry/linked-list-lab/hpandya2/broke-1/spec/linked_lists/core_spec.clj:44
+
+Finished in 0.05310 seconds
+28 examples, 3 failures
+
+
+** Details for Sorted insert sorts in reverse order.
+
+...........F.FFF............
+
+Failures:
+
+  1) sorted-insert should insert an element in the middle if the average
+     Expected: #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 4, :cdr #linked_lists.core.Cons{:car 5, :cdr #linked_lists.core.Cons{:car 6, :cdr #linked_lists.core.Cons{:car 8, :cdr nil}}}}}
+          got: #linked_lists.core.Cons{:car 5, :cdr #linked_lists.core.Cons{:car 2, :cdr #linked_lists.core.Cons{:car 4, :cdr #linked_lists.core.Cons{:car 6, :cdr #linked_lists.core.Cons{:car 8, :cdr nil}}}}} (using =)
+     /home/grader/quarry/linked-list-lab/hpandya2/broke-2/spec/linked_lists/core_spec.clj:52
+
+  2) sorted-insert should work with lists that have data
+     Expected: #linked_lists.core.Cons{:car 5, :cdr #linked_lists.core.Cons{:car 10, :cdr #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}}}
+          got: #linked_lists.core.Cons{:car 10, :cdr #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr #linked_lists.core.Cons{:car 5, :cdr nil}}}} (using =)
+     /home/grader/quarry/linked-list-lab/hpandya2/broke-2/spec/linked_lists/core_spec.clj:57
+
+  3) sorted-insert should insert an element in the beginning if its the smallest element
+     Expected: #linked_lists.core.Cons{:car 5, :cdr #linked_lists.core.Cons{:car 10, :cdr #linked_lists.core.Cons{:car 20, :cdr nil}}}
+          got: #linked_lists.core.Cons{:car 10, :cdr #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 5, :cdr nil}}} (using =)
+     /home/grader/quarry/linked-list-lab/hpandya2/broke-2/spec/linked_lists/core_spec.clj:59
+
+  4) sorted-insert should insert an element in the end if its the biggest element
+     Expected: #linked_lists.core.Cons{:car 5, :cdr #linked_lists.core.Cons{:car 10, :cdr #linked_lists.core.Cons{:car 20, :cdr nil}}}
+          got: #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 5, :cdr #linked_lists.core.Cons{:car 10, :cdr nil}}} (using =)
+     /home/grader/quarry/linked-list-lab/hpandya2/broke-2/spec/linked_lists/core_spec.clj:61
+
+Finished in 0.04302 seconds
+28 examples, 4 failures
+
+
+** Details for Sorted insert doesn't recycle memory.
+
+............................
+
+Finished in 0.00571 seconds
+28 examples, 0 failures
+
+
+** Details for Search doesn't handle base case.
+
+................F.F.........
+
+Failures:
+
+  1) search should work with empty lists
+     Expected: false
+          got: true (using =)
+     /home/grader/quarry/linked-list-lab/hpandya2/broke-4/spec/linked_lists/core_spec.clj:69
+
+  2) search should return false if not found
+     Expected: false
+          got: true (using =)
+     /home/grader/quarry/linked-list-lab/hpandya2/broke-4/spec/linked_lists/core_spec.clj:74
+
+Finished in 0.01192 seconds
+28 examples, 2 failures
+
+
+** Details for Delete removes all copies.
+
+............................
+
+Finished in 0.00572 seconds
+28 examples, 0 failures
+
+
+** Details for Delete doesn't.
+
+....................F.....F.
+
+Failures:
+
+  1) delete should work with lists that have data
+     Expected: #linked_lists.core.Cons{:car 10, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}
+          got: #linked_lists.core.Cons{:car 10, :cdr #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}} (using =)
+     /home/grader/quarry/linked-list-lab/hpandya2/broke-6/spec/linked_lists/core_spec.clj:82
+
+  2) efficient-delete should work with lists that have data
+     Expected: #linked_lists.core.Cons{:car 10, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}
+          got: #linked_lists.core.Cons{:car 10, :cdr #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}} (using =)
+     /home/grader/quarry/linked-list-lab/hpandya2/broke-6/spec/linked_lists/core_spec.clj:107
+
+Finished in 0.05900 seconds
+28 examples, 2 failures
+
+
+** Details for Delete all only deletes one.
+
+.......................F....
+
+Failures:
+
+  1) delete-all should work with list that have data
+     Expected: #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr #linked_lists.core.Cons{:car 40, :cdr nil}}}
+          got: #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr #linked_lists.core.Cons{:car 40, :cdr #linked_lists.core.Cons{:car 10, :cdr nil}}}} (using =)
+     /home/grader/quarry/linked-list-lab/hpandya2/broke-7/spec/linked_lists/core_spec.clj:94
+
+Finished in 0.04638 seconds
+28 examples, 1 failures
+
+
+** Details for Delete all truncates list.
+
+.......................F....
+
+Failures:
+
+  1) delete-all should work with list that have data
+     Expected: #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr #linked_lists.core.Cons{:car 40, :cdr nil}}}
+          got: nil (using =)
+     /home/grader/quarry/linked-list-lab/hpandya2/broke-8/spec/linked_lists/core_spec.clj:94
+
+Finished in 0.02060 seconds
+28 examples, 1 failures
+
+
+** Details for Efficient delete doesn't delete.
+
+.......................F..F.
+
+Failures:
+
+  1) delete-all should work with list that have data
+     Expected: #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr #linked_lists.core.Cons{:car 40, :cdr nil}}}
+          got: nil (using =)
+     /home/grader/quarry/linked-list-lab/hpandya2/broke-9/spec/linked_lists/core_spec.clj:94
+
+  2) efficient-delete should work with lists that have data
+     Expected: #linked_lists.core.Cons{:car 10, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}
+          got: #linked_lists.core.Cons{:car 10, :cdr #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}} (using =)
+     /home/grader/quarry/linked-list-lab/hpandya2/broke-9/spec/linked_lists/core_spec.clj:107
+
+Finished in 0.04770 seconds
+28 examples, 2 failures
+
+
+** Details for Efficient delete doesn't return original.
+
+............................
+
+Finished in 0.00535 seconds
+28 examples, 0 failures

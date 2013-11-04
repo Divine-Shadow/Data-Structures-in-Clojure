@@ -1,0 +1,16 @@
+(ns first_one.core)
+
+;;Here is my foo function.
+
+(defn foo [x y]
+  "A function to test if x > y."
+  (> x y))
+
+;;Take the absolute value.
+
+(defn abs [x]
+  (if (< x 0) (- x) x))
+
+(defn bar [x y ]
+  "A function to add x to y."
+   (+ (abs x) (abs y)))

@@ -1,0 +1,114 @@
+Lab report for Linked List Lab - cilozue
+Timestamp: 2013-10-03 00:00:04
+
+|  :scenario |                                :title |                   :result | :score |
+|------------+---------------------------------------+---------------------------+--------|
+|    working | Test student code vs instructor tests |                      Fail |     30 |
+| qualifying | Test student tests vs instructor code |                    Errors |      0 |
+| qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
+|      total |                           Total Score |                           |     30 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+..........FFFFFF....FF..
+
+Failures:
+
+  1) sorted insert creates a cons cell
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core_spec$eval1267$fn__1268$fn__1273.invoke(/home/grader/quarry/linked-list-lab/cilozue/working/spec/linked_lists/core_spec.clj:49)
+     	... 42 stack levels elided ...
+
+  2) sorted insert should work with empty lists
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core_spec$eval1267$fn__1268$fn__1277.invoke(/home/grader/quarry/linked-list-lab/cilozue/working/spec/linked_lists/core_spec.clj:52)
+     	... 42 stack levels elided ...
+
+  3) sorted insert should put the element at the beginning if it's the smallest.
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core_spec$eval1267$fn__1268$fn__1281.invoke(/home/grader/quarry/linked-list-lab/cilozue/working/spec/linked_lists/core_spec.clj:56)
+     	... 42 stack levels elided ...
+
+  4) sorted insert should put the element at in the middle in the average case.
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core_spec$eval1267$fn__1268$fn__1285.invoke(/home/grader/quarry/linked-list-lab/cilozue/working/spec/linked_lists/core_spec.clj:60)
+     	... 42 stack levels elided ...
+
+  5) sorted insert should not duplicate the remainder of the list after the insertion point.
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core_spec$eval1267$fn__1268$fn__1289.invoke(/home/grader/quarry/linked-list-lab/cilozue/working/spec/linked_lists/core_spec.clj:65)
+     	... 42 stack levels elided ...
+
+  6) sorted insert should put the element at the end if it's the last element.
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core_spec$eval1267$fn__1268$fn__1292.invoke(/home/grader/quarry/linked-list-lab/cilozue/working/spec/linked_lists/core_spec.clj:69)
+     	... 42 stack levels elided ...
+
+  7) delete-all should delete things completely that are in the list.
+     Wrong number of args (1) passed to: core$delete-all
+     clojure.lang.ArityException: Wrong number of args (1) passed to: core$delete-all
+     	... 2 stack levels elided ...
+     	at linked_lists.core$delete_all.invoke(core.clj:80)
+     	at linked_lists.core_spec$eval1355$fn__1356$fn__1361.invoke(/home/grader/quarry/linked-list-lab/cilozue/working/spec/linked_lists/core_spec.clj:102)
+     	... 42 stack levels elided ...
+
+  8) delete-all should not delete-all that are not in the list.
+     Wrong number of args (1) passed to: core$delete-all
+     clojure.lang.ArityException: Wrong number of args (1) passed to: core$delete-all
+     	... 2 stack levels elided ...
+     	at linked_lists.core$delete_all.invoke(core.clj:80)
+     	at linked_lists.core_spec$eval1355$fn__1356$fn__1369.invoke(/home/grader/quarry/linked-list-lab/cilozue/working/spec/linked_lists/core_spec.clj:110)
+     	... 42 stack levels elided ...
+
+Finished in 0.01008 seconds
+24 examples, 8 failures
+
+
+** Details for Test student tests vs instructor code
+
+E.......
+
+Errors:
+
+  1) java.lang.ClassNotFoundException: Cons.2, compiling:(/home/grader/quarry/linked-list-lab/cilozue/qualifying/spec/linked_lists/core_spec.clj:37:33)
+     java.lang.ClassNotFoundException: Cons.2, compiling:(/home/grader/quarry/linked-list-lab/cilozue/qualifying/spec/linked_lists/core_spec.clj:37:33)
+     	... 112 stack levels elided ...
+     Caused by: java.lang.ClassNotFoundException: Cons.2
+     	... 124 stack levels elided ...
+
+Finished in 0.00983 seconds
+8 examples, 0 failures, 1 errors

@@ -1,0 +1,138 @@
+Lab report for Doubly Linked Lists with Atoms - mdrews
+Timestamp: 2013-11-03 22:16:37
+
+|  :scenario |                                :title |                   :result | :score |
+|------------+---------------------------------------+---------------------------+--------|
+|    working | Test student code vs instructor tests |                      Fail |     23 |
+| qualifying | Test student tests vs instructor code |                      Fail |      4 |
+| qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
+|      total |                           Total Score |                           |     27 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+......F..F...F..F...F.FFFF.F.FFFFFFF
+
+Failures:
+
+  1) Insert-front on empty list will convert to a list properly
+     Expected: (10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/mdrews/working/spec/dlist_atom/core_spec.clj:50
+
+  2) Insert-front multiple times will convert to a list properly
+     Expected: (10 20 30)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/mdrews/working/spec/dlist_atom/core_spec.clj:75
+
+  3) Insert-last on empty list will convert to a list properly
+     Expected: (10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/mdrews/working/spec/dlist_atom/core_spec.clj:101
+
+  4) Insert-last multiple times will convert to a list properly
+     Expected: (30 20 10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/mdrews/working/spec/dlist_atom/core_spec.clj:125
+
+  5) Insert-sorted on empty list will convert to a list properly
+     Expected: (10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/mdrews/working/spec/dlist_atom/core_spec.clj:152
+
+  6) Insert-sorted multiple times will link the element back to the sentinel
+     
+     java.lang.StackOverflowError
+     	... 1024 stack levels elided ...
+
+  7) Insert-sorted multiple times will insert 10 20 30 properly
+     Expected: (30 20 10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/mdrews/working/spec/dlist_atom/core_spec.clj:176
+
+  8) Insert-sorted multiple times will insert 30 20 10 properly
+     Expected: (30 20 10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/mdrews/working/spec/dlist_atom/core_spec.clj:183
+
+  9) Insert-sorted multiple times will insert 10 30 20 properly
+     Expected: (30 20 10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/mdrews/working/spec/dlist_atom/core_spec.clj:190
+
+  10) Index forward indexex properly
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/mdrews/working/spec/dlist_atom/core_spec.clj:205
+
+  11) Index backward indexex properly
+     Expected: -3
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/mdrews/working/spec/dlist_atom/core_spec.clj:221
+
+  12) list-to-dlist creates an empty list properly
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$d_next.invoke(core.clj:85)
+     	at dlist_atom.core$show_dlist.invoke(core.clj:98)
+     	at dlist_atom.core_spec$eval1529$fn__1530$fn__1535.invoke(/home/grader/quarry/dlist-atom-lab/mdrews/working/spec/dlist_atom/core_spec.clj:229)
+     	... 42 stack levels elided ...
+
+  13) list-to-dlist creates full lists properly
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$d_next.invoke(core.clj:85)
+     	at dlist_atom.core$show_dlist.invoke(core.clj:98)
+     	at dlist_atom.core_spec$eval1529$fn__1530$fn__1541.invoke(/home/grader/quarry/dlist-atom-lab/mdrews/working/spec/dlist_atom/core_spec.clj:233)
+     	... 42 stack levels elided ...
+
+  14) delete should do nothing to empty lists.
+     Expected: ()
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/mdrews/working/spec/dlist_atom/core_spec.clj:241
+
+  15) delete deletes elements properly.
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$d_next.invoke(core.clj:85)
+     	at dlist_atom.core$show_dlist.invoke(core.clj:98)
+     	at dlist_atom.core_spec$eval1554$fn__1555$fn__1568.invoke(/home/grader/quarry/dlist-atom-lab/mdrews/working/spec/dlist_atom/core_spec.clj:246)
+     	... 42 stack levels elided ...
+
+  16) reverse should not mess up empty lists.
+     Expected: ()
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/mdrews/working/spec/dlist_atom/core_spec.clj:292
+
+  17) reverse should reverse full lists.
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$d_size.invoke(core.clj:47)
+     	at dlist_atom.core_spec$eval1637$fn__1638$fn__1651.invoke(/home/grader/quarry/dlist-atom-lab/mdrews/working/spec/dlist_atom/core_spec.clj:297)
+     	... 42 stack levels elided ...
+
+Finished in 0.20674 seconds
+36 examples, 17 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Test student tests vs instructor code
+
+......................F.
+
+Failures:
+
+  1) list-to-dlist should work when the list is empty.
+     
+     java.lang.StackOverflowError
+     	... 1024 stack levels elided ...
+
+Finished in 0.35839 seconds
+24 examples, 1 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse

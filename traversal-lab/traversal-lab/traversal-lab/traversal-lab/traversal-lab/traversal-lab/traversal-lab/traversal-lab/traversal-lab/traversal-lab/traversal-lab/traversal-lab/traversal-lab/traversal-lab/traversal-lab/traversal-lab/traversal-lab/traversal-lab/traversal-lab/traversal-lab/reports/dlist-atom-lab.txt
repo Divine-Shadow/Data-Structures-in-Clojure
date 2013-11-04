@@ -1,0 +1,329 @@
+Lab report for Doubly Linked Lists with Atoms - msteele
+Timestamp: 2013-11-04 08:56:33
+
+|  :scenario |                                   :title |                                   :result | :score |
+|------------+------------------------------------------+-------------------------------------------+--------|
+|    working |    Test student code vs instructor tests |                                      Fail |     21 |
+| qualifying |    Test student tests vs instructor code |                                      Pass |      5 |
+|    broke-1 |     Insert front doesn't increment size. |      Pass: Student tests detected errors. |      5 |
+|    broke-2 |  Insert front doens't set previous link. |      Pass: Student tests detected errors. |      5 |
+|    broke-3 |               Insert last inserts front. |      Pass: Student tests detected errors. |      5 |
+|    broke-4 |        Insert-sorted misses a back-link. |      Pass: Student tests detected errors. |      5 |
+|    broke-5 |         Index-forward doesn't return nil |      Pass: Student tests detected errors. |      5 |
+|    broke-6 | Index-backward returns positive numbers. |      Pass: Student tests detected errors. |      5 |
+|    broke-7 |                Index-backward off by one |      Pass: Student tests detected errors. |      5 |
+|    broke-8 |            Delete assumes list is sorted | Fail: Student tests did not detect error. |      0 |
+|    broke-9 |      Reverse doesn't fix the back edges. | Fail: Student tests did not detect error. |      0 |
+|   broke-10 |        List to Dlist messes up pointers. | Fail: Student tests did not detect error. |      0 |
+|      total |                              Total Score |                                           |     61 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+......F..F...F..FFF.FF.FFF.F.FFFFFFF
+
+Failures:
+
+  1) Insert-front on empty list will convert to a list properly
+     Expected: (10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/working/spec/dlist_atom/core_spec.clj:50
+
+  2) Insert-front multiple times will convert to a list properly
+     Expected: (10 20 30)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/working/spec/dlist_atom/core_spec.clj:75
+
+  3) Insert-last on empty list will convert to a list properly
+     Expected: (10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/working/spec/dlist_atom/core_spec.clj:101
+
+  4) Insert-last multiple times will convert to a list properly
+     Expected: (30 20 10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/working/spec/dlist_atom/core_spec.clj:125
+
+  5) Insert-sorted on empty list Will have size 1.
+     Expected: 1
+          got: 0 (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/working/spec/dlist_atom/core_spec.clj:133
+
+  6) Insert-sorted on empty list Will have a proper element.
+     Expected: 10
+          got: sentinel (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/working/spec/dlist_atom/core_spec.clj:138
+
+  7) Insert-sorted on empty list will convert to a list properly
+     Expected: (10)
+          got: () (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/working/spec/dlist_atom/core_spec.clj:151
+
+  8) Insert-sorted multiple times Will update size.
+     Expected: 3
+          got: 0 (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/working/spec/dlist_atom/core_spec.clj:161
+
+  9) Insert-sorted multiple times will insert 10 20 30 properly
+     Expected: (30 20 10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/working/spec/dlist_atom/core_spec.clj:176
+
+  10) Insert-sorted multiple times will insert 30 20 10 properly
+     Expected: (30 20 10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/working/spec/dlist_atom/core_spec.clj:183
+
+  11) Insert-sorted multiple times will insert 10 30 20 properly
+     Expected: (30 20 10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/working/spec/dlist_atom/core_spec.clj:190
+
+  12) Index forward indexex properly
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/working/spec/dlist_atom/core_spec.clj:205
+
+  13) Index backward indexex properly
+     Expected: -3
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/working/spec/dlist_atom/core_spec.clj:221
+
+  14) list-to-dlist creates an empty list properly
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$d_next.invoke(core.clj:85)
+     	at dlist_atom.core$show_dlist.invoke(core.clj:98)
+     	at dlist_atom.core_spec$eval1527$fn__1528$fn__1533.invoke(/home/grader/quarry/dlist-atom-lab/msteele/working/spec/dlist_atom/core_spec.clj:229)
+     	... 42 stack levels elided ...
+
+  15) list-to-dlist creates full lists properly
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$d_next.invoke(core.clj:85)
+     	at dlist_atom.core$show_dlist.invoke(core.clj:98)
+     	at dlist_atom.core_spec$eval1527$fn__1528$fn__1539.invoke(/home/grader/quarry/dlist-atom-lab/msteele/working/spec/dlist_atom/core_spec.clj:233)
+     	... 42 stack levels elided ...
+
+  16) delete should do nothing to empty lists.
+     Expected: ()
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/working/spec/dlist_atom/core_spec.clj:241
+
+  17) delete deletes elements properly.
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$d_next.invoke(core.clj:85)
+     	at dlist_atom.core$show_dlist.invoke(core.clj:98)
+     	at dlist_atom.core_spec$eval1552$fn__1553$fn__1566.invoke(/home/grader/quarry/dlist-atom-lab/msteele/working/spec/dlist_atom/core_spec.clj:246)
+     	... 42 stack levels elided ...
+
+  18) reverse should not mess up empty lists.
+     Expected: ()
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/working/spec/dlist_atom/core_spec.clj:292
+
+  19) reverse should reverse full lists.
+     
+     java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$d_size.invoke(core.clj:47)
+     	at dlist_atom.core_spec$eval1635$fn__1636$fn__1649.invoke(/home/grader/quarry/dlist-atom-lab/msteele/working/spec/dlist_atom/core_spec.clj:297)
+     	... 42 stack levels elided ...
+
+Finished in 0.03988 seconds
+36 examples, 19 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Test student tests vs instructor code
+
+..................
+
+Finished in 0.01206 seconds
+18 examples, 0 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Insert front doesn't increment size.
+
+..F...............
+
+Failures:
+
+  1) insert-front should increment size
+     Expected: 1
+          got: 0 (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/broke-1/spec/dlist_atom/core_spec.clj:26
+
+Finished in 0.02405 seconds
+18 examples, 1 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Insert front doens't set previous link.
+
+....F.....FF...FFF
+
+Failures:
+
+  1) insert-last should work with lists with data
+     Expected: (2 3)
+          got: (3) (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/broke-2/spec/dlist_atom/core_spec.clj:36
+
+  2) index-backward should return negative numbers
+     Expected: -1
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/broke-2/spec/dlist_atom/core_spec.clj:70
+
+  3) index-backward should return the middle numbers as negatives
+     Expected: -2
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/broke-2/spec/dlist_atom/core_spec.clj:76
+
+  4) delete should delete from the middle of the list
+     Expected: (3 4 1)
+          got: (1) (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/broke-2/spec/dlist_atom/core_spec.clj:100
+
+  5) show-dlist-reverse should reverse a dlist
+     Expected: (1 2 3 4)
+          got: () (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/broke-2/spec/dlist_atom/core_spec.clj:108
+
+  6) show-dlist-reverse should reverse a non-sorted dlist
+     Expected: (1 4 2 3)
+          got: () (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/broke-2/spec/dlist_atom/core_spec.clj:115
+
+Finished in 0.14001 seconds
+18 examples, 6 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Insert last inserts front.
+
+....F.............
+
+Failures:
+
+  1) insert-last should work with lists with data
+     Expected: (2 3)
+          got: (3 2) (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/broke-3/spec/dlist_atom/core_spec.clj:36
+
+Finished in 0.03684 seconds
+18 examples, 1 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Insert-sorted misses a back-link.
+
+......F...........
+
+Failures:
+
+  1) insert-sorted should work with a list with data
+     Expected: (1 2 3)
+          got: (2 3) (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/broke-4/spec/dlist_atom/core_spec.clj:48
+
+Finished in 0.10316 seconds
+18 examples, 1 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Index-forward doesn't return nil
+
+........FF........
+
+Failures:
+
+  1) index-forward should return nil for empty lists
+     Expected: nil
+          got: 0 (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/broke-5/spec/dlist_atom/core_spec.clj:59
+
+  2) index-forward should return nil if the element is not found
+     Expected: nil
+          got: 1 (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/broke-5/spec/dlist_atom/core_spec.clj:63
+
+Finished in 0.02841 seconds
+18 examples, 2 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Index-backward returns positive numbers.
+
+..........FF......
+
+Failures:
+
+  1) index-backward should return negative numbers
+     Expected: -1
+          got: 0 (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/broke-6/spec/dlist_atom/core_spec.clj:70
+
+  2) index-backward should return the middle numbers as negatives
+     Expected: -2
+          got: 1 (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/broke-6/spec/dlist_atom/core_spec.clj:76
+
+Finished in 0.01757 seconds
+18 examples, 2 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Index-backward off by one
+
+..........FF......
+
+Failures:
+
+  1) index-backward should return negative numbers
+     Expected: -1
+          got: 0 (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/broke-7/spec/dlist_atom/core_spec.clj:70
+
+  2) index-backward should return the middle numbers as negatives
+     Expected: -2
+          got: -1 (using =)
+     /home/grader/quarry/dlist-atom-lab/msteele/broke-7/spec/dlist_atom/core_spec.clj:76
+
+Finished in 0.00916 seconds
+18 examples, 2 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Delete assumes list is sorted
+
+..................
+
+Finished in 0.00402 seconds
+18 examples, 0 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Reverse doesn't fix the back edges.
+
+..................
+
+Finished in 0.00391 seconds
+18 examples, 0 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for List to Dlist messes up pointers.
+
+..................
+
+Finished in 0.00419 seconds
+18 examples, 0 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse

@@ -1,0 +1,179 @@
+Lab report for Linked List Lab - elozano
+Timestamp: 2013-10-02 20:02:51
+
+|  :scenario |                                :title |                   :result | :score |
+|------------+---------------------------------------+---------------------------+--------|
+|    working | Test student code vs instructor tests |                      Fail |     20 |
+| qualifying | Test student tests vs instructor code |                      Fail |      3 |
+| qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
+|      total |                           Total Score |                           |     23 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+......F..F...FFFFFFFFFFF
+
+Failures:
+
+  1) insert-at-beginning should work with lists that have data
+     Expected: #linked_lists.core.Cons{:car 5, :cdr #linked_lists.core.Cons{:car 10, :cdr #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}}}
+          got: #linked_lists.core.Cons{:car nil, :cdr #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}} (using =)
+     /home/grader/quarry/linked-list-lab/elozano/working/spec/linked_lists/core_spec.clj:34
+
+  2) insert-at-end should work with lists that have data
+     Don't know how to create ISeq from: java.lang.Long
+     java.lang.IllegalArgumentException: Don't know how to create ISeq from: java.lang.Long
+     	... 4 stack levels elided ...
+     	at linked_lists.core$insert_at_end.invoke(core.clj:43)
+     	at linked_lists.core$insert_at_end.invoke(core.clj:44)
+     	at linked_lists.core_spec$eval1242$fn__1243$fn__1256.invoke(/home/grader/quarry/linked-list-lab/elozano/working/spec/linked_lists/core_spec.clj:45)
+     	... 42 stack levels elided ...
+
+  3) sorted insert should put the element at in the middle in the average case.
+     Don't know how to create ISeq from: java.lang.Long
+     java.lang.IllegalArgumentException: Don't know how to create ISeq from: java.lang.Long
+     	... 4 stack levels elided ...
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core$sorted_insert.invoke(core.clj:53)
+     	at linked_lists.core_spec$eval1267$fn__1268$fn__1285.invoke(/home/grader/quarry/linked-list-lab/elozano/working/spec/linked_lists/core_spec.clj:60)
+     	... 42 stack levels elided ...
+
+  4) sorted insert should not duplicate the remainder of the list after the insertion point.
+     Don't know how to create ISeq from: java.lang.Long
+     java.lang.IllegalArgumentException: Don't know how to create ISeq from: java.lang.Long
+     	... 4 stack levels elided ...
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core$sorted_insert.invoke(core.clj:53)
+     	at linked_lists.core_spec$eval1267$fn__1268$fn__1289.invoke(/home/grader/quarry/linked-list-lab/elozano/working/spec/linked_lists/core_spec.clj:65)
+     	... 42 stack levels elided ...
+
+  5) sorted insert should put the element at the end if it's the last element.
+     Don't know how to create ISeq from: java.lang.Long
+     java.lang.IllegalArgumentException: Don't know how to create ISeq from: java.lang.Long
+     	... 4 stack levels elided ...
+     	at linked_lists.core$sorted_insert.invoke(core.clj:51)
+     	at linked_lists.core$sorted_insert.invoke(core.clj:53)
+     	at linked_lists.core_spec$eval1267$fn__1268$fn__1292.invoke(/home/grader/quarry/linked-list-lab/elozano/working/spec/linked_lists/core_spec.clj:69)
+     	... 42 stack levels elided ...
+
+  6) search should find things that are in the list.
+     java.lang.Boolean cannot be cast to clojure.lang.IFn
+     java.lang.ClassCastException: java.lang.Boolean cannot be cast to clojure.lang.IFn
+     	at linked_lists.core$search.invoke(core.clj:63)
+     	at linked_lists.core_spec$eval1303$fn__1304$fn__1309.invoke(/home/grader/quarry/linked-list-lab/elozano/working/spec/linked_lists/core_spec.clj:74)
+     	... 42 stack levels elided ...
+
+  7) search should not find things that are not in the list.
+     java.lang.Boolean cannot be cast to clojure.lang.IFn
+     java.lang.ClassCastException: java.lang.Boolean cannot be cast to clojure.lang.IFn
+     	at linked_lists.core$search.invoke(core.clj:62)
+     	at linked_lists.core_spec$eval1303$fn__1304$fn__1314.invoke(/home/grader/quarry/linked-list-lab/elozano/working/spec/linked_lists/core_spec.clj:79)
+     	... 42 stack levels elided ...
+
+  8) delete should delete things once that are in the list.
+     Don't know how to create ISeq from: java.lang.Long
+     java.lang.IllegalArgumentException: Don't know how to create ISeq from: java.lang.Long
+     	... 4 stack levels elided ...
+     	at linked_lists.core$delete.invoke(core.clj:82)
+     	at linked_lists.core$delete.invoke(core.clj:84)
+     	at linked_lists.core_spec$eval1326$fn__1327$fn__1332.invoke(/home/grader/quarry/linked-list-lab/elozano/working/spec/linked_lists/core_spec.clj:87)
+     	... 42 stack levels elided ...
+
+  9) delete should not delete that are not in the list.
+     Don't know how to create ISeq from: java.lang.Long
+     java.lang.IllegalArgumentException: Don't know how to create ISeq from: java.lang.Long
+     	... 4 stack levels elided ...
+     	at linked_lists.core$delete.invoke(core.clj:82)
+     	at linked_lists.core$delete.invoke(core.clj:84)
+     	at linked_lists.core_spec$eval1326$fn__1327$fn__1340.invoke(/home/grader/quarry/linked-list-lab/elozano/working/spec/linked_lists/core_spec.clj:95)
+     	... 42 stack levels elided ...
+
+  10) delete-all should delete things completely that are in the list.
+     Don't know how to create ISeq from: java.lang.Long
+     java.lang.IllegalArgumentException: Don't know how to create ISeq from: java.lang.Long
+     	... 4 stack levels elided ...
+     	at linked_lists.core$delete.invoke(core.clj:82)
+     	at linked_lists.core$delete_all.invoke(core.clj:92)
+     	at linked_lists.core_spec$eval1355$fn__1356$fn__1361.invoke(/home/grader/quarry/linked-list-lab/elozano/working/spec/linked_lists/core_spec.clj:102)
+     	... 42 stack levels elided ...
+
+  11) delete-all should not delete-all that are not in the list.
+     Don't know how to create ISeq from: java.lang.Long
+     java.lang.IllegalArgumentException: Don't know how to create ISeq from: java.lang.Long
+     	... 4 stack levels elided ...
+     	at linked_lists.core$delete.invoke(core.clj:82)
+     	at linked_lists.core$delete_all.invoke(core.clj:92)
+     	at linked_lists.core_spec$eval1355$fn__1356$fn__1369.invoke(/home/grader/quarry/linked-list-lab/elozano/working/spec/linked_lists/core_spec.clj:110)
+     	... 42 stack levels elided ...
+
+  12) efficient-delete should delete things once that are in the list.
+     java.lang.Long cannot be cast to clojure.lang.IFn
+     java.lang.ClassCastException: java.lang.Long cannot be cast to clojure.lang.IFn
+     	at linked_lists.core$efficient_delete.invoke(core.clj:101)
+     	at linked_lists.core_spec$eval1384$fn__1385$fn__1390.invoke(/home/grader/quarry/linked-list-lab/elozano/working/spec/linked_lists/core_spec.clj:117)
+     	... 42 stack levels elided ...
+
+  13) efficient-delete should not duplicate a list if the victim is not in it.
+     java.lang.Long cannot be cast to clojure.lang.IFn
+     java.lang.ClassCastException: java.lang.Long cannot be cast to clojure.lang.IFn
+     	at linked_lists.core$efficient_delete.invoke(core.clj:101)
+     	at linked_lists.core_spec$eval1384$fn__1385$fn__1398.invoke(/home/grader/quarry/linked-list-lab/elozano/working/spec/linked_lists/core_spec.clj:124)
+     	... 42 stack levels elided ...
+
+Finished in 0.04806 seconds
+24 examples, 13 failures
+
+
+** Details for Test student tests vs instructor code
+
+.........F.FFFF.F...FF
+
+Failures:
+
+  1) insert-at-end should work with lists that have data
+     Expected: #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}
+          got: #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr #linked_lists.core.Cons{:car 40, :cdr #linked_lists.core.Cons{:car 40, :cdr nil}}}} (using =)
+     /home/grader/quarry/linked-list-lab/elozano/qualifying/spec/linked_lists/core_spec.clj:44
+
+  2) sorted insert should insert an element into a sorted list
+     java.lang.Long cannot be cast to clojure.lang.IFn
+     java.lang.ClassCastException: java.lang.Long cannot be cast to clojure.lang.IFn
+     	at linked_lists.core_spec$eval1267$fn__1268$fn__1277.invoke(/home/grader/quarry/linked-list-lab/elozano/qualifying/spec/linked_lists/core_spec.clj:53)
+     	... 42 stack levels elided ...
+
+  3) search should work with empty lists
+     Expected truthy but was: false
+     /home/grader/quarry/linked-list-lab/elozano/qualifying/spec/linked_lists/core_spec.clj:57
+
+  4) search returns a value from a list
+     java.lang.Long cannot be cast to clojure.lang.IFn
+     java.lang.ClassCastException: java.lang.Long cannot be cast to clojure.lang.IFn
+     	at linked_lists.core_spec$eval1288$fn__1289$fn__1297.invoke(/home/grader/quarry/linked-list-lab/elozano/qualifying/spec/linked_lists/core_spec.clj:61)
+     	... 42 stack levels elided ...
+
+  5) search returns a false from a list that does not contain elt
+     Expected truthy but was: false
+     /home/grader/quarry/linked-list-lab/elozano/qualifying/spec/linked_lists/core_spec.clj:65
+
+  6) delete should delete an element from a list
+     java.lang.Long cannot be cast to clojure.lang.IFn
+     java.lang.ClassCastException: java.lang.Long cannot be cast to clojure.lang.IFn
+     	at linked_lists.core_spec$eval1310$fn__1311$fn__1320.invoke(/home/grader/quarry/linked-list-lab/elozano/qualifying/spec/linked_lists/core_spec.clj:73)
+     	... 42 stack levels elided ...
+
+  7) efficient-delete should delete every instance of elt
+     java.lang.Long cannot be cast to clojure.lang.IFn
+     java.lang.ClassCastException: java.lang.Long cannot be cast to clojure.lang.IFn
+     	at linked_lists.core_spec$eval1353$fn__1354$fn__1363.invoke(/home/grader/quarry/linked-list-lab/elozano/qualifying/spec/linked_lists/core_spec.clj:92)
+     	... 42 stack levels elided ...
+
+  8) efficient-delete should return original list if elt not present
+     java.lang.Long cannot be cast to clojure.lang.IFn
+     java.lang.ClassCastException: java.lang.Long cannot be cast to clojure.lang.IFn
+     	at linked_lists.core_spec$eval1353$fn__1354$fn__1367.invoke(/home/grader/quarry/linked-list-lab/elozano/qualifying/spec/linked_lists/core_spec.clj:96)
+     	... 42 stack levels elided ...
+
+Finished in 0.04317 seconds
+22 examples, 8 failures

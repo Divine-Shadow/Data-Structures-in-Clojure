@@ -1,0 +1,283 @@
+Lab report for Doubly Linked Lists with Atoms - ltaupier
+Timestamp: 2013-11-03 16:54:41
+
+|  :scenario |                                   :title |                                   :result | :score |
+|------------+------------------------------------------+-------------------------------------------+--------|
+|    working |    Test student code vs instructor tests |                                      Fail |     15 |
+| qualifying |    Test student tests vs instructor code |                                      Pass |      5 |
+|    broke-1 |     Insert front doesn't increment size. | Fail: Student tests did not detect error. |      0 |
+|    broke-2 |  Insert front doens't set previous link. | Fail: Student tests did not detect error. |      0 |
+|    broke-3 |               Insert last inserts front. | Fail: Student tests did not detect error. |      0 |
+|    broke-4 |        Insert-sorted misses a back-link. | Fail: Student tests did not detect error. |      0 |
+|    broke-5 |         Index-forward doesn't return nil | Fail: Student tests did not detect error. |      0 |
+|    broke-6 | Index-backward returns positive numbers. | Fail: Student tests did not detect error. |      0 |
+|    broke-7 |                Index-backward off by one | Fail: Student tests did not detect error. |      0 |
+|    broke-8 |            Delete assumes list is sorted | Fail: Student tests did not detect error. |      0 |
+|    broke-9 |      Reverse doesn't fix the back edges. | Fail: Student tests did not detect error. |      0 |
+|   broke-10 |        List to Dlist messes up pointers. | Fail: Student tests did not detect error. |      0 |
+|      total |                              Total Score |                                           |     20 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+......F..FFFFFFFFFF.FF.FFF.F.FFFFFFF
+
+Failures:
+
+  1) Insert-front on empty list will convert to a list properly
+     Expected: (10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:50
+
+  2) Insert-front multiple times will convert to a list properly
+     Expected: (10 20 30)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:75
+
+  3) Insert-last on empty list Will have size 1.
+     Wrong number of args (0) passed to: core$d-sentinel
+     clojure.lang.ArityException: Wrong number of args (0) passed to: core$d-sentinel
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$insert_last.invoke(core.clj:131)
+     	at dlist_atom.core_spec$eval1329$fn__1330$fn__1335.invoke(/home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:81)
+     	... 42 stack levels elided ...
+
+  4) Insert-last on empty list Will have a proper element.
+     Wrong number of args (0) passed to: core$d-sentinel
+     clojure.lang.ArityException: Wrong number of args (0) passed to: core$d-sentinel
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$insert_last.invoke(core.clj:131)
+     	at dlist_atom.core_spec$eval1329$fn__1330$fn__1339.invoke(/home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:86)
+     	... 42 stack levels elided ...
+
+  5) Insert-last on empty list will link the element back to the sentinel
+     Wrong number of args (0) passed to: core$d-sentinel
+     clojure.lang.ArityException: Wrong number of args (0) passed to: core$d-sentinel
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$insert_last.invoke(core.clj:131)
+     	at dlist_atom.core_spec$eval1329$fn__1330$fn__1345.invoke(/home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:93)
+     	... 42 stack levels elided ...
+
+  6) Insert-last on empty list will convert to a list properly
+     Wrong number of args (0) passed to: core$d-sentinel
+     clojure.lang.ArityException: Wrong number of args (0) passed to: core$d-sentinel
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$insert_last.invoke(core.clj:131)
+     	at dlist_atom.core_spec$eval1329$fn__1330$fn__1351.invoke(/home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:99)
+     	... 42 stack levels elided ...
+
+  7) Insert-last multiple times Will update size.
+     Wrong number of args (0) passed to: core$d-sentinel
+     clojure.lang.ArityException: Wrong number of args (0) passed to: core$d-sentinel
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$insert_last.invoke(core.clj:131)
+     	at dlist_atom.core_spec$eval1364$fn__1365$fn__1370.invoke(/home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:107)
+     	... 42 stack levels elided ...
+
+  8) Insert-last multiple times will link the element back to the sentinel
+     Wrong number of args (0) passed to: core$d-sentinel
+     clojure.lang.ArityException: Wrong number of args (0) passed to: core$d-sentinel
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$insert_last.invoke(core.clj:131)
+     	at dlist_atom.core_spec$eval1364$fn__1365$fn__1374.invoke(/home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:114)
+     	... 42 stack levels elided ...
+
+  9) Insert-last multiple times will convert to a list properly
+     Wrong number of args (0) passed to: core$d-sentinel
+     clojure.lang.ArityException: Wrong number of args (0) passed to: core$d-sentinel
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$insert_last.invoke(core.clj:131)
+     	at dlist_atom.core_spec$eval1364$fn__1365$fn__1380.invoke(/home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:122)
+     	... 42 stack levels elided ...
+
+  10) Insert-sorted on empty list Will have size 1.
+     Expected: 1
+          got: 0 (using =)
+     /home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:133
+
+  11) Insert-sorted on empty list Will have a proper element.
+     Expected: 10
+          got: sentinel (using =)
+     /home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:138
+
+  12) Insert-sorted on empty list will convert to a list properly
+     Expected: (10)
+          got: () (using =)
+     /home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:151
+
+  13) Insert-sorted multiple times Will update size.
+     Expected: 3
+          got: 0 (using =)
+     /home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:161
+
+  14) Insert-sorted multiple times will insert 10 20 30 properly
+     Expected: (30 20 10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:176
+
+  15) Insert-sorted multiple times will insert 30 20 10 properly
+     Expected: (30 20 10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:183
+
+  16) Insert-sorted multiple times will insert 10 30 20 properly
+     Expected: (30 20 10)
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:190
+
+  17) Index forward indexex properly
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:205
+
+  18) Index backward indexex properly
+     Expected: -3
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:221
+
+  19) list-to-dlist creates an empty list properly
+     Expected: ()
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:230
+
+  20) list-to-dlist creates full lists properly
+     Wrong number of args (0) passed to: core$d-sentinel
+     clojure.lang.ArityException: Wrong number of args (0) passed to: core$d-sentinel
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$insert_last.invoke(core.clj:131)
+     	at dlist_atom.core$list_to_dlist.invoke(core.clj:154)
+     	at dlist_atom.core_spec$eval1527$fn__1528$fn__1539.invoke(/home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:232)
+     	... 42 stack levels elided ...
+
+  21) delete should do nothing to empty lists.
+     Expected: ()
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:241
+
+  22) delete deletes elements properly.
+     Wrong number of args (0) passed to: core$d-sentinel
+     clojure.lang.ArityException: Wrong number of args (0) passed to: core$d-sentinel
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$insert_last.invoke(core.clj:131)
+     	at dlist_atom.core$list_to_dlist.invoke(core.clj:154)
+     	at dlist_atom.core_spec$eval1552$fn__1553$fn__1566.invoke(/home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:244)
+     	... 42 stack levels elided ...
+
+  23) reverse should not mess up empty lists.
+     Expected: ()
+          got: nil (using =)
+     /home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:292
+
+  24) reverse should reverse full lists.
+     Wrong number of args (0) passed to: core$d-sentinel
+     clojure.lang.ArityException: Wrong number of args (0) passed to: core$d-sentinel
+     	... 2 stack levels elided ...
+     	at dlist_atom.core$insert_last.invoke(core.clj:131)
+     	at dlist_atom.core$list_to_dlist.invoke(core.clj:154)
+     	at dlist_atom.core_spec$eval1635$fn__1636$fn__1649.invoke(/home/grader/quarry/dlist-atom-lab/ltaupier/working/spec/dlist_atom/core_spec.clj:295)
+     	... 42 stack levels elided ...
+
+Finished in 0.04207 seconds
+36 examples, 24 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Test student tests vs instructor code
+
+.
+
+Finished in 0.01144 seconds
+1 examples, 0 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Insert front doesn't increment size.
+
+.
+
+Finished in 0.00189 seconds
+1 examples, 0 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Insert front doens't set previous link.
+
+.
+
+Finished in 0.00190 seconds
+1 examples, 0 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Insert last inserts front.
+
+.
+
+Finished in 0.00189 seconds
+1 examples, 0 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Insert-sorted misses a back-link.
+
+.
+
+Finished in 0.01816 seconds
+1 examples, 0 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Index-forward doesn't return nil
+
+.
+
+Finished in 0.01003 seconds
+1 examples, 0 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Index-backward returns positive numbers.
+
+.
+
+Finished in 0.00197 seconds
+1 examples, 0 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Index-backward off by one
+
+.
+
+Finished in 0.01012 seconds
+1 examples, 0 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Delete assumes list is sorted
+
+.
+
+Finished in 0.00194 seconds
+1 examples, 0 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Reverse doesn't fix the back edges.
+
+.
+
+Finished in 0.00194 seconds
+1 examples, 0 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for List to Dlist messes up pointers.
+
+.
+
+Finished in 0.00174 seconds
+1 examples, 0 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse

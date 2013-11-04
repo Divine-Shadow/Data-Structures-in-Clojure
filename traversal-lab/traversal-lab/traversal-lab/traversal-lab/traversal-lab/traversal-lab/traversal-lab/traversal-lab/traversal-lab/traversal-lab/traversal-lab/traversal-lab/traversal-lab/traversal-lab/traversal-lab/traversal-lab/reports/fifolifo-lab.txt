@@ -1,0 +1,128 @@
+Lab report for Stack and Queue Lab - phadlaw
+Timestamp: 2013-10-22 00:00:46
+
+|  :scenario |                                  :title |                                   :result | :score |
+|------------+-----------------------------------------+-------------------------------------------+--------|
+|    working |   Test student code vs instructor tests |                                      Pass |     45 |
+| qualifying |   Test student tests vs instructor code |                                      Pass |      5 |
+|    broke-1 |            Push doesn't increment size. | Fail: Student tests did not detect error. |      0 |
+|    broke-2 |       Pop of empty makes size negative. | Fail: Student tests did not detect error. |      0 |
+|    broke-3 |            Pop doesn't remove elements. | Fail: Student tests did not detect error. |      0 |
+|    broke-4 |                  Pop reverses elements. | Fail: Student tests did not detect error. |      0 |
+|    broke-5 |         Enqueue doesn't increment size. | Fail: Student tests did not detect error. |      0 |
+|    broke-6 |   Dequeue of empty makes size negative. | Fail: Student tests did not detect error. |      0 |
+|    broke-7 |  Dequeue doesn't reverse when flipping. | Fail: Student tests did not detect error. |      0 |
+|    broke-8 | Dequeue doesn't dequeue after flipping. |      Pass: Student tests detected errors. |      5 |
+|    broke-9 |            Flipping doesn't erase back. | Fail: Student tests did not detect error. |      0 |
+|   broke-10 |             Queue behaves like a stack. | Fail: Student tests did not detect error. |      0 |
+|      total |                             Total Score |                                           |     55 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+....................
+
+Finished in 0.00964 seconds
+20 examples, 0 failures
+
+
+** Details for Test student tests vs instructor code
+
+......
+
+Finished in 0.00125 seconds
+6 examples, 0 failures
+
+
+** Details for Push doesn't increment size.
+
+......
+
+Finished in 0.00130 seconds
+6 examples, 0 failures
+
+
+** Details for Pop of empty makes size negative.
+
+......
+
+Finished in 0.00130 seconds
+6 examples, 0 failures
+
+
+** Details for Pop doesn't remove elements.
+
+......
+
+Finished in 0.00131 seconds
+6 examples, 0 failures
+
+
+** Details for Pop reverses elements.
+
+......
+
+Finished in 0.00124 seconds
+6 examples, 0 failures
+
+
+** Details for Enqueue doesn't increment size.
+
+......
+
+Finished in 0.00129 seconds
+6 examples, 0 failures
+
+
+** Details for Dequeue of empty makes size negative.
+
+......
+
+Finished in 0.00138 seconds
+6 examples, 0 failures
+
+
+** Details for Dequeue doesn't reverse when flipping.
+
+......
+
+Finished in 0.00137 seconds
+6 examples, 0 failures
+
+
+** Details for Dequeue doesn't dequeue after flipping.
+
+..F..F
+
+Failures:
+
+  1) The stack declaration should have a size of zero.
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/phadlaw/broke-8/spec/fifolifo/core_spec.clj:21
+
+  2) The queue declaration should have a size of zero.
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/phadlaw/broke-8/spec/fifolifo/core_spec.clj:57
+
+Finished in 0.01575 seconds
+6 examples, 2 failures
+
+
+** Details for Flipping doesn't erase back.
+
+......
+
+Finished in 0.00135 seconds
+6 examples, 0 failures
+
+
+** Details for Queue behaves like a stack.
+
+......
+
+Finished in 0.00135 seconds
+6 examples, 0 failures

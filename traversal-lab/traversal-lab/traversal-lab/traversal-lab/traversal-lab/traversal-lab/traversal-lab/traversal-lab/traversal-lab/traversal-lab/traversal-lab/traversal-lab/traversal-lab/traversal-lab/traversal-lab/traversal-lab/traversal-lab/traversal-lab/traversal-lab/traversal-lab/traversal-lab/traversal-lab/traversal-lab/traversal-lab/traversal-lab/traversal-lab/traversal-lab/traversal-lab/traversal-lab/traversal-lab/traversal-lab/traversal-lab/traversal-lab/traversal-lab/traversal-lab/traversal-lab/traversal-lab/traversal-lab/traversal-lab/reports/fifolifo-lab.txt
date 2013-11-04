@@ -1,0 +1,256 @@
+Lab report for Stack and Queue Lab - gwillia5
+Timestamp: 2013-10-21 23:16:34
+
+|  :scenario |                                  :title |                              :result | :score |
+|------------+-----------------------------------------+--------------------------------------+--------|
+|    working |   Test student code vs instructor tests |                                 Pass |     45 |
+| qualifying |   Test student tests vs instructor code |                                 Pass |      5 |
+|    broke-1 |            Push doesn't increment size. | Pass: Student tests detected errors. |      5 |
+|    broke-2 |       Pop of empty makes size negative. | Pass: Student tests detected errors. |      5 |
+|    broke-3 |            Pop doesn't remove elements. | Pass: Student tests detected errors. |      5 |
+|    broke-4 |                  Pop reverses elements. | Pass: Student tests detected errors. |      5 |
+|    broke-5 |         Enqueue doesn't increment size. | Pass: Student tests detected errors. |      5 |
+|    broke-6 |   Dequeue of empty makes size negative. | Pass: Student tests detected errors. |      5 |
+|    broke-7 |  Dequeue doesn't reverse when flipping. | Pass: Student tests detected errors. |      5 |
+|    broke-8 | Dequeue doesn't dequeue after flipping. | Pass: Student tests detected errors. |      5 |
+|    broke-9 |            Flipping doesn't erase back. | Pass: Student tests detected errors. |      5 |
+|   broke-10 |             Queue behaves like a stack. | Pass: Student tests detected errors. |      5 |
+|      total |                             Total Score |                                      |    100 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+....................
+
+Finished in 0.02412 seconds
+20 examples, 0 failures
+
+
+** Details for Test student tests vs instructor code
+
+.................
+
+Finished in 0.00340 seconds
+17 examples, 0 failures
+
+
+** Details for Push doesn't increment size.
+
+...F.............
+
+Failures:
+
+  1) Push should increment size
+     Expected: 0
+     not to =: 0
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-1/spec/fifolifo/core_spec.clj:27
+
+Finished in 0.01484 seconds
+17 examples, 1 failures
+
+
+** Details for Pop of empty makes size negative.
+
+....F............
+
+Failures:
+
+  1) Pop should not decrement the size when popping an empty stack
+     Expected: 0
+          got: -1 (using =)
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-2/spec/fifolifo/core_spec.clj:32
+
+Finished in 0.01610 seconds
+17 examples, 1 failures
+
+
+** Details for Pop doesn't remove elements.
+
+.....FF..........
+
+Failures:
+
+  1) Pop should remove elements
+     Expected: (1)
+     not to =: (1)
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-3/spec/fifolifo/core_spec.clj:36
+
+  2) Pop should not reverse the elements the stack list
+     Expected: (1)
+          got: (2 1) (using =)
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-3/spec/fifolifo/core_spec.clj:39
+
+Finished in 0.08614 seconds
+17 examples, 2 failures
+
+
+** Details for Pop reverses elements.
+
+......F..........
+
+Failures:
+
+  1) Pop should not reverse the elements the stack list
+     Expected: (1)
+          got: (2) (using =)
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-4/spec/fifolifo/core_spec.clj:39
+
+Finished in 0.06809 seconds
+17 examples, 1 failures
+
+
+** Details for Enqueue doesn't increment size.
+
+...........F.FFF.
+
+Failures:
+
+  1) Enqueue should increment size
+     Expected: 0
+     not to =: 0
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-5/spec/fifolifo/core_spec.clj:64
+
+  2) Dequeue should not return the same value
+     Expected: #fifolifo.core.Queue{:back (1), :front nil, :size 0}
+     not to =: #fifolifo.core.Queue{:back (1), :front nil, :size 0}
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-5/spec/fifolifo/core_spec.clj:71
+
+  3) Dequeue should reverse when flipping
+     Expected: (2 3)
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-5/spec/fifolifo/core_spec.clj:74
+
+  4) Dequeue flipping should always erase back
+     Expected: nil
+          got: (1) (using =)
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-5/spec/fifolifo/core_spec.clj:77
+
+Finished in 0.05330 seconds
+17 examples, 4 failures
+
+
+** Details for Dequeue of empty makes size negative.
+
+............F....
+
+Failures:
+
+  1) Dequeue should not decrement an empty queue
+     Expected: 0
+          got: -1 (using =)
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-6/spec/fifolifo/core_spec.clj:68
+
+Finished in 0.01585 seconds
+17 examples, 1 failures
+
+
+** Details for Dequeue doesn't reverse when flipping.
+
+..............F..
+
+Failures:
+
+  1) Dequeue should reverse when flipping
+     Expected: (2 3)
+          got: (2 1) (using =)
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-7/spec/fifolifo/core_spec.clj:74
+
+Finished in 0.04719 seconds
+17 examples, 1 failures
+
+
+** Details for Dequeue doesn't dequeue after flipping.
+
+..F.F.FF..F.FFF.F
+
+Failures:
+
+  1) The stack declaration should have a size of zero.
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-8/spec/fifolifo/core_spec.clj:21
+
+  2) Pop should not decrement the size when popping an empty stack
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-8/spec/fifolifo/core_spec.clj:32
+
+  3) Pop should not reverse the elements the stack list
+     Expected: (1 [:top nil] [:size 0])
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-8/spec/fifolifo/core_spec.clj:39
+
+  4) The stack size should return the size of the stack.
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-8/spec/fifolifo/core_spec.clj:44
+
+  5) The queue declaration should have a size of zero.
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-8/spec/fifolifo/core_spec.clj:57
+
+  6) Dequeue should not decrement an empty queue
+     Expected: 0
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-8/spec/fifolifo/core_spec.clj:68
+
+  7) Dequeue should not return the same value
+     Expected: nil
+     not to =: nil
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-8/spec/fifolifo/core_spec.clj:71
+
+  8) Dequeue should reverse when flipping
+     Expected: (2 3)
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-8/spec/fifolifo/core_spec.clj:74
+
+  9) Queues generally should not behave like stacks
+     Expected: nil
+     not to =: nil
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-8/spec/fifolifo/core_spec.clj:83
+
+Finished in 0.17415 seconds
+17 examples, 9 failures
+
+
+** Details for Flipping doesn't erase back.
+
+...............F.
+
+Failures:
+
+  1) Dequeue flipping should always erase back
+     Expected: nil
+          got: (1) (using =)
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-9/spec/fifolifo/core_spec.clj:77
+
+Finished in 0.06116 seconds
+17 examples, 1 failures
+
+
+** Details for Queue behaves like a stack.
+
+..............FFF
+
+Failures:
+
+  1) Dequeue should reverse when flipping
+     Expected: (2 3)
+          got: nil (using =)
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-10/spec/fifolifo/core_spec.clj:74
+
+  2) Dequeue flipping should always erase back
+     Expected: nil
+          got: () (using =)
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-10/spec/fifolifo/core_spec.clj:77
+
+  3) Queues generally should not behave like stacks
+     Expected: #fifolifo.core.Queue{:back (2), :front nil, :size 1}
+     not to =: #fifolifo.core.Queue{:back (2), :front nil, :size 1}
+     /home/grader/quarry/fifolifo-lab/gwillia5/broke-10/spec/fifolifo/core_spec.clj:83
+
+Finished in 0.14057 seconds
+17 examples, 3 failures
