@@ -1,9 +1,9 @@
 Lab report for Doubly Linked Lists with Atoms - wmolchan
-Timestamp: 2013-11-03 17:35:27
+Timestamp: 2013-11-04 12:20:46
 
 |  :scenario |                                   :title |                              :result | :score |
 |------------+------------------------------------------+--------------------------------------+--------|
-|    working |    Test student code vs instructor tests |                                 Fail |     43 |
+|    working |    Test student code vs instructor tests |                                 Fail |     42 |
 | qualifying |    Test student tests vs instructor code |                                 Pass |      5 |
 |    broke-1 |     Insert front doesn't increment size. | Pass: Student tests detected errors. |      5 |
 |    broke-2 |  Insert front doens't set previous link. | Pass: Student tests detected errors. |      5 |
@@ -15,24 +15,29 @@ Timestamp: 2013-11-03 17:35:27
 |    broke-8 |            Delete assumes list is sorted | Pass: Student tests detected errors. |      5 |
 |    broke-9 |      Reverse doesn't fix the back edges. | Pass: Student tests detected errors. |      5 |
 |   broke-10 |        List to Dlist messes up pointers. | Pass: Student tests detected errors. |      5 |
-|      total |                              Total Score |                                      |     98 |
+|      total |                              Total Score |                                      |     97 |
 
 Details:
 
 
 ** Details for Test student code vs instructor tests
 
-...123.123.123.123.123123123.123123123.123123123.................123.123123123.123.123123123....F..
+...123.123.123.123.123123123.123123123.123123123.................123.123123123.123.123123123...FF..
 
 Failures:
 
-  1) delete deletes elements properly.
-     Expected: 6
-          got: 7 (using =)
-     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:248
+  1) delete should do nothing to empty lists.
+     Expected: 0
+          got: -1 (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:242
 
-Finished in 0.01635 seconds
-36 examples, 1 failures
+  2) delete deletes elements properly.
+     Expected: 6
+          got: 5 (using =)
+     /home/grader/quarry/dlist-atom-lab/wmolchan/working/spec/dlist_atom/core_spec.clj:252
+
+Finished in 0.01912 seconds
+36 examples, 2 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core, being replaced by: #'dlist-atom.core/reverse
 
 
@@ -40,7 +45,7 @@ WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-a
 
 .....................
 
-Finished in 0.00490 seconds
+Finished in 0.00526 seconds
 21 examples, 0 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -56,7 +61,7 @@ Failures:
           got: 0 (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-1/spec/dlist_atom/core_spec.clj:19
 
-Finished in 0.00955 seconds
+Finished in 0.01333 seconds
 21 examples, 1 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -72,7 +77,7 @@ Failures:
           got: (2 3) (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-2/spec/dlist_atom/core_spec.clj:23
 
-Finished in 0.10790 seconds
+Finished in 0.03993 seconds
 21 examples, 1 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -118,7 +123,7 @@ Failures:
           got: (2 6 5) (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-3/spec/dlist_atom/core_spec.clj:71
 
-Finished in 0.10447 seconds
+Finished in 0.09860 seconds
 21 examples, 7 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -139,7 +144,7 @@ Failures:
           got: (3 2 1) (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-4/spec/dlist_atom/core_spec.clj:49
 
-Finished in 0.10875 seconds
+Finished in 0.10844 seconds
 21 examples, 2 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -155,7 +160,7 @@ Failures:
           got: nil (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-5/spec/dlist_atom/core_spec.clj:56
 
-Finished in 0.02877 seconds
+Finished in 0.02991 seconds
 21 examples, 1 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -171,7 +176,7 @@ Failures:
           got: -2 (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-6/spec/dlist_atom/core_spec.clj:59
 
-Finished in 0.01874 seconds
+Finished in 0.00855 seconds
 21 examples, 1 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -187,7 +192,7 @@ Failures:
           got: -2 (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-7/spec/dlist_atom/core_spec.clj:59
 
-Finished in 0.00974 seconds
+Finished in 0.01015 seconds
 21 examples, 1 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -203,7 +208,7 @@ Failures:
           got: (2 6) (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-8/spec/dlist_atom/core_spec.clj:64
 
-Finished in 0.03797 seconds
+Finished in 0.09480 seconds
 21 examples, 1 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -224,7 +229,7 @@ Failures:
           got: (2 6 5) (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-9/spec/dlist_atom/core_spec.clj:71
 
-Finished in 0.10478 seconds
+Finished in 0.03369 seconds
 21 examples, 2 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
 
@@ -245,6 +250,6 @@ Failures:
           got: (2 6 5) (using =)
      /home/grader/quarry/dlist-atom-lab/wmolchan/broke-10/spec/dlist_atom/core_spec.clj:76
 
-Finished in 0.03332 seconds
+Finished in 0.02843 seconds
 21 examples, 2 failures
 WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
