@@ -226,8 +226,11 @@ p)
 (defn delete "Find and remove an element from the dlist.  Does nothing if the elment is not there.
 Uses sentinels, so it's very short."
   [xx victim]
- (delete-aux (d-next (d-sentinel xx)) victim (d-sentinel xx))    
-
+  (if (index-forward xx victim)
+ (do (delete-aux (d-next (d-sentinel xx)) victim (d-sentinel xx))    
+ (swap-d-size! xx dec)
+ )
+ xx)
 )
 
 ;(defn reverse-aux [xx node sen] 
