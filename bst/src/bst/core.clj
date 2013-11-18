@@ -23,7 +23,8 @@
 
 (defn size "Return the size of the tree."
   [t]
-  0)
+  (:size t)
+)
 
 ;; # Add
 ;;
@@ -33,7 +34,19 @@
 
 (defn add "Add a key and value to the BST."
   [bst nu-key nu-val]
-  nil)
+ (let [currentNode (-> bst root) currentKey (-> bst root key)]
+
+(cond
+  (= bst nil) (BST. (make-node nu-key nu-val) 1)
+ (= nu-key currentKey) (BST. (BNode. (make-node (:left currentNode )  nu-key nu-val (:right currentNode) )) (-> bst size inc))
+ (< nu-key currentKey) (BST. (BNode. (add (:left currentNode) nu-key nu-value) currentKey (:value currentNode) (:right currentNode)) (-> bst size inc))
+ :OnOtherSide  (BST. (BNode. (:left currentNode) currentKey (:value currentNode) (add (:right currentNode) nu-key nu-value)) (-> bst size inc))
+
+
+
+)
+)
+)
 
 ;; # Find
 ;;
@@ -43,10 +56,46 @@
 ;; there, return nil.
 
 (defn find "Look for a key and return the corresponding value."
-  [bst look-key] nil)
+  [bst look-key] 
+ (let [currentNode (-> bst root) currentKey (-> bst root key)]
+
+(cond
+  (= nil bst) nil
+ (= look-key currentKey) (:value currentNode)
+ (< loo-key currentKey)  (find (:left currentNode) look-key)
+ :OnOtherSide  (find (:right currentNode) look-key)
+
+
+
+)
+)
+)
 
 (defn find-key "Look for a value and return the corresponding key."
-  [bst look-value] nil)
+  [bst look-value] 
+
+
+(let [currentNode (-> bst root) currentValue (-> bst root value)]
+
+(cond
+  (= bst nil) nil
+ (= look-value currentValue) (:key currentNode)
+ :beThatWay (let [leftFind (find-key (:left currentNode) look-value)] (if leftFind leftFind (find-key (:right currentNode) look-value)))
+)
+
+)
+)
+
+
+;;# Predecesor given a node, returns a node that is the greatest predecssor
+(defn rightmost [tnode]
+(if (:right tnode) (rightmost (-> tnode :right :root)) tnode)
+
+)
+
+(defn getPred [tnode]
+(rightmost (-> tnode :left :root)
+)
 
 ;; # Delete
 ;;
@@ -54,11 +103,34 @@
 ;; you need to delete a child with two elements.
 
 (defn delete [bst victim]
-  nil
-  )
+
+
+  (let [currentNode (-> bst root) currentKey (-> bst root key)]
+
+    (cond
+     (= bst nil) nil
+     (< victim currentKey) (BST. (BNode. (delete (:left currentNode) victim)  currentKey (:value currentNode)         (:right currentNode))         (-> bst size dec))
+     (> victim currentKey) (BST. (BNode.         (:left currentNode)          currentKey (:value currentNode) (delete (:right currentNode) victim)) (-> bst size dec))
+     :foundYou!  
+
+
+
+
+     (cond
+      (= nil (:left currentNode))  (:right currentNode)
+      (= nil (:right currentNode)) (:left currentNode)
+      :wellShit (let [predecessor (getPred currentNode)] (BST. (BNode. (delete (:left currentNode) (:key predecessor)) (:key predecessor) (:value predecessor) (:right currentNode)) (-> bst size dec)))
+
+     )
+    )
+
+
+ 
+   )
+)
 
 (defn delete-value [bst victim]
-  nil
+  (delete bst (find-key bst victim))
   )
 
 ;; # Map Tree
@@ -68,4 +140,8 @@
 ;; will return ((x 4 x) 6 ((x 8 x) 7 x))
 
 (defn map-tree
-  [t f] nil)
+  [t f] 
+(if (= t nil) nil (BST. (BNode. (map-tree (:left t) f) (-> t :root :key) (f (-> t :root :value)) (map-tree (:right t) f)) (size t))) 
+
+
+)
