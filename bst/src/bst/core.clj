@@ -43,7 +43,7 @@
  :OnOtherSide  (BST. (BNode. (:left currentNode) currentKey (:value currentNode) (add (:right currentNode) nu-key nu-value)) (-> bst size inc))
 
 
-
+ 
 )
 )
 )
