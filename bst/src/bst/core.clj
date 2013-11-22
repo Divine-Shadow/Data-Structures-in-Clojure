@@ -13,7 +13,7 @@
   ([key value]  (make-node nil key value nil))
   ([left key value right] (BNode. left key value right))
   )
-
+ 
 (defn make-tree []
   (BST. nil 0))
 
