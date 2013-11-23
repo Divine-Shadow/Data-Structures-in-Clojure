@@ -1,7 +1,7 @@
 (ns bst.core-spec
 ;  (:refer-clojure :exclude [])
-  (:require [speclj.core :refer :all]
-            [bst.core :refer :all])
+(:require [speclj.core :refer :all]
+         [bst.core :refer :all])
 ;  (:import [bst.core ])
   )
 
