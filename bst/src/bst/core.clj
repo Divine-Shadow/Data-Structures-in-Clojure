@@ -34,7 +34,7 @@
 
 (defn add "Add a key and value to the BST."
   [bst nu-key nu-val]
- (let [currentNode (-> bst root) currentKey (-> bst root key)]
+ (let [currentNode (-> bst :root) currentKey (-> bst :root :key)]
 
 (cond
   (= bst nil) (BST. (make-node nu-key nu-val) 1)
@@ -57,7 +57,7 @@
 
 (defn find "Look for a key and return the corresponding value."
   [bst look-key] 
- (let [currentNode (-> bst root) currentKey (-> bst root key)]
+ (let [currentNode (-> bst :root) currentKey (-> bst :root :key)]
 
 (cond
   (= nil bst) nil
@@ -75,7 +75,7 @@
   [bst look-value] 
 
 
-(let [currentNode (-> bst root) currentValue (-> bst root value)]
+(let [currentNode (-> bst :root) currentValue (-> bst :root :value)]
 
 (cond
   (= bst nil) nil
@@ -105,7 +105,7 @@
 (defn delete [bst victim]
 
 
-  (let [currentNode (-> bst root) currentKey (-> bst root key)]
+  (let [currentNode (-> bst :root) currentKey (-> bst :root :key)]
 
     (cond
      (= bst nil) nil
