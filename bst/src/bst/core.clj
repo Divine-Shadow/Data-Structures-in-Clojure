@@ -8,9 +8,9 @@
 
 (defrecord BST [root size])
 (defrecord BNode [left key value right])
-
+(declare make-tree)
 (defn make-node
-  ([key value]  (make-node nil key value nil))
+  ([key value]  (make-node (make-tree) key value (make-tree)))
   ([left key value right] (BNode. left key value right))
   )
  
@@ -34,10 +34,12 @@
 
 (defn add "Add a key and value to the BST."
   [bst nu-key nu-val]
+
+(if  (= bst (make-tree)) (BST. (make-node nu-key nu-val) 1)
  (let [currentNode (-> bst :root) currentKey (-> bst :root :key)]
 
 (cond
-  (= bst nil) (BST. (make-node nu-key nu-val) 1)
+
  (= nu-key currentKey) (BST. (make-node (:left currentNode )  nu-key nu-val (:right currentNode) ) (-> bst size inc))
  (< nu-key currentKey) (BST. (make-node (add (:left currentNode) nu-key nu-val) currentKey (:value currentNode) (:right currentNode)) (-> bst size inc))
  :OnOtherSide  (BST. (make-node (:left currentNode) currentKey (:value currentNode) (add (:right currentNode) nu-key nu-val)) (-> bst size inc))
@@ -47,7 +49,7 @@
 )
 )
 )
-
+)
 ;; # Find
 ;;
 ;; We need two versions of find.  The first one takes a key and returns the
@@ -60,7 +62,7 @@
  (let [currentNode (-> bst :root) currentKey (-> bst :root :key)]
 
 (cond
-  (= nil bst) nil
+  (= (make-tree) bst) nil
  (= look-key currentKey) (:value currentNode)
  (< look-key currentKey)  (find (:left currentNode) look-key)
  :OnOtherSide  (find (:right currentNode) look-key)
@@ -108,7 +110,7 @@
   (let [currentNode (-> bst :root) currentKey (-> bst :root :key)]
 
     (cond
-     (= bst nil) nil
+     (= bst (make-tree)) nil
      (< victim currentKey) (BST. (BNode. (delete (:left currentNode) victim)  currentKey (:value currentNode)         (:right currentNode))         (-> bst size dec))
      (> victim currentKey) (BST. (BNode.         (:left currentNode)          currentKey (:value currentNode) (delete (:right currentNode) victim)) (-> bst size dec))
      :foundYou!  
