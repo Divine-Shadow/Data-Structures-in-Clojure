@@ -62,7 +62,7 @@
 (cond
   (= nil bst) nil
  (= look-key currentKey) (:value currentNode)
- (< loo-key currentKey)  (find (:left currentNode) look-key)
+ (< look-key currentKey)  (find (:left currentNode) look-key)
  :OnOtherSide  (find (:right currentNode) look-key)
 
 
@@ -95,7 +95,7 @@
 
 (defn getPred [tnode]
 (rightmost (-> tnode :left :root)
-)
+))
 
 ;; # Delete
 ;;
