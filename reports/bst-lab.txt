@@ -1,9 +1,9 @@
 Lab report for BST Lab - wmolchan
-Timestamp: 2013-11-23 16:51:36
+Timestamp: 2013-11-23 17:21:49
 
 |  :scenario |                                                    :title |                                   :result | :score |
 |------------+-----------------------------------------------------------+-------------------------------------------+--------|
-|    working |                     Test student code vs instructor tests |                                    Errors |      0 |
+|    working |                     Test student code vs instructor tests |                                      Fail |     16 |
 | qualifying |                     Test student tests vs instructor code |                                      Pass |      5 |
 |    broke-1 |                               Add doesn't increment size. |      Pass: Student tests detected errors. |      5 |
 |    broke-2 |                                 Add swaps left and right. |      Pass: Student tests detected errors. |      5 |
@@ -15,7 +15,7 @@ Timestamp: 2013-11-23 16:51:36
 |    broke-8 |                         Delete value doesn't always work. |      Pass: Student tests detected errors. |      5 |
 |    broke-9 |                    Delete value decrements size too much. |      Pass: Student tests detected errors. |      5 |
 |   broke-10 |                   Add sometimes increments size too much. |      Pass: Student tests detected errors. |      5 |
-|      total |                                               Total Score |                                           |     45 |
+|      total |                                               Total Score |                                           |     61 |
 
 Details:
 
@@ -24,23 +24,78 @@ Details:
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-E
+F....FF...FFFFFFFFF
 
-Errors:
+Failures:
 
-  1) java.lang.ClassCastException: clojure.lang.Symbol cannot be cast to java.lang.Number, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:26:20)
-     java.lang.ClassCastException: clojure.lang.Symbol cannot be cast to java.lang.Number, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:26:20)
-     	... 26 stack levels elided ...
-     Caused by: java.lang.ClassCastException: clojure.lang.Symbol cannot be cast to java.lang.Number
+  1) Internal Tests has a functioning tree-to-list
+     Expected: ([d 1] ([b 2] ([a 4] nil nil) ([c 5] nil nil)) ([f 3] ([e 6] nil nil) ([g 7] nil nil)))
+          got: ([d 1] ([nil nil] nil nil) ([nil nil] nil nil)) (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:40
+
+  2) Find Finds elements that are in the tree.
+     clojure.lang.Symbol cannot be cast to java.lang.Number
+     java.lang.ClassCastException: clojure.lang.Symbol cannot be cast to java.lang.Number
      	... 1 stack levels elided ...
-     	at bst.core$add.invoke(core.clj:45)
-     	at bst.core_spec$list_to_tree$fn__1226.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:23)
-     	... 6 stack levels elided ...
-     	at bst.core_spec$list_to_tree.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:24)
-     	... 28 stack levels elided ...
+     	at bst.core$find.invoke(core.clj:68)
+     	at bst.core_spec$eval1290$fn__1291$fn__1300.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:67)
+     	... 42 stack levels elided ...
 
-Finished in 0.00000 seconds
-1 examples, 0 failures, 1 errors
+  3) Find Doesn't find elements that aren't in the tree.
+     clojure.lang.Symbol cannot be cast to java.lang.Number
+     java.lang.ClassCastException: clojure.lang.Symbol cannot be cast to java.lang.Number
+     	... 1 stack levels elided ...
+     	at bst.core$find.invoke(core.clj:68)
+     	at bst.core_spec$eval1290$fn__1291$fn__1316.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:74)
+     	... 42 stack levels elided ...
+
+  4) Delete Does nothing to empty trees.
+     Expected: #bst.core.BST{:root nil, :size 0}
+          got: nil (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:94
+
+  5) Delete Deletes leaf nodes.
+     Expected: ([d 1] ([b 2] nil ([c 5] nil nil)) ([f 3] ([e 6] nil nil) ([g 7] nil nil)))
+          got: ([d 1] ([nil nil] nil nil) ([nil nil] nil nil)) (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:96
+
+  6) Delete Deletes one-child nodes.
+     Expected: ([g 1] ([d 2] ([a 6] nil ([b 7] nil nil)) ([f 3] ([e 4] nil nil) nil)) ([l 8] ([k 9] ([j 10] nil nil) nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
+          got: ([g 1] ([nil nil] nil nil) ([nil nil] nil nil)) (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:117
+
+  7) Delete Deletes two-child nodes.
+     Expected: ([g 1] ([c 5] ([a 6] nil ([b 7] nil nil)) ([f 3] ([e 4] nil nil) nil)) ([l 8] ([k 9] ([j 10] nil nil) nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
+          got: ([g 1] ([nil nil] nil nil) ([nil nil] nil nil)) (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:148
+
+  8) Delete-value Does nothing to empty trees.
+     Expected: #bst.core.BST{:root nil, :size 0}
+          got: nil (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:180
+
+  9) Delete-value Delete-Values leaf nodes.
+     Expected: ([d 1] ([b 2] nil ([c 5] nil nil)) ([f 3] ([e 6] nil nil) ([g 7] nil nil)))
+          got: ([d 1] ([nil nil] nil nil) ([nil nil] nil nil)) (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:182
+
+  10) Delete-value Delete-Values one-child nodes.
+     Expected: ([g 1] ([d 2] ([a 6] nil ([b 7] nil nil)) ([f 3] ([e 4] nil nil) nil)) ([l 8] ([k 9] ([j 10] nil nil) nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
+          got: ([g 1] ([nil nil] nil nil) ([nil nil] nil nil)) (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:203
+
+  11) Delete-value Delete-Values two-child nodes.
+     Expected: ([g 1] ([c 5] ([a 6] nil ([b 7] nil nil)) ([f 3] ([e 4] nil nil) nil)) ([l 8] ([k 9] ([j 10] nil nil) nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
+          got: ([g 1] ([nil nil] nil nil) ([nil nil] nil nil)) (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:234
+
+  12) map-tree maps stuf onto trees.
+     Expected: ([d 2] ([b 3] ([a 5] nil nil) ([c 6] nil nil)) ([f 4] ([e 7] nil nil) ([g 8] nil nil)))
+          got: ([d 2] ([nil nil] nil nil) ([nil nil] nil nil)) (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:263
+
+Finished in 0.09766 seconds
+19 examples, 12 failures
 
 
 ** Details for Test student tests vs instructor code
@@ -49,7 +104,7 @@ WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, bei
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
 ...............
 
-Finished in 0.00589 seconds
+Finished in 0.00596 seconds
 15 examples, 0 failures
 
 
@@ -101,7 +156,7 @@ Failures:
           got: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 4, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 0} (using =)
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:48
 
-Finished in 0.08999 seconds
+Finished in 0.08694 seconds
 15 examples, 8 failures
 
 
@@ -141,7 +196,7 @@ Failures:
           got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}, :key 3, :value "bannana", :right nil}, :size 2} (using =)
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:46
 
-Finished in 0.03239 seconds
+Finished in 0.06963 seconds
 15 examples, 6 failures
 
 
@@ -157,7 +212,7 @@ Failures:
      Expected truthy but was: nil
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:26
 
-Finished in 0.00775 seconds
+Finished in 0.00760 seconds
 15 examples, 1 failures
 
 
@@ -174,7 +229,7 @@ Failures:
           got: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 3, :value "bannana", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 2} (using =)
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:46
 
-Finished in 0.10349 seconds
+Finished in 0.08728 seconds
 15 examples, 1 failures
 
 
@@ -191,7 +246,7 @@ Failures:
           got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value 3, :right nil}, :key 4, :value 2, :right #bst.core.BNode{:left nil, :key 9, :value 4, :right nil}}, :size 3} (using =)
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:54
 
-Finished in 0.05188 seconds
+Finished in 0.08059 seconds
 15 examples, 1 failures
 
 
@@ -201,7 +256,7 @@ WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, bei
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
 ...............
 
-Finished in 0.00687 seconds
+Finished in 0.00836 seconds
 15 examples, 0 failures
 
 
@@ -211,7 +266,7 @@ WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, bei
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
 ...............
 
-Finished in 0.01006 seconds
+Finished in 0.00607 seconds
 15 examples, 0 failures
 
 
@@ -228,7 +283,7 @@ Failures:
           got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 2} (using =)
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:47
 
-Finished in 0.08602 seconds
+Finished in 0.08390 seconds
 15 examples, 1 failures
 
 
@@ -245,7 +300,7 @@ Failures:
           got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 2} (using =)
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:47
 
-Finished in 0.08883 seconds
+Finished in 0.08238 seconds
 15 examples, 1 failures
 
 
@@ -282,5 +337,5 @@ Failures:
           got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 2} (using =)
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:47
 
-Finished in 0.05650 seconds
+Finished in 0.07893 seconds
 15 examples, 5 failures
