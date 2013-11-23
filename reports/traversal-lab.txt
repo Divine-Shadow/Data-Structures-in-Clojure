@@ -1,12 +1,12 @@
 Lab report for Traversal Lab - wmolchan
-Timestamp: 2013-11-23 14:19:34
+Timestamp: 2013-11-23 15:22:14
 
 |  :scenario |                                :title |                   :result | :score |
 |------------+---------------------------------------+---------------------------+--------|
 |    working | Test student code vs instructor tests |                      Fail |     39 |
-| qualifying | Test student tests vs instructor code |                      Fail |      0 |
+| qualifying | Test student tests vs instructor code |                      Fail |      1 |
 | qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
-|      total |                           Total Score |                           |     39 |
+|      total |                           Total Score |                           |     40 |
 
 Details:
 
@@ -27,19 +27,35 @@ Failures:
           got: 3 (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:45
 
-Finished in 0.03401 seconds
+Finished in 0.08089 seconds
 15 examples, 2 failures
 
 
 ** Details for Test student tests vs instructor code
 
-F
+..FFFF
 
 Failures:
 
-  1) The spec file should have some tests.
-     Expected truthy but was: false
-     /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:14
+  1) inorder should not swap
+     Expected: (3 4 7 8 9 10 11)
+          got: (3 4 7 8 10 9 11) (using =)
+     /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:23
 
-Finished in 0.00758 seconds
-1 examples, 1 failures
+  2) postorder should not swap
+     Expected: (3 7 4 11 10 9 8)
+          got: (3 7 4 10 11 9 8) (using =)
+     /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:28
+
+  3) frontier should not swap
+     Expected: (8 4 3 7 9 10 11)
+          got: (3 7 10 11) (using =)
+     /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:32
+
+  4) levelorder should not swap
+     Expected: (8 4 9 3 7 10 11)
+          got: (8 4 9 2 7 10 11) (using =)
+     /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:37
+
+Finished in 0.11390 seconds
+6 examples, 4 failures
