@@ -38,9 +38,9 @@
 
 (cond
   (= bst nil) (BST. (make-node nu-key nu-val) 1)
- (= nu-key currentKey) (BST. (BNode. (make-node (:left currentNode )  nu-key nu-val (:right currentNode) )) (-> bst size inc))
- (< nu-key currentKey) (BST. (BNode. (add (:left currentNode) nu-key nu-value) currentKey (:value currentNode) (:right currentNode)) (-> bst size inc))
- :OnOtherSide  (BST. (BNode. (:left currentNode) currentKey (:value currentNode) (add (:right currentNode) nu-key nu-value)) (-> bst size inc))
+ (= nu-key currentKey) (BST. (make-node (:left currentNode )  nu-key nu-val (:right currentNode) ) (-> bst size inc))
+ (< nu-key currentKey) (BST. (make-node (add (:left currentNode) nu-key nu-value) currentKey (:value currentNode) (:right currentNode)) (-> bst size inc))
+ :OnOtherSide  (BST. (make-node (:left currentNode) currentKey (:value currentNode) (add (:right currentNode) nu-key nu-value)) (-> bst size inc))
 
  
 
