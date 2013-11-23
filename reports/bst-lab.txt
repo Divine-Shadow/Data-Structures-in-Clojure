@@ -1,21 +1,21 @@
 Lab report for BST Lab - wmolchan
-Timestamp: 2013-11-23 14:55:33
+Timestamp: 2013-11-23 15:21:45
 
-|  :scenario |                                                    :title | :result | :score |
-|------------+-----------------------------------------------------------+---------+--------|
-|    working |                     Test student code vs instructor tests |  Errors |      0 |
-| qualifying |                     Test student tests vs instructor code |  Errors |      0 |
-|    broke-1 |                               Add doesn't increment size. |  Errors |      0 |
-|    broke-2 |                                 Add swaps left and right. |  Errors |      0 |
-|    broke-3 |                                    Find only checks left. |  Errors |      0 |
-|    broke-4 | Two child delete copies predecessor instead of moving it. |  Errors |      0 |
-|    broke-5 |                        Map tree does keys and not values. |  Errors |      0 |
-|    broke-6 |                          Delete decrements size too much. |  Errors |      0 |
-|    broke-7 |                                Delete truncates subtrees. |  Errors |      0 |
-|    broke-8 |                         Delete value doesn't always work. |  Errors |      0 |
-|    broke-9 |                    Delete value decrements size too much. |  Errors |      0 |
-|   broke-10 |                   Add sometimes increments size too much. |  Errors |      0 |
-|      total |                                               Total Score |         |      0 |
+|  :scenario |                                                    :title |                                   :result | :score |
+|------------+-----------------------------------------------------------+-------------------------------------------+--------|
+|    working |                     Test student code vs instructor tests |                                    Errors |      0 |
+| qualifying |                     Test student tests vs instructor code |                                      Pass |      5 |
+|    broke-1 |                               Add doesn't increment size. |      Pass: Student tests detected errors. |      5 |
+|    broke-2 |                                 Add swaps left and right. |      Pass: Student tests detected errors. |      5 |
+|    broke-3 |                                    Find only checks left. |      Pass: Student tests detected errors. |      5 |
+|    broke-4 | Two child delete copies predecessor instead of moving it. |      Pass: Student tests detected errors. |      5 |
+|    broke-5 |                        Map tree does keys and not values. |      Pass: Student tests detected errors. |      5 |
+|    broke-6 |                          Delete decrements size too much. | Fail: Student tests did not detect error. |      0 |
+|    broke-7 |                                Delete truncates subtrees. | Fail: Student tests did not detect error. |      0 |
+|    broke-8 |                         Delete value doesn't always work. |      Pass: Student tests detected errors. |      5 |
+|    broke-9 |                    Delete value decrements size too much. |      Pass: Student tests detected errors. |      5 |
+|   broke-10 |                   Add sometimes increments size too much. |      Pass: Student tests detected errors. |      5 |
+|      total |                                               Total Score |                                           |     45 |
 
 Details:
 
@@ -23,21 +23,21 @@ Details:
 ** Details for Test student code vs instructor tests
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
 E
 
 Errors:
 
-  1) java.lang.RuntimeException: Unable to resolve symbol: loo-key in this context, compiling:(bst/core.clj:65:2)
-     java.lang.RuntimeException: Unable to resolve symbol: loo-key in this context, compiling:(bst/core.clj:65:2)
-     	... 65 stack levels elided ...
-     	at bst.core_spec$eval874$loading__4910__auto____875.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:1)
-     	at bst.core_spec$eval874.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:1)
-     	... 25 stack levels elided ...
-     Caused by: java.lang.RuntimeException: Unable to resolve symbol: loo-key in this context
-     	... 69 stack levels elided ...
-     	at bst.core_spec$eval874$loading__4910__auto____875.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:1)
-     	at bst.core_spec$eval874.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:1)
-     	... 25 stack levels elided ...
+  1) java.lang.NullPointerException, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:26:20)
+     java.lang.NullPointerException, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:26:20)
+     	... 26 stack levels elided ...
+     Caused by: java.lang.NullPointerException
+     	... 2 stack levels elided ...
+     	at bst.core$add.invoke(core.clj:42)
+     	at bst.core_spec$list_to_tree$fn__1226.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:23)
+     	... 6 stack levels elided ...
+     	at bst.core_spec$list_to_tree.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:24)
+     	... 28 stack levels elided ...
 
 Finished in 0.00000 seconds
 1 examples, 0 failures, 1 errors
@@ -47,25 +47,17 @@ Finished in 0.00000 seconds
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-E........
+...............
 
-Errors:
-
-  1) java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     	... 23 stack levels elided ...
-     Caused by: java.lang.RuntimeException: EOF while reading, starting at line 32
-     	... 27 stack levels elided ...
-
-Finished in 0.00331 seconds
-9 examples, 0 failures, 1 errors
+Finished in 0.00646 seconds
+15 examples, 0 failures
 
 
 ** Details for Add doesn't increment size.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-E.FF.....
+.FF.....FFFFFF.
 
 Failures:
 
@@ -79,23 +71,45 @@ Failures:
           got: 0 (using =)
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:21
 
-Errors:
+  3) delete should decrement size
+     Expected: 2
+          got: -1 (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:34
 
-  1) java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     	... 23 stack levels elided ...
-     Caused by: java.lang.RuntimeException: EOF while reading, starting at line 32
-     	... 27 stack levels elided ...
+  4) delete should decrement size
+     Expected: 1
+          got: -2 (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:35
 
-Finished in 0.01565 seconds
-9 examples, 2 failures, 1 errors
+  5) delete-value should decrement size
+     Expected: 2
+          got: -1 (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:45
+
+  6) delete-value should delete value
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 3, :value "bannana", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size -1}
+          got: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 3, :value "bannana", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 0} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:46
+
+  7) delete-value should delete value
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size -1}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 0} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:47
+
+  8) delete-value should delete value
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 4, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size -1}
+          got: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 4, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 0} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:48
+
+Finished in 0.08727 seconds
+15 examples, 8 failures
 
 
 ** Details for Add swaps left and right.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-E...FF.F.
+...FF.F.FF.F...
 
 Failures:
 
@@ -112,23 +126,30 @@ Failures:
      Expected truthy but was: nil
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:28
 
-Errors:
+  4) delete should decrement size
+     Expected: 2
+          got: 3 (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:34
 
-  1) java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     	... 23 stack levels elided ...
-     Caused by: java.lang.RuntimeException: EOF while reading, starting at line 32
-     	... 27 stack levels elided ...
+  5) delete should decrement size
+     Expected: 1
+          got: 3 (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:35
 
-Finished in 0.05493 seconds
-9 examples, 3 failures, 1 errors
+  6) delete-value should delete value
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 9, :value "pear", :right #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}}, :size 2}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}, :key 3, :value "bannana", :right nil}, :size 2} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:46
+
+Finished in 0.08183 seconds
+15 examples, 6 failures
 
 
 ** Details for Find only checks left.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-E....F...
+....F..........
 
 Failures:
 
@@ -136,131 +157,103 @@ Failures:
      Expected truthy but was: nil
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:26
 
-Errors:
-
-  1) java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     	... 23 stack levels elided ...
-     Caused by: java.lang.RuntimeException: EOF while reading, starting at line 32
-     	... 27 stack levels elided ...
-
-Finished in 0.00431 seconds
-9 examples, 1 failures, 1 errors
+Finished in 0.00711 seconds
+15 examples, 1 failures
 
 
 ** Details for Two child delete copies predecessor instead of moving it.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-E........
+...........F...
 
-Errors:
+Failures:
 
-  1) java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     	... 23 stack levels elided ...
-     Caused by: java.lang.RuntimeException: EOF while reading, starting at line 32
-     	... 27 stack levels elided ...
+  1) delete-value should delete value
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 3, :value "bannana", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 2}
+          got: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 3, :value "bannana", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 2} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:46
 
-Finished in 0.00324 seconds
-9 examples, 0 failures, 1 errors
+Finished in 0.06887 seconds
+15 examples, 1 failures
 
 
 ** Details for Map tree does keys and not values.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-E........
+..............F
 
-Errors:
+Failures:
 
-  1) java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     	... 23 stack levels elided ...
-     Caused by: java.lang.RuntimeException: EOF while reading, starting at line 32
-     	... 27 stack levels elided ...
+  1) map-tree should map values
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 4, :value 2, :right nil}, :key 5, :value 1, :right #bst.core.BNode{:left nil, :key 10, :value 3, :right nil}}, :size 3}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value 3, :right nil}, :key 4, :value 2, :right #bst.core.BNode{:left nil, :key 9, :value 4, :right nil}}, :size 3} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:54
 
-Finished in 0.00347 seconds
-9 examples, 0 failures, 1 errors
+Finished in 0.03181 seconds
+15 examples, 1 failures
 
 
 ** Details for Delete decrements size too much.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-E........
+...............
 
-Errors:
-
-  1) java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     	... 23 stack levels elided ...
-     Caused by: java.lang.RuntimeException: EOF while reading, starting at line 32
-     	... 27 stack levels elided ...
-
-Finished in 0.00347 seconds
-9 examples, 0 failures, 1 errors
+Finished in 0.00595 seconds
+15 examples, 0 failures
 
 
 ** Details for Delete truncates subtrees.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-E........
+...............
 
-Errors:
-
-  1) java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     	... 23 stack levels elided ...
-     Caused by: java.lang.RuntimeException: EOF while reading, starting at line 32
-     	... 27 stack levels elided ...
-
-Finished in 0.00352 seconds
-9 examples, 0 failures, 1 errors
+Finished in 0.00576 seconds
+15 examples, 0 failures
 
 
 ** Details for Delete value doesn't always work.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-E........
+............F..
 
-Errors:
+Failures:
 
-  1) java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     	... 23 stack levels elided ...
-     Caused by: java.lang.RuntimeException: EOF while reading, starting at line 32
-     	... 27 stack levels elided ...
+  1) delete-value should delete value
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 2}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 2} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:47
 
-Finished in 0.00328 seconds
-9 examples, 0 failures, 1 errors
+Finished in 0.05730 seconds
+15 examples, 1 failures
 
 
 ** Details for Delete value decrements size too much.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-E........
+............F..
 
-Errors:
+Failures:
 
-  1) java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     	... 23 stack levels elided ...
-     Caused by: java.lang.RuntimeException: EOF while reading, starting at line 32
-     	... 27 stack levels elided ...
+  1) delete-value should delete value
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 2}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 2} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:47
 
-Finished in 0.00337 seconds
-9 examples, 0 failures, 1 errors
+Finished in 0.07128 seconds
+15 examples, 1 failures
 
 
 ** Details for Add sometimes increments size too much.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-E.F......
+.F......FFF.F..
 
 Failures:
 
@@ -269,13 +262,25 @@ Failures:
           got: 3 (using =)
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:20
 
-Errors:
+  2) delete should decrement size
+     Expected: 2
+          got: 3 (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:34
 
-  1) java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     java.lang.RuntimeException: EOF while reading, starting at line 32, compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:62:1)
-     	... 23 stack levels elided ...
-     Caused by: java.lang.RuntimeException: EOF while reading, starting at line 32
-     	... 27 stack levels elided ...
+  3) delete should decrement size
+     Expected: 1
+          got: 2 (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:35
 
-Finished in 0.01264 seconds
-9 examples, 1 failures, 1 errors
+  4) delete-value should decrement size
+     Expected: 2
+          got: 3 (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:45
+
+  5) delete-value should delete value
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 3}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 2} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:47
+
+Finished in 0.04534 seconds
+15 examples, 5 failures
