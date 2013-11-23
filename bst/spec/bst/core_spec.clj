@@ -37,7 +37,7 @@
           (it "should delete value" (should=  (delete-value (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") 9) (add (add (make-tree) 4 "apple")  3 "bannana")))
           (it "should delete value" (should=  (delete-value (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") 3) (add (add (make-tree) 4 "apple")  9 "pear")))
         
-)
+))
 
 
 (describe "delete-value"
