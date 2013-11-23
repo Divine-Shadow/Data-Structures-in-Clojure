@@ -1,21 +1,12 @@
 Lab report for BST Lab - wmolchan
-Timestamp: 2013-11-23 13:53:34
+Timestamp: 2013-11-23 14:04:57
 
-|  :scenario |                                                    :title |                                   :result | :score |
-|------------+-----------------------------------------------------------+-------------------------------------------+--------|
-|    working |                     Test student code vs instructor tests |                                    Errors |      0 |
-| qualifying |                     Test student tests vs instructor code |                                      Pass |      5 |
-|    broke-1 |                               Add doesn't increment size. | Fail: Student tests did not detect error. |      0 |
-|    broke-2 |                                 Add swaps left and right. | Fail: Student tests did not detect error. |      0 |
-|    broke-3 |                                    Find only checks left. | Fail: Student tests did not detect error. |      0 |
-|    broke-4 | Two child delete copies predecessor instead of moving it. | Fail: Student tests did not detect error. |      0 |
-|    broke-5 |                        Map tree does keys and not values. | Fail: Student tests did not detect error. |      0 |
-|    broke-6 |                          Delete decrements size too much. | Fail: Student tests did not detect error. |      0 |
-|    broke-7 |                                Delete truncates subtrees. | Fail: Student tests did not detect error. |      0 |
-|    broke-8 |                         Delete value doesn't always work. | Fail: Student tests did not detect error. |      0 |
-|    broke-9 |                    Delete value decrements size too much. | Fail: Student tests did not detect error. |      0 |
-|   broke-10 |                   Add sometimes increments size too much. | Fail: Student tests did not detect error. |      0 |
-|      total |                                               Total Score |                                           |      5 |
+|  :scenario |                                :title |                   :result | :score |
+|------------+---------------------------------------+---------------------------+--------|
+|    working | Test student code vs instructor tests |                    Errors |      0 |
+| qualifying | Test student tests vs instructor code |                      Fail |      3 |
+| qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
+|      total |                           Total Score |                           |      3 |
 
 Details:
 
@@ -46,107 +37,25 @@ Finished in 0.00000 seconds
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-.
+....FFFF.....
 
-Finished in 0.00014 seconds
-1 examples, 0 failures
+Failures:
 
+  1) find-key should check both sides
+     Expected truthy but was: nil
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:26
 
-** Details for Add doesn't increment size.
+  2) find-key should check both sides
+     Expected truthy but was: nil
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:27
 
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-.
+  3) find-key should check both sides
+     Expected truthy but was: nil
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:28
 
-Finished in 0.00013 seconds
-1 examples, 0 failures
+  4) find-key should check both sides
+     Expected truthy but was: nil
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:29
 
-
-** Details for Add swaps left and right.
-
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-.
-
-Finished in 0.00017 seconds
-1 examples, 0 failures
-
-
-** Details for Find only checks left.
-
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-.
-
-Finished in 0.00016 seconds
-1 examples, 0 failures
-
-
-** Details for Two child delete copies predecessor instead of moving it.
-
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-.
-
-Finished in 0.00014 seconds
-1 examples, 0 failures
-
-
-** Details for Map tree does keys and not values.
-
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-.
-
-Finished in 0.00014 seconds
-1 examples, 0 failures
-
-
-** Details for Delete decrements size too much.
-
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-.
-
-Finished in 0.00014 seconds
-1 examples, 0 failures
-
-
-** Details for Delete truncates subtrees.
-
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-.
-
-Finished in 0.00015 seconds
-1 examples, 0 failures
-
-
-** Details for Delete value doesn't always work.
-
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-.
-
-Finished in 0.00014 seconds
-1 examples, 0 failures
-
-
-** Details for Delete value decrements size too much.
-
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-.
-
-Finished in 0.00015 seconds
-1 examples, 0 failures
-
-
-** Details for Add sometimes increments size too much.
-
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
-WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-.
-
-Finished in 0.00015 seconds
-1 examples, 0 failures
+Finished in 0.00705 seconds
+13 examples, 4 failures
