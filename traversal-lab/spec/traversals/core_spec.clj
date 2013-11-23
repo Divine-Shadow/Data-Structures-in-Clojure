@@ -29,12 +29,12 @@
 )
 
 (describe "frontier"
-(it "should not swap" (should= (preorder basecase) '(3 7  11))) 
+(it "should not swap" (should= (frontier basecase) '(3 7  11))) 
 )
 
 
 (describe "levelorder"
-(it "should not swap" (should= (levelorder basecase) '(8 4 9 2 7  11))) 
+(it "should not swap" (should= (levelorder basecase) '(8 4 9 3 7  11))) 
 )
 
 
