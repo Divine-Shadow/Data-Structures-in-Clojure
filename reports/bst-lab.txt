@@ -1,5 +1,5 @@
 Lab report for BST Lab - wmolchan
-Timestamp: 2013-11-22 13:52:56
+Timestamp: 2013-11-23 13:53:34
 
 |  :scenario |                                                    :title |                                   :result | :score |
 |------------+-----------------------------------------------------------+-------------------------------------------+--------|
@@ -26,14 +26,14 @@ E
 
 Errors:
 
-  1) java.lang.RuntimeException: Unable to resolve symbol: root in this context, compiling:(bst/core.clj:37:20)
-     java.lang.RuntimeException: Unable to resolve symbol: root in this context, compiling:(bst/core.clj:37:20)
-     	... 45 stack levels elided ...
+  1) java.lang.IllegalArgumentException: No matching ctor found for class bst.core.BNode, compiling:(bst/core.clj:41:30)
+     java.lang.IllegalArgumentException: No matching ctor found for class bst.core.BNode, compiling:(bst/core.clj:41:30)
+     	... 61 stack levels elided ...
      	at bst.core_spec$eval874$loading__4910__auto____875.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:1)
      	at bst.core_spec$eval874.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:1)
      	... 25 stack levels elided ...
-     Caused by: java.lang.RuntimeException: Unable to resolve symbol: root in this context
-     	... 49 stack levels elided ...
+     Caused by: java.lang.IllegalArgumentException: No matching ctor found for class bst.core.BNode
+     	... 63 stack levels elided ...
      	at bst.core_spec$eval874$loading__4910__auto____875.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:1)
      	at bst.core_spec$eval874.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:1)
      	... 25 stack levels elided ...
@@ -58,7 +58,7 @@ WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, bei
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
 .
 
-Finished in 0.00821 seconds
+Finished in 0.00013 seconds
 1 examples, 0 failures
 
 
@@ -68,7 +68,7 @@ WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, bei
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
 .
 
-Finished in 0.00015 seconds
+Finished in 0.00017 seconds
 1 examples, 0 failures
 
 
@@ -108,7 +108,7 @@ WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, bei
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
 .
 
-Finished in 0.00013 seconds
+Finished in 0.00014 seconds
 1 examples, 0 failures
 
 
@@ -118,7 +118,7 @@ WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, bei
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
 .
 
-Finished in 0.00021 seconds
+Finished in 0.00015 seconds
 1 examples, 0 failures
 
 
@@ -138,7 +138,7 @@ WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, bei
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
 .
 
-Finished in 0.00014 seconds
+Finished in 0.00015 seconds
 1 examples, 0 failures
 
 
@@ -148,5 +148,5 @@ WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, bei
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
 .
 
-Finished in 0.00014 seconds
+Finished in 0.00015 seconds
 1 examples, 0 failures
