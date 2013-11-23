@@ -32,8 +32,11 @@
 (describe "delete"
 
           (it "should decrement size" (should= 2 (size (delete (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") 3) ) ))
+ (it "should decrement size" (should= 1 (size (delete (delete (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") 3) 9) ))
           (it "should delete value" (should=  (delete (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") 4) (add (add (make-tree)  3 "bannana") 9 "pear")            ))
-         
+          (it "should delete value" (should=  (delete-value (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") 9) (add (add (make-tree) 4 "apple")  3 "bannana")))
+          (it "should delete value" (should=  (delete-value (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") 3) (add (add (make-tree) 4 "apple")  9 "pear")))
+        
 )
 
 
@@ -41,7 +44,8 @@
 
           (it "should decrement size" (should= 2 (size (delete-value (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") "apple") ) ))
           (it "should delete value" (should=  (delete-value (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") "apple") (add (add (make-tree)  3 "bannana") 9 "pear")            ))
-         
+          (it "should delete value" (should=  (delete-value (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") "pear") (add (add (make-tree) 4 "apple")  3 "bannana")))
+          (it "should delete value" (should=  (delete-value (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") "bannana") (add (add (make-tree) 4 "apple")  9 "pear")))
 )
 
 
