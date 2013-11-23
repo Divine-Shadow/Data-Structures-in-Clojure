@@ -147,7 +147,7 @@
 
 (defn map-tree
   [t f] 
-(if (= (:root t) nil) t (BST. (BNode. (map-tree (:left t) f) (-> t :root :key) (f (-> t :root :value)) (map-tree (:right t) f)) (size t))) 
+(if (= (:root t) nil) t (BST. (make-node (map-tree (-> t :root :left) f) (-> t :root :key) (f (-> t :root :value)) (map-tree (-> t :root :right ) f)) (size t))) 
 
 
 )
