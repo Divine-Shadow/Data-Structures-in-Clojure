@@ -5,7 +5,6 @@
 ;; In this lab you get to write a BST like the one we did in class, only
 ;; this time it is a dictionary structure and not a set.
 ;; As such, the "data" element from before will have a key and value instead.
-
 (defrecord BST [root size])
 (defrecord BNode [left key value right])
 (declare make-tree)
@@ -42,7 +41,7 @@
 (cond
 
  (= nu-key currentKey) (BST. (make-node (:left currentNode )  nu-key nu-val (:right currentNode) ) (-> bst size inc))
- (< nu-key currentKey) (BST. (make-node (add (:left currentNode) nu-key nu-val) currentKey (:value currentNode) (:right currentNode)) (-> bst size inc))
+ (neg? (compare nu-key currentKey)) (BST. (make-node (add (:left currentNode) nu-key nu-val) currentKey (:value currentNode) (:right currentNode)) (-> bst size inc))
  :OnOtherSide  (BST. (make-node (:left currentNode) currentKey (:value currentNode) (add (:right currentNode) nu-key nu-val)) (-> bst size inc))
 
  
@@ -115,8 +114,8 @@
     (cond
      (= bst (make-tree)) nil
      (= nil (:root bst)) nil
-     (< victim currentKey) (BST. (BNode. (delete (:left currentNode) victim)  currentKey (:value currentNode)         (:right currentNode))         (-> bst size dec))
-     (> victim currentKey) (BST. (BNode.         (:left currentNode)          currentKey (:value currentNode) (delete (:right currentNode) victim)) (-> bst size dec))
+     (neg? (compare victim currentKey)) (BST. (BNode. (delete (:left currentNode) victim)  currentKey (:value currentNode)         (:right currentNode))         (-> bst size dec))
+     (pos? (compare victim currentKey)) (BST. (BNode.         (:left currentNode)          currentKey (:value currentNode) (delete (:right currentNode) victim)) (-> bst size dec))
      :foundYou!  
 
 
