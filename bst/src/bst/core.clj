@@ -13,7 +13,7 @@
   ([key value]  (make-node nil key value nil))
   ([left key value right] (BNode. left key value right))
   )
-
+ 
 (defn make-tree []
   (BST. nil 0))
 
@@ -42,7 +42,7 @@
  (< nu-key currentKey) (BST. (BNode. (add (:left currentNode) nu-key nu-value) currentKey (:value currentNode) (:right currentNode)) (-> bst size inc))
  :OnOtherSide  (BST. (BNode. (:left currentNode) currentKey (:value currentNode) (add (:right currentNode) nu-key nu-value)) (-> bst size inc))
 
-
+ 
 
 )
 )
