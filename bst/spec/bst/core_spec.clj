@@ -23,10 +23,10 @@
 )
 
 (describe "find-key" 
-          (it "should check both sides" (should (find  9 (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear"))))
-          (it "should check both sides" (should (find-key  "pear" (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear"))))
- (it "should check both sides" (should (find  4 (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear"))))
-          (it "should check both sides" (should (find-key  "bannana" (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear"))))
+          (it "should check both sides for find" (should (find (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") 9)))
+          (it "should check both sides for key" (should (find-key (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") "pear")))
+ (it "should check both sides for find" (should (find   (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") 3)))
+          (it "should check both sides for key" (should (find-key (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") "bannana")))
 )
 
 (describe "delete"
