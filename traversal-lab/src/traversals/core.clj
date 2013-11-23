@@ -20,7 +20,7 @@
 (defn preorder 
   "Outputs a list containing the preorder traversal of the given tree." 
   [t]
-(if (= nil t) t
+(if (= nil t) '()
 (concat (cons (:data t) nil) (preorder (:left t)) (preorder (:right t)))
   
 ))
@@ -28,14 +28,14 @@
 (defn postorder 
   "Outputs a list containing the postorder traversal of the given tree." 
   [t]
-(if (= nil t) t
+(if (= nil t) '()
  (concat  (postorder (:left t)) (postorder (:right t)) (cons (-> t :data) nil))  
 ))
 
 (defn inorder 
   "Outputs a list containing the in-order traversal of the given tree." 
   [t]
-(if (= nil t) t
+(if (= nil t) '()
 (concat  (inorder (:left t)) (cons (:data t) nil)  (inorder (:right t)))  
 ))
 
@@ -43,7 +43,7 @@
   "Outputs a list containing the level-order traversal of the given tree." 
   [t]
 
-(if (= nil t) t
+(if (= nil t) '()
 
 
 3
@@ -53,7 +53,8 @@
 (defn frontier 
   "Outputs a list containing the frontier of the given tree." 
   [t]
-(cond 
+(cond
+ (= nil t) '()
 
 (and (:left t) (:right t)) (concat (frontier (:left t)) (frontier (:right t)))
 (:left t) (frontier (:left t))
