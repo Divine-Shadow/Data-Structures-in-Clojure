@@ -1,12 +1,21 @@
 Lab report for Traversal Lab - wmolchan
-Timestamp: 2013-11-23 15:38:01
+Timestamp: 2013-11-23 16:21:58
 
-|  :scenario |                                :title |                   :result | :score |
-|------------+---------------------------------------+---------------------------+--------|
-|    working | Test student code vs instructor tests |                      Fail |     39 |
-| qualifying | Test student tests vs instructor code |                      Fail |      3 |
-| qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
-|      total |                           Total Score |                           |     42 |
+|  :scenario |                                            :title |                              :result | :score |
+|------------+---------------------------------------------------+--------------------------------------+--------|
+|    working |             Test student code vs instructor tests |                                 Fail |     39 |
+| qualifying |             Test student tests vs instructor code |                                 Pass |      5 |
+|    broke-1 |                    Preorder swaps left and right. | Pass: Student tests detected errors. |      5 |
+|    broke-2 |                          Preorder drops elements. | Pass: Student tests detected errors. |      5 |
+|    broke-3 |                          Postorder does preorder. | Pass: Student tests detected errors. |      5 |
+|    broke-4 |                   Postorder swaps left and right. | Pass: Student tests detected errors. |      5 |
+|    broke-5 |                                Inorder backwards. | Pass: Student tests detected errors. |      5 |
+|    broke-6 |                            Inorder does preorder. | Pass: Student tests detected errors. |      5 |
+|    broke-7 |                Level order does right side twice. | Pass: Student tests detected errors. |      5 |
+|    broke-8 |                           Level order omits root. | Pass: Student tests detected errors. |      5 |
+|    broke-9 |                Frontier includes one-child nodes. | Pass: Student tests detected errors. |      5 |
+|   broke-10 | Frontier omits leaves instead of everything else. | Pass: Student tests detected errors. |      5 |
+|      total |                                       Total Score |                                      |     94 |
 
 Details:
 
@@ -27,25 +36,163 @@ Failures:
           got: 3 (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:45
 
-Finished in 0.05677 seconds
+Finished in 0.05643 seconds
 15 examples, 2 failures
 
 
 ** Details for Test student tests vs instructor code
 
-....FF
+......
+
+Finished in 0.00139 seconds
+6 examples, 0 failures
+
+
+** Details for Preorder swaps left and right.
+
+.F....
+
+Failures:
+
+  1) preorder swap should not swap
+     Expected: (8 9 11 4 7 3)
+          got: (8 4 3 7 9 11) (using =)
+     /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:18
+
+Finished in 0.09681 seconds
+6 examples, 1 failures
+
+
+** Details for Preorder drops elements.
+
+.F....
+
+Failures:
+
+  1) preorder swap should not swap
+     Expected: (8 9 11)
+          got: (8 4 3 7 9 11) (using =)
+     /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:18
+
+Finished in 0.08989 seconds
+6 examples, 1 failures
+
+
+** Details for Postorder does preorder.
+
+...F..
+
+Failures:
+
+  1) postorder should not swap
+     Expected: (8 4 3 7 9 11)
+          got: (3 7 4 11 9 8) (using =)
+     /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:28
+
+Finished in 0.09375 seconds
+6 examples, 1 failures
+
+
+** Details for Postorder swaps left and right.
+
+...F..
+
+Failures:
+
+  1) postorder should not swap
+     Expected: (11 9 7 3 4 8)
+          got: (3 7 4 11 9 8) (using =)
+     /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:28
+
+Finished in 0.09101 seconds
+6 examples, 1 failures
+
+
+** Details for Inorder backwards.
+
+..F...
+
+Failures:
+
+  1) inorder should not swap
+     Expected: (11 9 8 7 4 3)
+          got: (3 4 7 8 9 11) (using =)
+     /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:23
+
+Finished in 0.07707 seconds
+6 examples, 1 failures
+
+
+** Details for Inorder does preorder.
+
+..F...
+
+Failures:
+
+  1) inorder should not swap
+     Expected: (8 4 3 7 9 11)
+          got: (3 4 7 8 9 11) (using =)
+     /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:23
+
+Finished in 0.08009 seconds
+6 examples, 1 failures
+
+
+** Details for Level order does right side twice.
+
+.....F
+
+Failures:
+
+  1) levelorder should not swap
+     Expected: (8 9 9 11 11 11 11)
+          got: (8 4 9 3 7 11) (using =)
+     /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:37
+
+Finished in 0.09361 seconds
+6 examples, 1 failures
+
+
+** Details for Level order omits root.
+
+.....F
+
+Failures:
+
+  1) levelorder should not swap
+     Expected: (4 9 3 7 11)
+          got: (8 4 9 3 7 11) (using =)
+     /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:37
+
+Finished in 0.11993 seconds
+6 examples, 1 failures
+
+
+** Details for Frontier includes one-child nodes.
+
+....F.
 
 Failures:
 
   1) frontier should not swap
-     Expected: (8 4 3 7 9 11)
+     Expected: (3 7 9 11)
           got: (3 7 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:32
 
-  2) levelorder should not swap
-     Expected: (8 4 9 3 7 11)
-          got: (8 4 9 2 7 11) (using =)
-     /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:37
+Finished in 0.08826 seconds
+6 examples, 1 failures
 
-Finished in 0.09559 seconds
-6 examples, 2 failures
+
+** Details for Frontier omits leaves instead of everything else.
+
+....F.
+
+Failures:
+
+  1) frontier should not swap
+     Expected: (4 8 9)
+          got: (3 7 11) (using =)
+     /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:32
+
+Finished in 0.06609 seconds
+6 examples, 1 failures
