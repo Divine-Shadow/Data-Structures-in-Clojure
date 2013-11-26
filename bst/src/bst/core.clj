@@ -65,7 +65,7 @@
   (= (make-tree) bst) nil
 (= nil (:root bst)) nil
  (= look-key currentKey) (:value currentNode)
- (< look-key currentKey)  (find (:left currentNode) look-key)
+ (neg? (compare look-key currentKey))  (find (:left currentNode) look-key)
  :OnOtherSide  (find (:right currentNode) look-key)
 
 
@@ -112,8 +112,8 @@
   (let [currentNode (-> bst :root) currentKey (-> bst :root :key)]
 
     (cond
-     (= bst (make-tree)) nil
-     (= nil (:root bst)) nil
+     (= bst (make-tree)) bst
+     (= nil (:root bst)) bst
      (neg? (compare victim currentKey)) (BST. (BNode. (delete (:left currentNode) victim)  currentKey (:value currentNode)         (:right currentNode))         (-> bst size dec))
      (pos? (compare victim currentKey)) (BST. (BNode.         (:left currentNode)          currentKey (:value currentNode) (delete (:right currentNode) victim)) (-> bst size dec))
      :foundYou!  
