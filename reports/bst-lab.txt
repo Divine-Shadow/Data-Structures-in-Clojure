@@ -1,21 +1,21 @@
 Lab report for BST Lab - wmolchan
-Timestamp: 2013-11-25 19:06:25
+Timestamp: 2013-12-02 15:26:07
 
-|  :scenario |                                                    :title |                                   :result | :score |
-|------------+-----------------------------------------------------------+-------------------------------------------+--------|
-|    working |                     Test student code vs instructor tests |                                      Fail |     26 |
-| qualifying |                     Test student tests vs instructor code |                                      Pass |      5 |
-|    broke-1 |                               Add doesn't increment size. |      Pass: Student tests detected errors. |      5 |
-|    broke-2 |                                 Add swaps left and right. |      Pass: Student tests detected errors. |      5 |
-|    broke-3 |                                    Find only checks left. |      Pass: Student tests detected errors. |      5 |
-|    broke-4 | Two child delete copies predecessor instead of moving it. |      Pass: Student tests detected errors. |      5 |
-|    broke-5 |                        Map tree does keys and not values. |      Pass: Student tests detected errors. |      5 |
-|    broke-6 |                          Delete decrements size too much. | Fail: Student tests did not detect error. |      0 |
-|    broke-7 |                                Delete truncates subtrees. | Fail: Student tests did not detect error. |      0 |
-|    broke-8 |                         Delete value doesn't always work. |      Pass: Student tests detected errors. |      5 |
-|    broke-9 |                    Delete value decrements size too much. |      Pass: Student tests detected errors. |      5 |
-|   broke-10 |                   Add sometimes increments size too much. |      Pass: Student tests detected errors. |      5 |
-|      total |                                               Total Score |                                           |     71 |
+|  :scenario |                                                    :title | :result | :score |
+|------------+-----------------------------------------------------------+---------+--------|
+|    working |                     Test student code vs instructor tests |    Fail |     26 |
+| qualifying |                     Test student tests vs instructor code |  Errors |      0 |
+|    broke-1 |                               Add doesn't increment size. |  Errors |      0 |
+|    broke-2 |                                 Add swaps left and right. |  Errors |      0 |
+|    broke-3 |                                    Find only checks left. |  Errors |      0 |
+|    broke-4 | Two child delete copies predecessor instead of moving it. |  Errors |      0 |
+|    broke-5 |                        Map tree does keys and not values. |  Errors |      0 |
+|    broke-6 |                          Delete decrements size too much. |  Errors |      0 |
+|    broke-7 |                                Delete truncates subtrees. |  Errors |      0 |
+|    broke-8 |                         Delete value doesn't always work. |  Errors |      0 |
+|    broke-9 |                    Delete value decrements size too much. |  Errors |      0 |
+|   broke-10 |                   Add sometimes increments size too much. |  Errors |      0 |
+|      total |                                               Total Score |         |     26 |
 
 Details:
 
@@ -68,7 +68,7 @@ Failures:
           got: ([d 2] ([nil nil] nil nil) ([nil nil] nil nil)) (using =)
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:263
 
-Finished in 0.17784 seconds
+Finished in 0.08107 seconds
 19 examples, 8 failures
 
 
@@ -76,17 +76,25 @@ Finished in 0.17784 seconds
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-...............
+E..........
 
-Finished in 0.00595 seconds
-15 examples, 0 failures
+Errors:
+
+  1) java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     	... 23 stack levels elided ...
+     Caused by: java.lang.RuntimeException: Unmatched delimiter: )
+     	... 26 stack levels elided ...
+
+Finished in 0.00489 seconds
+11 examples, 0 failures, 1 errors
 
 
 ** Details for Add doesn't increment size.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-.FF.....FFFFFF.
+E.FF.....FF
 
 Failures:
 
@@ -110,35 +118,23 @@ Failures:
           got: -2 (using =)
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:35
 
-  5) delete-value should decrement size
-     Expected: 2
-          got: -1 (using =)
-     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:45
+Errors:
 
-  6) delete-value should delete value
-     Expected: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 3, :value "bannana", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size -1}
-          got: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 3, :value "bannana", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 0} (using =)
-     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:46
+  1) java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     	... 23 stack levels elided ...
+     Caused by: java.lang.RuntimeException: Unmatched delimiter: )
+     	... 26 stack levels elided ...
 
-  7) delete-value should delete value
-     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size -1}
-          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 0} (using =)
-     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:47
-
-  8) delete-value should delete value
-     Expected: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 4, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size -1}
-          got: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 4, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 0} (using =)
-     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:48
-
-Finished in 0.03715 seconds
-15 examples, 8 failures
+Finished in 0.01346 seconds
+11 examples, 4 failures, 1 errors
 
 
 ** Details for Add swaps left and right.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-...FF.F.FF.F...
+E...FF.F.FF
 
 Failures:
 
@@ -165,20 +161,23 @@ Failures:
           got: 3 (using =)
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:35
 
-  6) delete-value should delete value
-     Expected: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 9, :value "pear", :right #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}}, :size 2}
-          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}, :key 3, :value "bannana", :right nil}, :size 2} (using =)
-     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:46
+Errors:
 
-Finished in 0.03870 seconds
-15 examples, 6 failures
+  1) java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     	... 23 stack levels elided ...
+     Caused by: java.lang.RuntimeException: Unmatched delimiter: )
+     	... 26 stack levels elided ...
+
+Finished in 0.04817 seconds
+11 examples, 5 failures, 1 errors
 
 
 ** Details for Find only checks left.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-....F..........
+E....F.....
 
 Failures:
 
@@ -186,103 +185,131 @@ Failures:
      Expected truthy but was: nil
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:26
 
-Finished in 0.00885 seconds
-15 examples, 1 failures
+Errors:
+
+  1) java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     	... 23 stack levels elided ...
+     Caused by: java.lang.RuntimeException: Unmatched delimiter: )
+     	... 26 stack levels elided ...
+
+Finished in 0.00611 seconds
+11 examples, 1 failures, 1 errors
 
 
 ** Details for Two child delete copies predecessor instead of moving it.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-...........F...
+E..........
 
-Failures:
+Errors:
 
-  1) delete-value should delete value
-     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 3, :value "bannana", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 2}
-          got: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 3, :value "bannana", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 2} (using =)
-     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:46
+  1) java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     	... 23 stack levels elided ...
+     Caused by: java.lang.RuntimeException: Unmatched delimiter: )
+     	... 26 stack levels elided ...
 
-Finished in 0.08629 seconds
-15 examples, 1 failures
+Finished in 0.00554 seconds
+11 examples, 0 failures, 1 errors
 
 
 ** Details for Map tree does keys and not values.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-..............F
+E..........
 
-Failures:
+Errors:
 
-  1) map-tree should map values
-     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 4, :value 2, :right nil}, :key 5, :value 1, :right #bst.core.BNode{:left nil, :key 10, :value 3, :right nil}}, :size 3}
-          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value 3, :right nil}, :key 4, :value 2, :right #bst.core.BNode{:left nil, :key 9, :value 4, :right nil}}, :size 3} (using =)
-     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:54
+  1) java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     	... 23 stack levels elided ...
+     Caused by: java.lang.RuntimeException: Unmatched delimiter: )
+     	... 26 stack levels elided ...
 
-Finished in 0.09231 seconds
-15 examples, 1 failures
+Finished in 0.00527 seconds
+11 examples, 0 failures, 1 errors
 
 
 ** Details for Delete decrements size too much.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-...............
+E..........
 
-Finished in 0.01745 seconds
-15 examples, 0 failures
+Errors:
+
+  1) java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     	... 23 stack levels elided ...
+     Caused by: java.lang.RuntimeException: Unmatched delimiter: )
+     	... 26 stack levels elided ...
+
+Finished in 0.00483 seconds
+11 examples, 0 failures, 1 errors
 
 
 ** Details for Delete truncates subtrees.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-...............
+E..........
 
-Finished in 0.00656 seconds
-15 examples, 0 failures
+Errors:
+
+  1) java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     	... 23 stack levels elided ...
+     Caused by: java.lang.RuntimeException: Unmatched delimiter: )
+     	... 26 stack levels elided ...
+
+Finished in 0.00487 seconds
+11 examples, 0 failures, 1 errors
 
 
 ** Details for Delete value doesn't always work.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-............F..
+E..........
 
-Failures:
+Errors:
 
-  1) delete-value should delete value
-     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 2}
-          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 2} (using =)
-     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:47
+  1) java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     	... 23 stack levels elided ...
+     Caused by: java.lang.RuntimeException: Unmatched delimiter: )
+     	... 26 stack levels elided ...
 
-Finished in 0.09474 seconds
-15 examples, 1 failures
+Finished in 0.00524 seconds
+11 examples, 0 failures, 1 errors
 
 
 ** Details for Delete value decrements size too much.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-............F..
+E..........
 
-Failures:
+Errors:
 
-  1) delete-value should delete value
-     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 2}
-          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 2} (using =)
-     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:47
+  1) java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     	... 23 stack levels elided ...
+     Caused by: java.lang.RuntimeException: Unmatched delimiter: )
+     	... 26 stack levels elided ...
 
-Finished in 0.03691 seconds
-15 examples, 1 failures
+Finished in 0.00487 seconds
+11 examples, 0 failures, 1 errors
 
 
 ** Details for Add sometimes increments size too much.
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-.F......FFF.F..
+E.F......FF
 
 Failures:
 
@@ -301,15 +328,13 @@ Failures:
           got: 2 (using =)
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:35
 
-  4) delete-value should decrement size
-     Expected: 2
-          got: 3 (using =)
-     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:45
+Errors:
 
-  5) delete-value should delete value
-     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 3}
-          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 2} (using =)
-     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:47
+  1) java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     java.lang.RuntimeException: Unmatched delimiter: ), compiling:(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:43:3)
+     	... 23 stack levels elided ...
+     Caused by: java.lang.RuntimeException: Unmatched delimiter: )
+     	... 26 stack levels elided ...
 
-Finished in 0.08360 seconds
-15 examples, 5 failures
+Finished in 0.02393 seconds
+11 examples, 3 failures, 1 errors
