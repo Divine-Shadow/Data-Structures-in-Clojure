@@ -1,8 +1,51 @@
-(ns traversals.core)
+(ns traversals.core
+ (:refer-clojure :exclude [pop peek])
+)
 
 ;; Given Code
 
 (defrecord BNode [left data right])
+
+(defrecord Queue [back front size])
+
+(defn make-queue
+  "Create an empty queue."
+  []
+  (Queue. nil nil 0)
+)
+
+(defn queue-size
+  "Return the size of the queue."
+  [queue]
+  (:size queue)
+)
+
+(defn enqueue
+  "Add an element to the back of a queue."
+  [queue elt]
+  (if (= (:size queue) 0) 
+    (Queue. (:back queue) (cons elt (:front queue) ) 1)
+  (Queue. (cons elt (:back queue)) (:front queue) (+ 1 (:size queue))))
+)
+(defn dequeue
+  "Remove an element from the front of the queue.  Just return the new queue."
+  [queue]
+(if (= 0 (:size queue)) queue
+  (if (= () (rest (:front queue))) 
+    (Queue. nil (reverse (:back queue)) (-> queue :size dec))
+    (Queue.  (:back queue) (rest (:front queue)) (-> queue :size dec)) 
+
+    )
+)
+  )
+
+(defn peek
+  "Return the next element that will come out the front of the queue."
+  [queue]
+ (first (:front queue))
+)
+
+
 
 (defn add [t elt]
    (cond (nil? t)          (BNode. nil elt nil)
