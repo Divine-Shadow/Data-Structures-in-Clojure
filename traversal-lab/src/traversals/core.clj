@@ -39,17 +39,19 @@
 (concat  (inorder (:left t)) (cons (:data t) nil)  (inorder (:right t)))  
 ))
 
+(declare levelorder-aux)
+
 (defn levelorder 
   "Outputs a list containing the level-order traversal of the given tree." 
   [t]
+(when-not (nil? t) (levelorder-aux (enqueue (Queue. nil nil 0) t) '() ))
+)
 
-(if (= nil t) '()
+(defn levelorder-aux [q xx]
+(if (empty? q) xx (levelorder-aux (enqueue (enqueue (dequeue q) (:left q)) (:right q) ) (cons (peek q) xx)))
+)
 
 
-3
-
-
-))
 (defn frontier 
   "Outputs a list containing the frontier of the given tree." 
   [t]
