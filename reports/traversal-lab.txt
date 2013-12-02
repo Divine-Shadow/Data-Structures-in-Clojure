@@ -1,52 +1,34 @@
 Lab report for Traversal Lab - wmolchan
-Timestamp: 2013-12-02 12:07:17
+Timestamp: 2013-12-02 15:28:27
 
-|  :scenario |                                            :title |                              :result | :score |
-|------------+---------------------------------------------------+--------------------------------------+--------|
-|    working |             Test student code vs instructor tests |                               Errors |      0 |
-| qualifying |             Test student tests vs instructor code |                                 Pass |      5 |
-|    broke-1 |                    Preorder swaps left and right. | Pass: Student tests detected errors. |      5 |
-|    broke-2 |                          Preorder drops elements. | Pass: Student tests detected errors. |      5 |
-|    broke-3 |                          Postorder does preorder. | Pass: Student tests detected errors. |      5 |
-|    broke-4 |                   Postorder swaps left and right. | Pass: Student tests detected errors. |      5 |
-|    broke-5 |                                Inorder backwards. | Pass: Student tests detected errors. |      5 |
-|    broke-6 |                            Inorder does preorder. | Pass: Student tests detected errors. |      5 |
-|    broke-7 |                Level order does right side twice. | Pass: Student tests detected errors. |      5 |
-|    broke-8 |                           Level order omits root. | Pass: Student tests detected errors. |      5 |
-|    broke-9 |                Frontier includes one-child nodes. | Pass: Student tests detected errors. |      5 |
-|   broke-10 | Frontier omits leaves instead of everything else. | Pass: Student tests detected errors. |      5 |
-|      total |                                       Total Score |                                      |     55 |
+|  :scenario |                                            :title |                                      :result | :score |
+|------------+---------------------------------------------------+----------------------------------------------+--------|
+|    working |             Test student code vs instructor tests | Fail: Program took too long (infinite loop?) |      0 |
+| qualifying |             Test student tests vs instructor code |                                         Pass |      5 |
+|    broke-1 |                    Preorder swaps left and right. |         Pass: Student tests detected errors. |      5 |
+|    broke-2 |                          Preorder drops elements. |         Pass: Student tests detected errors. |      5 |
+|    broke-3 |                          Postorder does preorder. |         Pass: Student tests detected errors. |      5 |
+|    broke-4 |                   Postorder swaps left and right. |         Pass: Student tests detected errors. |      5 |
+|    broke-5 |                                Inorder backwards. |         Pass: Student tests detected errors. |      5 |
+|    broke-6 |                            Inorder does preorder. |         Pass: Student tests detected errors. |      5 |
+|    broke-7 |                Level order does right side twice. |         Pass: Student tests detected errors. |      5 |
+|    broke-8 |                           Level order omits root. |         Pass: Student tests detected errors. |      5 |
+|    broke-9 |                Frontier includes one-child nodes. |         Pass: Student tests detected errors. |      5 |
+|   broke-10 | Frontier omits leaves instead of everything else. |         Pass: Student tests detected errors. |      5 |
+|      total |                                       Total Score |                                              |     55 |
 
 Details:
 
 
 ** Details for Test student code vs instructor tests
 
-E
-
-Errors:
-
-  1) java.lang.RuntimeException: Unable to resolve symbol: enqueue in this context, compiling:(traversals/core.clj:47:36)
-     java.lang.RuntimeException: Unable to resolve symbol: enqueue in this context, compiling:(traversals/core.clj:47:36)
-     	... 51 stack levels elided ...
-     	at traversals.core_spec$eval874$loading__4910__auto____875.invoke(/home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:1)
-     	at traversals.core_spec$eval874.invoke(/home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:1)
-     	... 25 stack levels elided ...
-     Caused by: java.lang.RuntimeException: Unable to resolve symbol: enqueue in this context
-     	... 55 stack levels elided ...
-     	at traversals.core_spec$eval874$loading__4910__auto____875.invoke(/home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:1)
-     	at traversals.core_spec$eval874.invoke(/home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:1)
-     	... 25 stack levels elided ...
-
-Finished in 0.00000 seconds
-1 examples, 0 failures, 1 errors
 
 
 ** Details for Test student tests vs instructor code
 
 ......
 
-Finished in 0.00148 seconds
+Finished in 0.00144 seconds
 6 examples, 0 failures
 
 
@@ -61,7 +43,7 @@ Failures:
           got: (8 4 3 7 9 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:18
 
-Finished in 0.07796 seconds
+Finished in 0.11655 seconds
 6 examples, 1 failures
 
 
@@ -76,7 +58,7 @@ Failures:
           got: (8 4 3 7 9 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:18
 
-Finished in 0.10101 seconds
+Finished in 0.10178 seconds
 6 examples, 1 failures
 
 
@@ -91,7 +73,7 @@ Failures:
           got: (3 7 4 11 9 8) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:28
 
-Finished in 0.16411 seconds
+Finished in 0.04167 seconds
 6 examples, 1 failures
 
 
@@ -106,7 +88,7 @@ Failures:
           got: (3 7 4 11 9 8) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:28
 
-Finished in 0.09368 seconds
+Finished in 0.06437 seconds
 6 examples, 1 failures
 
 
@@ -121,7 +103,7 @@ Failures:
           got: (3 4 7 8 9 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:23
 
-Finished in 0.09696 seconds
+Finished in 0.09723 seconds
 6 examples, 1 failures
 
 
@@ -136,7 +118,7 @@ Failures:
           got: (3 4 7 8 9 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:23
 
-Finished in 0.09159 seconds
+Finished in 0.09640 seconds
 6 examples, 1 failures
 
 
@@ -151,7 +133,7 @@ Failures:
           got: (8 4 9 3 7 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:37
 
-Finished in 0.10802 seconds
+Finished in 0.10493 seconds
 6 examples, 1 failures
 
 
@@ -166,7 +148,7 @@ Failures:
           got: (8 4 9 3 7 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:37
 
-Finished in 0.08859 seconds
+Finished in 0.04542 seconds
 6 examples, 1 failures
 
 
@@ -181,7 +163,7 @@ Failures:
           got: (3 7 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:32
 
-Finished in 0.08575 seconds
+Finished in 0.09264 seconds
 6 examples, 1 failures
 
 
@@ -196,5 +178,5 @@ Failures:
           got: (3 7 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:32
 
-Finished in 0.04899 seconds
+Finished in 0.09935 seconds
 6 examples, 1 failures
