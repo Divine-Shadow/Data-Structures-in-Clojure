@@ -36,6 +36,9 @@
           (it "should delete value" (should=  (delete (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") 4) (add (add (make-tree)  3 "bannana") 9 "pear")            ))
           (it "should delete value" (should=  (delete-value (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") 9) (add (add (make-tree) 4 "apple")  3 "bannana")))
           (it "should delete value" (should=  (delete-value (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") 3) (add (add (make-tree) 4 "apple")  9 "pear")))
+
+
+          (it "should not delete subtrees" (should=  (delete-value (add (add (add (add (add (make-tree) 5 "apple") 3 "bannana") 9 "pear") 2 "cake" ) 4 "lies")  3) (add (add (add (add (make-tree) 5 "apple")  9 "pear") 2 "cake") 4 "lies"))))
         
 ))
 
