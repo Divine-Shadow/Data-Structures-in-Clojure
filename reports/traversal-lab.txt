@@ -1,5 +1,5 @@
 Lab report for Traversal Lab - wmolchan
-Timestamp: 2013-12-02 15:28:27
+Timestamp: 2013-12-08 16:36:27
 
 |  :scenario |                                            :title |                                      :result | :score |
 |------------+---------------------------------------------------+----------------------------------------------+--------|
@@ -28,7 +28,7 @@ Details:
 
 ......
 
-Finished in 0.00144 seconds
+Finished in 0.00143 seconds
 6 examples, 0 failures
 
 
@@ -43,7 +43,7 @@ Failures:
           got: (8 4 3 7 9 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:18
 
-Finished in 0.11655 seconds
+Finished in 0.10274 seconds
 6 examples, 1 failures
 
 
@@ -58,7 +58,7 @@ Failures:
           got: (8 4 3 7 9 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:18
 
-Finished in 0.10178 seconds
+Finished in 0.10915 seconds
 6 examples, 1 failures
 
 
@@ -73,7 +73,7 @@ Failures:
           got: (3 7 4 11 9 8) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:28
 
-Finished in 0.04167 seconds
+Finished in 0.10814 seconds
 6 examples, 1 failures
 
 
@@ -88,7 +88,7 @@ Failures:
           got: (3 7 4 11 9 8) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:28
 
-Finished in 0.06437 seconds
+Finished in 0.09829 seconds
 6 examples, 1 failures
 
 
@@ -103,7 +103,7 @@ Failures:
           got: (3 4 7 8 9 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:23
 
-Finished in 0.09723 seconds
+Finished in 0.09319 seconds
 6 examples, 1 failures
 
 
@@ -118,7 +118,7 @@ Failures:
           got: (3 4 7 8 9 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:23
 
-Finished in 0.09640 seconds
+Finished in 0.08012 seconds
 6 examples, 1 failures
 
 
@@ -133,7 +133,7 @@ Failures:
           got: (8 4 9 3 7 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:37
 
-Finished in 0.10493 seconds
+Finished in 0.10592 seconds
 6 examples, 1 failures
 
 
@@ -148,7 +148,7 @@ Failures:
           got: (8 4 9 3 7 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:37
 
-Finished in 0.04542 seconds
+Finished in 0.10982 seconds
 6 examples, 1 failures
 
 
@@ -163,7 +163,7 @@ Failures:
           got: (3 7 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:32
 
-Finished in 0.09264 seconds
+Finished in 0.09838 seconds
 6 examples, 1 failures
 
 
@@ -178,5 +178,5 @@ Failures:
           got: (3 7 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:32
 
-Finished in 0.09935 seconds
+Finished in 0.09615 seconds
 6 examples, 1 failures
