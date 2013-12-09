@@ -1,5 +1,5 @@
 Lab report for BST Lab - wmolchan
-Timestamp: 2013-12-02 17:20:16
+Timestamp: 2013-12-09 13:59:02
 
 |  :scenario |                                :title |                   :result | :score |
 |------------+---------------------------------------+---------------------------+--------|
@@ -59,7 +59,7 @@ Failures:
           got: ([d 2] ([nil nil] nil nil) ([nil nil] nil nil)) (using =)
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:263
 
-Finished in 0.06864 seconds
+Finished in 0.09745 seconds
 19 examples, 8 failures
 
 
@@ -67,7 +67,7 @@ Finished in 0.06864 seconds
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-...........FFF.....
+...........FFF.
 
 Failures:
 
@@ -98,5 +98,5 @@ Failures:
      	at bst.core_spec$eval1319$fn__1320$fn__1345.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:45)
      	... 42 stack levels elided ...
 
-Finished in 0.00863 seconds
-19 examples, 3 failures
+Finished in 0.00678 seconds
+15 examples, 3 failures
