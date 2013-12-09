@@ -1,5 +1,5 @@
 Lab report for BST Lab - wmolchan
-Timestamp: 2013-12-09 13:59:02
+Timestamp: 2013-12-09 15:13:20
 
 |  :scenario |                                :title |                   :result | :score |
 |------------+---------------------------------------+---------------------------+--------|
@@ -59,7 +59,7 @@ Failures:
           got: ([d 2] ([nil nil] nil nil) ([nil nil] nil nil)) (using =)
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:263
 
-Finished in 0.09745 seconds
+Finished in 0.07987 seconds
 19 examples, 8 failures
 
 
@@ -67,7 +67,7 @@ Finished in 0.09745 seconds
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-...........FFF.
+..........FF.F.....
 
 Failures:
 
@@ -75,9 +75,9 @@ Failures:
      java.lang.Long cannot be cast to java.lang.String
      java.lang.ClassCastException: java.lang.Long cannot be cast to java.lang.String
      	... 2 stack levels elided ...
-     	at bst.core$delete_value_aux.invoke(core.clj:134)
-     	at bst.core$delete_value.invoke(core.clj:145)
-     	at bst.core_spec$eval1319$fn__1320$fn__1337.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:40)
+     	at bst.core$delete_aux.invoke(core.clj:123)
+     	at bst.core$delete.invoke(core.clj:104)
+     	at bst.core_spec$eval1319$fn__1320$fn__1333.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:38)
      	... 42 stack levels elided ...
 
   2) delete should delete value
@@ -86,7 +86,7 @@ Failures:
      	... 2 stack levels elided ...
      	at bst.core$delete_value_aux.invoke(core.clj:134)
      	at bst.core$delete_value.invoke(core.clj:145)
-     	at bst.core_spec$eval1319$fn__1320$fn__1341.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:42)
+     	at bst.core_spec$eval1319$fn__1320$fn__1337.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:40)
      	... 42 stack levels elided ...
 
   3) delete should not delete subtrees
@@ -98,5 +98,5 @@ Failures:
      	at bst.core_spec$eval1319$fn__1320$fn__1345.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:45)
      	... 42 stack levels elided ...
 
-Finished in 0.00678 seconds
-15 examples, 3 failures
+Finished in 0.00843 seconds
+19 examples, 3 failures
