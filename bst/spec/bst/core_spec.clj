@@ -35,7 +35,7 @@
 
  (it "should decrement size" (should= 1 (size (delete (delete (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") 3) 9) ) ) )
  
-         (it "should delete value1" (should=  (delete (add (add (add (make-tree) 4 5) 3 "bannana") 9 "pear") 5) (add (add (make-tree)  3 "bannana") 9 "pear")            ))
+         (it "should delete value1" (should=  (delete-value (add (add (add (make-tree) 4 5) 3 "bannana") 9 "pear") 5) (add (add (make-tree)  3 "bannana") 9 "pear")            ))
 
           (it "should delete value2" (should=  (delete-value (add (add (add (make-tree) 4 "apple") 3 "bannana") 9 "pear") "pear") (add (add (make-tree) 4 "apple")  3 "bannana")))
 
