@@ -1,34 +1,47 @@
 Lab report for Traversal Lab - wmolchan
-Timestamp: 2013-12-08 16:36:27
+Timestamp: 2013-12-09 19:19:29
 
-|  :scenario |                                            :title |                                      :result | :score |
-|------------+---------------------------------------------------+----------------------------------------------+--------|
-|    working |             Test student code vs instructor tests | Fail: Program took too long (infinite loop?) |      0 |
-| qualifying |             Test student tests vs instructor code |                                         Pass |      5 |
-|    broke-1 |                    Preorder swaps left and right. |         Pass: Student tests detected errors. |      5 |
-|    broke-2 |                          Preorder drops elements. |         Pass: Student tests detected errors. |      5 |
-|    broke-3 |                          Postorder does preorder. |         Pass: Student tests detected errors. |      5 |
-|    broke-4 |                   Postorder swaps left and right. |         Pass: Student tests detected errors. |      5 |
-|    broke-5 |                                Inorder backwards. |         Pass: Student tests detected errors. |      5 |
-|    broke-6 |                            Inorder does preorder. |         Pass: Student tests detected errors. |      5 |
-|    broke-7 |                Level order does right side twice. |         Pass: Student tests detected errors. |      5 |
-|    broke-8 |                           Level order omits root. |         Pass: Student tests detected errors. |      5 |
-|    broke-9 |                Frontier includes one-child nodes. |         Pass: Student tests detected errors. |      5 |
-|   broke-10 | Frontier omits leaves instead of everything else. |         Pass: Student tests detected errors. |      5 |
-|      total |                                       Total Score |                                              |     55 |
+|  :scenario |                                            :title |                              :result | :score |
+|------------+---------------------------------------------------+--------------------------------------+--------|
+|    working |             Test student code vs instructor tests |                               Errors |      0 |
+| qualifying |             Test student tests vs instructor code |                                 Pass |      5 |
+|    broke-1 |                    Preorder swaps left and right. | Pass: Student tests detected errors. |      5 |
+|    broke-2 |                          Preorder drops elements. | Pass: Student tests detected errors. |      5 |
+|    broke-3 |                          Postorder does preorder. | Pass: Student tests detected errors. |      5 |
+|    broke-4 |                   Postorder swaps left and right. | Pass: Student tests detected errors. |      5 |
+|    broke-5 |                                Inorder backwards. | Pass: Student tests detected errors. |      5 |
+|    broke-6 |                            Inorder does preorder. | Pass: Student tests detected errors. |      5 |
+|    broke-7 |                Level order does right side twice. | Pass: Student tests detected errors. |      5 |
+|    broke-8 |                           Level order omits root. | Pass: Student tests detected errors. |      5 |
+|    broke-9 |                Frontier includes one-child nodes. | Pass: Student tests detected errors. |      5 |
+|   broke-10 | Frontier omits leaves instead of everything else. | Pass: Student tests detected errors. |      5 |
+|      total |                                       Total Score |                                      |     55 |
 
 Details:
 
 
 ** Details for Test student code vs instructor tests
 
+WARNING: peek already refers to: #'clojure.core/peek in namespace: traversals.core-spec, being replaced by: #'traversals.core/peek
+E.........
+
+Errors:
+
+  1) java.lang.RuntimeException: Unable to resolve symbol: levelorder in this context, compiling:(/home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:41:28)
+     java.lang.RuntimeException: Unable to resolve symbol: levelorder in this context, compiling:(/home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:41:28)
+     	... 106 stack levels elided ...
+     Caused by: java.lang.RuntimeException: Unable to resolve symbol: levelorder in this context
+     	... 110 stack levels elided ...
+
+Finished in 0.00135 seconds
+10 examples, 0 failures, 1 errors
 
 
 ** Details for Test student tests vs instructor code
 
 ......
 
-Finished in 0.00143 seconds
+Finished in 0.00162 seconds
 6 examples, 0 failures
 
 
@@ -43,7 +56,7 @@ Failures:
           got: (8 4 3 7 9 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:18
 
-Finished in 0.10274 seconds
+Finished in 0.08834 seconds
 6 examples, 1 failures
 
 
@@ -58,7 +71,7 @@ Failures:
           got: (8 4 3 7 9 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:18
 
-Finished in 0.10915 seconds
+Finished in 0.10528 seconds
 6 examples, 1 failures
 
 
@@ -73,7 +86,7 @@ Failures:
           got: (3 7 4 11 9 8) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:28
 
-Finished in 0.10814 seconds
+Finished in 0.04768 seconds
 6 examples, 1 failures
 
 
@@ -88,7 +101,7 @@ Failures:
           got: (3 7 4 11 9 8) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:28
 
-Finished in 0.09829 seconds
+Finished in 0.08417 seconds
 6 examples, 1 failures
 
 
@@ -103,7 +116,7 @@ Failures:
           got: (3 4 7 8 9 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:23
 
-Finished in 0.09319 seconds
+Finished in 0.09538 seconds
 6 examples, 1 failures
 
 
@@ -118,7 +131,7 @@ Failures:
           got: (3 4 7 8 9 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:23
 
-Finished in 0.08012 seconds
+Finished in 0.04823 seconds
 6 examples, 1 failures
 
 
@@ -133,7 +146,7 @@ Failures:
           got: (8 4 9 3 7 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:37
 
-Finished in 0.10592 seconds
+Finished in 0.10290 seconds
 6 examples, 1 failures
 
 
@@ -148,7 +161,7 @@ Failures:
           got: (8 4 9 3 7 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:37
 
-Finished in 0.10982 seconds
+Finished in 0.10532 seconds
 6 examples, 1 failures
 
 
@@ -163,7 +176,7 @@ Failures:
           got: (3 7 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:32
 
-Finished in 0.09838 seconds
+Finished in 0.10253 seconds
 6 examples, 1 failures
 
 
@@ -178,5 +191,5 @@ Failures:
           got: (3 7 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:32
 
-Finished in 0.09615 seconds
+Finished in 0.09319 seconds
 6 examples, 1 failures
