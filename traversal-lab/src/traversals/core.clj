@@ -91,7 +91,7 @@
 )
 
 (defn levelorder-aux [q xx]
-(if (= '() q) xx (levelorder-aux (enqueue (enqueue (dequeue q) (:left q)) (:right q) ) (cons (peek q) xx)))
+(if (= '() q) xx (if (empty? q) xx (levelorder-aux (enqueue (enqueue (dequeue q) (:left q)) (:right q) ) (cons (peek q) xx))))
 )
 
 
