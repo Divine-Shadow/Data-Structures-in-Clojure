@@ -1,12 +1,21 @@
 Lab report for BST Lab - wmolchan
-Timestamp: 2013-12-09 19:45:51
+Timestamp: 2013-12-09 20:37:04
 
-|  :scenario |                                :title |                   :result | :score |
-|------------+---------------------------------------+---------------------------+--------|
-|    working | Test student code vs instructor tests |                      Fail |     26 |
-| qualifying | Test student tests vs instructor code |                      Fail |      4 |
-| qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
-|      total |                           Total Score |                           |     30 |
+|  :scenario |                                                    :title |                                   :result | :score |
+|------------+-----------------------------------------------------------+-------------------------------------------+--------|
+|    working |                     Test student code vs instructor tests |                                      Fail |     26 |
+| qualifying |                     Test student tests vs instructor code |                                      Pass |      5 |
+|    broke-1 |                               Add doesn't increment size. |      Pass: Student tests detected errors. |      5 |
+|    broke-2 |                                 Add swaps left and right. |      Pass: Student tests detected errors. |      5 |
+|    broke-3 |                                    Find only checks left. |      Pass: Student tests detected errors. |      5 |
+|    broke-4 | Two child delete copies predecessor instead of moving it. |      Pass: Student tests detected errors. |      5 |
+|    broke-5 |                        Map tree does keys and not values. |      Pass: Student tests detected errors. |      5 |
+|    broke-6 |                          Delete decrements size too much. | Fail: Student tests did not detect error. |      0 |
+|    broke-7 |                                Delete truncates subtrees. | Fail: Student tests did not detect error. |      0 |
+|    broke-8 |                         Delete value doesn't always work. |      Pass: Student tests detected errors. |      5 |
+|    broke-9 |                    Delete value decrements size too much. |      Pass: Student tests detected errors. |      5 |
+|   broke-10 |                   Add sometimes increments size too much. |      Pass: Student tests detected errors. |      5 |
+|      total |                                               Total Score |                                           |     71 |
 
 Details:
 
@@ -59,7 +68,7 @@ Failures:
           got: ([d 2] ([nil nil] nil nil) ([nil nil] nil nil)) (using =)
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:263
 
-Finished in 0.08421 seconds
+Finished in 0.07676 seconds
 19 examples, 8 failures
 
 
@@ -67,14 +76,295 @@ Finished in 0.08421 seconds
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
-..........F........
+...................
+
+Finished in 0.00604 seconds
+19 examples, 0 failures
+
+
+** Details for Add doesn't increment size.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+.FF.....FFFFFFFFFF.
+
+Failures:
+
+  1) add should not increment size
+     Expected: 2
+          got: 0 (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:20
+
+  2) add should not increment size
+     Expected: 1
+          got: 0 (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:21
+
+  3) delete should decrement size
+     Expected: 2
+          got: -1 (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:34
+
+  4) delete should decrement size
+     Expected: 1
+          got: -2 (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:36
+
+  5) delete should delete value1
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 3, :value "bannana", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size -1}
+          got: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 3, :value "bannana", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 0} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:38
+
+  6) delete should delete value2
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size -1}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 0} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:40
+
+  7) delete should delete value3
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 4, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size -1}
+          got: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 4, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 0} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:42
+
+  8) delete should not delete subtrees
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 2, :value "cake", :right #bst.core.BNode{:left nil, :key 4, :value "lies", :right nil}}, :key 5, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size -1}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 2, :value "cake", :right #bst.core.BNode{:left nil, :key 4, :value "lies", :right nil}}, :key 5, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 0} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:45
+
+  9) delete-value should decrement size
+     Expected: 2
+          got: -1 (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:54
+
+  10) delete-value should delete value4
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 3, :value "bannana", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size -1}
+          got: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 3, :value "bannana", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 0} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:55
+
+  11) delete-value should delete value5
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size -1}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 0} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:56
+
+  12) delete-value should delete value6
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 4, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size -1}
+          got: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 4, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 0} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:57
+
+Finished in 0.05953 seconds
+19 examples, 12 failures
+
+
+** Details for Add swaps left and right.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+...FF.F.FFF..F.F...
+
+Failures:
+
+  1) add should not swap left and right
+     Expected: nil
+          got: #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:22
+
+  2) find-key should check both sides for find
+     Expected truthy but was: nil
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:26
+
+  3) find-key should check both sides for find
+     Expected truthy but was: nil
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:28
+
+  4) delete should decrement size
+     Expected: 2
+          got: 3 (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:34
+
+  5) delete should decrement size
+     Expected: 1
+          got: 3 (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:36
+
+  6) delete should delete value1
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 9, :value "pear", :right #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}}, :size 2}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}, :key 3, :value "bannana", :right nil}, :size 2} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:38
+
+  7) delete should not delete subtrees
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}, :key 5, :value "apple", :right #bst.core.BNode{:left nil, :key 4, :value "lies", :right #bst.core.BNode{:left nil, :key 2, :value "cake", :right nil}}}, :size 4}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}, :key 5, :value "apple", :right #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 4, :value "lies", :right nil}, :key 2, :value "cake", :right nil}}, :size 4} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:45
+
+  8) delete-value should delete value4
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 9, :value "pear", :right #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}}, :size 2}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}, :key 3, :value "bannana", :right nil}, :size 2} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:55
+
+Finished in 0.08025 seconds
+19 examples, 8 failures
+
+
+** Details for Find only checks left.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+....F..............
+
+Failures:
+
+  1) find-key should check both sides for find
+     Expected truthy but was: nil
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:26
+
+Finished in 0.00800 seconds
+19 examples, 1 failures
+
+
+** Details for Two child delete copies predecessor instead of moving it.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+..........F..F.F...
 
 Failures:
 
   1) delete should delete value1
-     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value 5, :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 3}
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 3, :value "bannana", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 2}
           got: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 3, :value "bannana", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 2} (using =)
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:38
 
-Finished in 0.03317 seconds
+  2) delete should not delete subtrees
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 2, :value "cake", :right nil}, :key 2, :value "cake", :right #bst.core.BNode{:left nil, :key 4, :value "lies", :right nil}}, :key 5, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 4}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 2, :value "cake", :right #bst.core.BNode{:left nil, :key 4, :value "lies", :right nil}}, :key 5, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 4} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:45
+
+  3) delete-value should delete value4
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 3, :value "bannana", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 2}
+          got: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 3, :value "bannana", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 2} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:55
+
+Finished in 0.08777 seconds
+19 examples, 3 failures
+
+
+** Details for Map tree does keys and not values.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+..................F
+
+Failures:
+
+  1) map-tree should map values
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 4, :value 2, :right nil}, :key 5, :value 1, :right #bst.core.BNode{:left nil, :key 10, :value 3, :right nil}}, :size 3}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value 3, :right nil}, :key 4, :value 2, :right #bst.core.BNode{:left nil, :key 9, :value 4, :right nil}}, :size 3} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:63
+
+Finished in 0.08150 seconds
 19 examples, 1 failures
+
+
+** Details for Delete decrements size too much.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+...................
+
+Finished in 0.00719 seconds
+19 examples, 0 failures
+
+
+** Details for Delete truncates subtrees.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+...................
+
+Finished in 0.00612 seconds
+19 examples, 0 failures
+
+
+** Details for Delete value doesn't always work.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+...........F....F..
+
+Failures:
+
+  1) delete should delete value2
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 2}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 2} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:40
+
+  2) delete-value should delete value5
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 2}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 2} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:56
+
+Finished in 0.09222 seconds
+19 examples, 2 failures
+
+
+** Details for Delete value decrements size too much.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+...........F....F..
+
+Failures:
+
+  1) delete should delete value2
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 2}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 2} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:40
+
+  2) delete-value should delete value5
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 2}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 2} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:56
+
+Finished in 0.08836 seconds
+19 examples, 2 failures
+
+
+** Details for Add sometimes increments size too much.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+.F......FF.F..F.F..
+
+Failures:
+
+  1) add should not increment size
+     Expected: 2
+          got: 3 (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:20
+
+  2) delete should decrement size
+     Expected: 2
+          got: 3 (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:34
+
+  3) delete should decrement size
+     Expected: 1
+          got: 2 (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:36
+
+  4) delete should delete value2
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 3}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 2} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:40
+
+  5) delete-value should decrement size
+     Expected: 2
+          got: 3 (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:54
+
+  6) delete-value should delete value5
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 3}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value "apple", :right nil}, :size 2} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:56
+
+Finished in 0.08707 seconds
+19 examples, 6 failures
