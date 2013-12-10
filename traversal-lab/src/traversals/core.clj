@@ -84,7 +84,7 @@
 
 ;(declare levelorder-aux)
 
-(defn levelorder [a] 3
+(defn levelorder [a] '()
  ; "Outputs a list containing the level-order traversal of the given tree." 
  ; [t]
 ;(if (= nil t) nil (levelorder-aux (enqueue (Queue. nil nil 0) t) '() ))
