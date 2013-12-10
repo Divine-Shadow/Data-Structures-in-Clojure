@@ -1,9 +1,9 @@
 Lab report for Traversal Lab - wmolchan
-Timestamp: 2013-12-09 19:48:24
+Timestamp: 2013-12-09 20:39:14
 
 |  :scenario |                                            :title |                              :result | :score |
 |------------+---------------------------------------------------+--------------------------------------+--------|
-|    working |             Test student code vs instructor tests |                                 Fail |     36 |
+|    working |             Test student code vs instructor tests |                                 Fail |     39 |
 | qualifying |             Test student tests vs instructor code |                                 Pass |      5 |
 |    broke-1 |                    Preorder swaps left and right. | Pass: Student tests detected errors. |      5 |
 |    broke-2 |                          Preorder drops elements. | Pass: Student tests detected errors. |      5 |
@@ -15,7 +15,7 @@ Timestamp: 2013-12-09 19:48:24
 |    broke-8 |                           Level order omits root. | Pass: Student tests detected errors. |      5 |
 |    broke-9 |                Frontier includes one-child nodes. | Pass: Student tests detected errors. |      5 |
 |   broke-10 | Frontier omits leaves instead of everything else. | Pass: Student tests detected errors. |      5 |
-|      total |                                       Total Score |                                      |     91 |
+|      total |                                       Total Score |                                      |     94 |
 
 Details:
 
@@ -23,34 +23,29 @@ Details:
 ** Details for Test student code vs instructor tests
 
 WARNING: peek already refers to: #'clojure.core/peek in namespace: traversals.core-spec, being replaced by: #'traversals.core/peek
-.........FFF...
+..........FF...
 
 Failures:
 
-  1) Levelorder traversals returns empty for empty trees.
-     Expected: ()
-          got: 3 (using =)
-     /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:41
-
-  2) Levelorder traversals works for balanced trees.
+  1) Levelorder traversals works for balanced trees.
      Expected: (4 2 6 1 3 5 7)
-          got: 3 (using =)
+          got: () (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:43
 
-  3) Levelorder traversals works for spindly trees.
+  2) Levelorder traversals works for spindly trees.
      Expected: (7 4 10 3 6 9 11 1 5 8 12 2 13)
-          got: 3 (using =)
+          got: () (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:45
 
-Finished in 0.03325 seconds
-15 examples, 3 failures
+Finished in 0.09311 seconds
+15 examples, 2 failures
 
 
 ** Details for Test student tests vs instructor code
 
 ......
 
-Finished in 0.00229 seconds
+Finished in 0.00168 seconds
 6 examples, 0 failures
 
 
@@ -65,7 +60,7 @@ Failures:
           got: (8 4 3 7 9 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:18
 
-Finished in 0.10928 seconds
+Finished in 0.10356 seconds
 6 examples, 1 failures
 
 
@@ -80,7 +75,7 @@ Failures:
           got: (8 4 3 7 9 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:18
 
-Finished in 0.06274 seconds
+Finished in 0.09566 seconds
 6 examples, 1 failures
 
 
@@ -95,7 +90,7 @@ Failures:
           got: (3 7 4 11 9 8) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:28
 
-Finished in 0.05324 seconds
+Finished in 0.09377 seconds
 6 examples, 1 failures
 
 
@@ -110,7 +105,7 @@ Failures:
           got: (3 7 4 11 9 8) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:28
 
-Finished in 0.08193 seconds
+Finished in 0.08419 seconds
 6 examples, 1 failures
 
 
@@ -125,7 +120,7 @@ Failures:
           got: (3 4 7 8 9 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:23
 
-Finished in 0.05195 seconds
+Finished in 0.09099 seconds
 6 examples, 1 failures
 
 
@@ -140,7 +135,7 @@ Failures:
           got: (3 4 7 8 9 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:23
 
-Finished in 0.09987 seconds
+Finished in 0.09126 seconds
 6 examples, 1 failures
 
 
@@ -155,7 +150,7 @@ Failures:
           got: (8 4 9 3 7 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:37
 
-Finished in 0.09087 seconds
+Finished in 0.09234 seconds
 6 examples, 1 failures
 
 
@@ -170,7 +165,7 @@ Failures:
           got: (8 4 9 3 7 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:37
 
-Finished in 0.06537 seconds
+Finished in 0.09568 seconds
 6 examples, 1 failures
 
 
@@ -185,7 +180,7 @@ Failures:
           got: (3 7 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:32
 
-Finished in 0.03950 seconds
+Finished in 0.08751 seconds
 6 examples, 1 failures
 
 
@@ -200,5 +195,5 @@ Failures:
           got: (3 7 11) (using =)
      /home/grader/quarry/traversal-lab/wmolchan/running/spec/traversals/core_spec.clj:32
 
-Finished in 0.08803 seconds
+Finished in 0.08848 seconds
 6 examples, 1 failures
