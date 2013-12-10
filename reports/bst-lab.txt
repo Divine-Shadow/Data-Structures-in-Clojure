@@ -1,5 +1,5 @@
 Lab report for BST Lab - wmolchan
-Timestamp: 2013-12-09 18:59:06
+Timestamp: 2013-12-09 19:45:51
 
 |  :scenario |                                :title |                   :result | :score |
 |------------+---------------------------------------+---------------------------+--------|
@@ -59,7 +59,7 @@ Failures:
           got: ([d 2] ([nil nil] nil nil) ([nil nil] nil nil)) (using =)
      /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:263
 
-Finished in 0.08502 seconds
+Finished in 0.08421 seconds
 19 examples, 8 failures
 
 
@@ -72,13 +72,9 @@ WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec
 Failures:
 
   1) delete should delete value1
-     java.lang.Long cannot be cast to java.lang.String
-     java.lang.ClassCastException: java.lang.Long cannot be cast to java.lang.String
-     	... 2 stack levels elided ...
-     	at bst.core$delete_aux.invoke(core.clj:123)
-     	at bst.core$delete.invoke(core.clj:104)
-     	at bst.core_spec$eval1319$fn__1320$fn__1333.invoke(/home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:38)
-     	... 42 stack levels elided ...
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key 3, :value "bannana", :right nil}, :key 4, :value 5, :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 3}
+          got: #bst.core.BST{:root #bst.core.BNode{:left nil, :key 3, :value "bannana", :right #bst.core.BNode{:left nil, :key 9, :value "pear", :right nil}}, :size 2} (using =)
+     /home/grader/quarry/bst-lab/wmolchan/running/spec/bst/core_spec.clj:38
 
-Finished in 0.00811 seconds
+Finished in 0.03317 seconds
 19 examples, 1 failures
