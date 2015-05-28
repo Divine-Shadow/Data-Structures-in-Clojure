@@ -8,6 +8,10 @@ immutable data is threadsafe (i.e. since it can not be edited all threads can ha
 http://tutorials.jenkov.com/java-concurrency/thread-safety-and-immutability.html
 The Recur command identifies tail recursion, but I only learned about it recently.
 
+Tests are in the spec folder
+Source code is in the src folder
+The structures are in the corresponding folders core.clj file
+
 Key:
 
 bst:            Binary Search Tree.
