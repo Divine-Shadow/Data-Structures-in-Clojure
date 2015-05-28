@@ -9,10 +9,17 @@ http://tutorials.jenkov.com/java-concurrency/thread-safety-and-immutability.html
 The Recur command identifies tail recursion, but I only learned about it recently.
 
 Key:
-bst            Binary Search Tree
+
+bst            Binary Search Tree.
+
 dlist-atom     Doubly Linked List (mutable through the use of the 'atom' object)
+
 fifolifo       Queues and Stacks (First In First Out, Last In First Out)
+
 first-one      Practice file to get the hang of Leiningen
+
 linked-list    Singly Linked List
-reports        the results of varius test cases.
+
+reports        the results of varius test cases
+
 traversal-lab  binary tree traversals
